@@ -142,7 +142,7 @@ body {
 .authors {
     font-size: 1.5rem;
     color: #e0e0e0;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
     font-weight: 400;
     transition: color 0.3s ease;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
@@ -163,7 +163,7 @@ body {
 .institutions {
     font-size: 1.5rem;
     color: #e0e0e0;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
     font-weight: 400;
     transition: color 0.3s ease;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
@@ -173,9 +173,22 @@ body {
     color: #f0f0f0;
 }
 
+.contribution {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    margin-bottom: 2rem;
+    font-weight: 300;
+    transition: color 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.contribution:hover {
+    color: #f0f0f0;
+}
+
 /* Smaller sup elements in authors and institutions */
-.authors sup, .institutions sup {
-    font-size: 1rem;
+.authors sup, .institutions sup, .contribution sup {
+    font-size: 0.8rem;
     font-weight: 300;
 }
 
