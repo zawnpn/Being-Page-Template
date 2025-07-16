@@ -1,8 +1,4 @@
-// Scroll progress indicator
-window.addEventListener('scroll', () => {
-    const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-    document.getElementById('scrollIndicator').style.width = scrolled + '%';
-});
+
 
 // Video interactions
 document.querySelectorAll('.video-item video').forEach(video => {
@@ -232,10 +228,7 @@ function selectOperation(operationKey) {
     currentStep = targetStep + 1;
     
     // Check if we've reached the maximum steps
-    if (targetStep >= demoData.maxSteps) {
-        // Show completion message and execute button
-        showSequenceComplete();
-    } else {
+    if (targetStep < demoData.maxSteps) {
         // Add next step
         renderNextStep();
     }
@@ -314,7 +307,6 @@ function removeStepsAfter(stepNumber) {
     if (!stepsContainer) return;
     
     const allSteps = stepsContainer.querySelectorAll('.operation-step');
-    const completionMessage = stepsContainer.querySelector('.sequence-complete');
     
     // Remove steps after the target step
     for (let i = stepNumber; i < allSteps.length; i++) {
@@ -322,33 +314,9 @@ function removeStepsAfter(stepNumber) {
             allSteps[i].remove();
         }
     }
-    
-    // Remove completion message if it exists
-    if (completionMessage) {
-        completionMessage.remove();
-    }
 }
 
-// Show sequence completion
-function showSequenceComplete() {
-    const stepsContainer = document.getElementById('operationSteps');
-    if (!stepsContainer) return;
-    
-    // Add completion message
-    const completionDiv = document.createElement('div');
-    completionDiv.className = 'sequence-complete';
-    completionDiv.innerHTML = `
-        <div class="completion-message">
-            <div class="completion-icon">✅</div>
-            <div class="completion-text">
-                <strong>Sequence Complete!</strong><br>
-                You've selected ${demoData.maxSteps} operations. Click "Execute Sequence" to see the full demonstration.
-            </div>
-        </div>
-    `;
-    
-    stepsContainer.appendChild(completionDiv);
-}
+
 
 // Render next step
 function renderNextStep() {

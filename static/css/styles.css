@@ -54,8 +54,8 @@ body {
 /* Header Section with full-width background */
 .header {
     text-align: center;
-    padding: 4rem 0 2rem;
-    margin-bottom: 4rem;
+    padding: 4rem 0 0;
+    margin-bottom: 0;
     position: relative;
     background-image: url('../../assets/image/background.png');
     background-size: cover;
@@ -69,17 +69,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.header::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
 }
 
 /* Logo - floats on background */
@@ -294,6 +283,11 @@ body {
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 0.8s ease forwards;
+}
+
+.section:first-of-type {
+    margin-top: 0;
+    padding-top: 4rem;
 }
 
 .section:nth-child(1) { animation-delay: 0.1s; }
@@ -638,17 +632,7 @@ body {
     }
 }
 
-/* Scroll indicator */
-.scroll-indicator {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 3px;
-    background: linear-gradient(90deg, var(--secondary-color), var(--light-text));
-    z-index: 999;
-    transition: width 0.1s ease;
-}
+
 
 /* Selection styling removed to use system default */
 
@@ -709,7 +693,6 @@ body {
     overflow-x: auto;
     white-space: pre;
     margin: 0;
-    user-select: all;
 }
 
 .bibtex-code:hover {
@@ -1000,37 +983,7 @@ body {
     font-size: 0.8rem;
 }
 
-/* Sequence Completion */
-.sequence-complete {
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background: rgba(76, 175, 80, 0.1);
-    border: 1px solid rgba(76, 175, 80, 0.3);
-    border-radius: 8px;
-    text-align: center;
-}
 
-.completion-message {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    color: #e0e0e0;
-}
-
-.completion-icon {
-    font-size: 2rem;
-    opacity: 0.8;
-}
-
-.completion-text {
-    text-align: left;
-}
-
-.completion-text strong {
-    color: #81C784;
-    font-size: 1.1rem;
-}
 
 /* Control Buttons */
 .demo-controls {
