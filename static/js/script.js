@@ -128,6 +128,8 @@ function selectScenario(scenarioKey, element) {
     if (operationSection) {
         operationSection.style.display = 'block';
         renderOperationSteps();
+        // Highlight operations (none selected initially)
+        setTimeout(() => highlightSelectedOperations(), 50);
     }
     
     // Hide sequence display initially
@@ -164,7 +166,7 @@ function renderOperationSteps() {
             <div class="operation-buttons">
                 ${Object.keys(scenario.operations).map(opKey => {
                     const op = scenario.operations[opKey];
-                    return `<button class="operation-btn" onclick="selectOperation('${opKey}')">${op.name}</button>`;
+                    return `<button class="operation-btn" onclick="selectOperation('${opKey}')" title="Click to select this operation">${op.name}</button>`;
                 }).join('')}
                 <button class="operation-btn more-btn">...</button>
             </div>
@@ -174,8 +176,40 @@ function renderOperationSteps() {
 
 // Select an operation
 function selectOperation(operationKey) {
-    // Check if we've reached the maximum steps
-    if (currentStep > demoData.maxSteps) {
+    // Find which step this button belongs to by looking at the clicked element's parent
+    const clickedButton = event.target;
+    const stepElement = clickedButton.closest('.operation-step');
+    const allSteps = document.querySelectorAll('.operation-step');
+    let targetStep = 1;
+    
+    // Find which step was clicked
+    for (let i = 0; i < allSteps.length; i++) {
+        if (allSteps[i] === stepElement) {
+            targetStep = i + 1;
+            break;
+        }
+    }
+    
+    // If clicking on an earlier step, truncate the sequence
+    if (targetStep < currentStep) {
+        // Remove all operations after this step
+        selectedOperations = selectedOperations.filter(op => op.step < targetStep);
+        
+        // Reset current step
+        currentStep = targetStep;
+        
+        // Remove later step elements and completion message
+        removeStepsAfter(targetStep);
+        
+        // Hide execute button if no operations selected
+        const executeBtn = document.getElementById('executeBtn');
+        if (executeBtn && selectedOperations.length === 0) {
+            executeBtn.style.display = 'none';
+        }
+    }
+    
+    // Check if we've reached the maximum steps (but allow the current step)
+    if (targetStep > demoData.maxSteps) {
         return; // Don't allow more operations
     }
     
@@ -185,7 +219,7 @@ function selectOperation(operationKey) {
     selectedOperations.push({
         key: operationKey,
         name: operation.name,
-        step: currentStep
+        step: targetStep
     });
 
     // Show operation video
@@ -194,13 +228,15 @@ function selectOperation(operationKey) {
     // Update sequence display
     updateSequenceDisplay();
     
+    // Update current step to next step
+    currentStep = targetStep + 1;
+    
     // Check if we've reached the maximum steps
-    if (currentStep >= demoData.maxSteps) {
+    if (targetStep >= demoData.maxSteps) {
         // Show completion message and execute button
         showSequenceComplete();
     } else {
         // Add next step
-        currentStep++;
         renderNextStep();
     }
     
@@ -214,12 +250,15 @@ function showOperationVideo(operation) {
     const display = document.getElementById('demoDisplay');
     if (!display) return;
     
+    // Find the step number for this operation
+    const stepNumber = selectedOperations[selectedOperations.length - 1]?.step || currentStep;
+    
     display.innerHTML = `
         <video class="demo-video active" controls autoplay muted>
             <source src="${operation.video}" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <div class="demo-info">Step ${currentStep}: ${operation.name}</div>
+        <div class="demo-info">Step ${stepNumber}: ${operation.name}</div>
     `;
 }
 
@@ -233,6 +272,61 @@ function updateSequenceDisplay() {
     sequenceSteps.innerHTML = selectedOperations.map(op => 
         `<span class="sequence-step">${op.step}. ${op.name}</span>`
     ).join('');
+    
+    // Highlight selected operations in the UI
+    highlightSelectedOperations();
+}
+
+// Highlight selected operations in the UI
+function highlightSelectedOperations() {
+    const allSteps = document.querySelectorAll('.operation-step');
+    
+    allSteps.forEach((stepElement, stepIndex) => {
+        const stepNumber = stepIndex + 1;
+        const selectedOp = selectedOperations.find(op => op.step === stepNumber);
+        const buttons = stepElement.querySelectorAll('.operation-btn:not(.more-btn)');
+        
+        buttons.forEach(button => {
+            button.classList.remove('selected');
+            
+            if (selectedOp) {
+                const scenario = demoData.scenarios[currentScenario];
+                const opKey = Object.keys(scenario.operations).find(key => 
+                    scenario.operations[key].name === selectedOp.name
+                );
+                
+                if (button.textContent.trim() === selectedOp.name) {
+                    button.classList.add('selected');
+                    button.title = `Selected: ${selectedOp.name}. Click to change this step and remove later steps.`;
+                } else {
+                    button.title = `Click to select "${button.textContent.trim()}" for step ${stepNumber} (will remove later steps)`;
+                }
+            } else {
+                button.title = 'Click to select this operation';
+            }
+        });
+    });
+}
+
+// Remove steps after a certain step number
+function removeStepsAfter(stepNumber) {
+    const stepsContainer = document.getElementById('operationSteps');
+    if (!stepsContainer) return;
+    
+    const allSteps = stepsContainer.querySelectorAll('.operation-step');
+    const completionMessage = stepsContainer.querySelector('.sequence-complete');
+    
+    // Remove steps after the target step
+    for (let i = stepNumber; i < allSteps.length; i++) {
+        if (allSteps[i]) {
+            allSteps[i].remove();
+        }
+    }
+    
+    // Remove completion message if it exists
+    if (completionMessage) {
+        completionMessage.remove();
+    }
 }
 
 // Show sequence completion
@@ -271,7 +365,7 @@ function renderNextStep() {
         <div class="operation-buttons">
             ${Object.keys(scenario.operations).map(opKey => {
                 const op = scenario.operations[opKey];
-                return `<button class="operation-btn" onclick="selectOperation('${opKey}')">${op.name}</button>`;
+                return `<button class="operation-btn" onclick="selectOperation('${opKey}')" title="Click to select this operation">${op.name}</button>`;
             }).join('')}
             <button class="operation-btn more-btn">...</button>
         </div>

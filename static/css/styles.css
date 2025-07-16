@@ -844,6 +844,20 @@ body {
     color: #e0e0e0;
     font-weight: 500;
     min-width: 80px;
+    position: relative;
+}
+
+.step-label::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 20px;
+    background: #2196F3;
+    border-radius: 2px;
+    opacity: 0.7;
 }
 
 .operation-buttons {
@@ -874,6 +888,30 @@ body {
     background: #2196F3;
     border-color: #2196F3;
     color: white;
+}
+
+.operation-btn.selected {
+    background: #4CAF50;
+    border-color: #4CAF50;
+    color: white;
+    position: relative;
+}
+
+.operation-btn.selected::after {
+    content: '✓';
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #2E7D32;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: bold;
 }
 
 .operation-btn.disabled {

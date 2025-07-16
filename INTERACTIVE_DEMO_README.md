@@ -51,7 +51,16 @@ assets/
 3. **User builds a sequence** by selecting operations step by step
 4. **Each operation shows its video** immediately when selected
 5. **Sequence tracker** shows the current list of selected operations
-6. **Execute button** plays a demonstration of the complete sequence
+6. **Step revision**: Users can click on earlier steps to modify them (removes later steps)
+7. **Execute button** plays a demonstration of the complete sequence
+
+### ✨ New Step Revision Feature
+
+- **Click on any earlier step** to modify your sequence
+- **Green checkmarks** show which operations you've selected
+- **Helpful tooltips** explain what clicking each button will do
+- **Smart truncation** removes all steps after the one you're modifying
+- **Visual feedback** with green highlights for selected operations
 
 ## 🔧 How to Customize
 
