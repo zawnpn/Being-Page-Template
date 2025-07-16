@@ -1,3 +1,63 @@
+// Theme Toggle Functionality
+function toggleTheme() {
+    const html = document.documentElement;
+    const themeToggle = document.querySelector('.theme-toggle');
+    const themeIcon = themeToggle.querySelector('.theme-icon');
+    
+    const currentTheme = html.getAttribute('data-theme');
+    
+    if (currentTheme === 'dark') {
+        // Switch to light theme
+        html.removeAttribute('data-theme');
+        themeIcon.textContent = '🌙';
+        localStorage.setItem('theme', 'light');
+    } else {
+        // Switch to dark theme
+        html.setAttribute('data-theme', 'dark');
+        themeIcon.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
+    }
+}
+
+// Initialize theme on page load
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    const html = document.documentElement;
+    const themeToggle = document.querySelector('.theme-toggle');
+    const themeIcon = themeToggle.querySelector('.theme-icon');
+    
+    // Default to light theme if no preference is saved
+    if (savedTheme === 'dark') {
+        html.setAttribute('data-theme', 'dark');
+        themeIcon.textContent = '☀️';
+    } else {
+        html.removeAttribute('data-theme');
+        themeIcon.textContent = '🌙';
+    }
+}
+
+// Handle theme toggle visibility based on scroll position
+function handleThemeToggleVisibility() {
+    const themeToggle = document.querySelector('.theme-toggle');
+    const header = document.querySelector('.header');
+    
+    if (!themeToggle || !header) return;
+    
+    const headerHeight = header.offsetHeight;
+    const scrollY = window.scrollY;
+    
+    // Show button when scrolled past 50% of header height
+    if (scrollY > headerHeight * 0.5) {
+        themeToggle.classList.add('visible');
+    } else {
+        themeToggle.classList.remove('visible');
+    }
+}
+
+// Add scroll listener for theme toggle visibility
+window.addEventListener('scroll', handleThemeToggleVisibility);
+window.addEventListener('resize', handleThemeToggleVisibility);
+
 
 
 // Video interactions
@@ -40,8 +100,7 @@ const demoData = {
                 pick_up_bowl: { name: "Pick up bowl", video: "assets/video/demo1.mp4" },
                 cut_carrots: { name: "Cut carrots", video: "assets/video/demo1.mp4" },
                 dry_hands: { name: "Dry hands", video: "assets/video/demo1.mp4" },
-                wash_bowl: { name: "Wash bowl", video: "assets/video/demo1.mp4" },
-                shut_off_water: { name: "Shut off water", video: "assets/video/demo1.mp4" }
+                wash_bowl: { name: "Wash bowl", video: "assets/video/demo1.mp4" }
             }
         },
         bathroom: {
@@ -427,6 +486,12 @@ function copyBibTeX(contentId) {
 
 // Initialize demo when page loads
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize theme first
+    initTheme();
+    
+    // Initialize theme toggle visibility
+    setTimeout(handleThemeToggleVisibility, 100);
+    
     // Add a small delay to ensure all elements are loaded
     setTimeout(initDemo, 100);
 });
