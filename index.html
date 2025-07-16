@@ -12,14 +12,10 @@
     <link rel="stylesheet" href="static/css/styles.css">
 </head>
 <body>
-    <!-- Theme Toggle Button -->
-    <div class="theme-toggle" onclick="toggleTheme()">
-        <span class="theme-icon">🌙</span>
-    </div>
+    <!-- Theme toggle removed - light theme only -->
 
-    <div class="container">
-        <!-- Header Section -->
-        <header class="header" id="header">
+    <!-- Header Section -->
+    <header class="header" id="header">
             <div class="logo">
                 <img src="assets/image/being-h0.png" alt="Project Logo">
             </div>
@@ -64,8 +60,9 @@
                 </a>
             </div>
             
-        </header>
+    </header>
 
+    <div class="container">
         <!-- Abstract Section -->
         <section class="section" id="abstract">
             <h2 class="section-title">Abstract</h2>
@@ -85,44 +82,65 @@
                 <div class="demo-content">
                     <!-- Header -->
                     <div class="demo-header">
-                        <p class="demo-subtitle">Please select an observation and language actions you would like to use for interaction. <br>💡 <em id="stepLimitText">You can select up to steps to build your sequence.</em></p>
-                    </div>
-
-                    <!-- Scenario Selection -->
-                    <div class="scenario-section">
-                        <div class="scenario-label">Select Scenario:</div>
-                        <div class="scenario-grid" id="scenarioGrid">
-                            <!-- Scenarios will be populated by JavaScript -->
+                        <p class="demo-subtitle">Select a scenario, then choose actions step by step to see immediate results</p>
+                        <div class="demo-progress" id="demoProgress">
+                            <div class="progress-indicator">
+                                <div class="step-counter" id="stepCounter">Step 1: Choose Scenario</div>
+                                <div class="sequence-path" id="sequencePath">
+                                    <!-- Dynamic sequence path will be shown here -->
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Operation Selection -->
-                    <div class="operation-section" id="operationSection" style="display: none;">
-                        <div class="operation-steps" id="operationSteps">
-                            <!-- Steps will be populated by JavaScript -->
-                        </div>
-                    </div>
+                    <!-- Main Demo Content -->
+                    <div class="demo-main-content">
+                        <!-- Left Panel: Navigation and Controls -->
+                        <div class="demo-controls-panel">
+                            <!-- Scenario Selection -->
+                            <div class="demo-section" id="scenarioSection">
+                                <div class="section-title">Choose Scenario</div>
+                                <div class="scenario-slider-container">
+                                    <div class="scenario-slider" id="scenarioSlider">
+                                        <div class="scenario-track" id="scenarioTrack">
+                                            <!-- Scenarios will be populated by JavaScript -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                    <!-- Demo Display -->
-                    <div class="demo-display" id="demoDisplay">
-                        <div class="demo-placeholder">
-                            <div class="icon">🎬</div>
-                            <p>Select a scenario to begin the demonstration</p>
-                        </div>
-                    </div>
+                            <!-- Action Selection -->
+                            <div class="demo-section" id="actionSection" style="display: none;">
+                                <div class="section-title" id="actionTitle">Select Action for Step 1</div>
+                                <div class="actions-grid" id="actionsGrid">
+                                    <!-- Actions will be populated by JavaScript -->
+                                </div>
+                            </div>
 
-                    <!-- Sequence Display -->
-                    <div class="sequence-display" id="sequenceDisplay" style="display: none;">
-                        <div class="sequence-title">Current Sequence:</div>
-                        <div class="sequence-steps" id="sequenceSteps">
-                            <!-- Sequence steps will be populated by JavaScript -->
+                            <!-- Demo Controls -->
+                            <div class="demo-controls" id="demoControls">
+                                <button class="demo-btn secondary" onclick="resetDemo()">Reset Demo</button>
+                                <button class="demo-btn" onclick="undoLastStep()" id="undoBtn" style="display: none;">Undo Last Step</button>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Controls -->
-                    <div class="demo-controls">
-                        <button class="control-btn" onclick="resetDemo()">Reset</button>
-                        <button class="control-btn primary" onclick="executeSequence()" id="executeBtn" style="display: none;">Execute Sequence</button>
+                        <!-- Right Panel: Video Display -->
+                        <div class="demo-video-panel">
+                            <div class="video-display" id="videoDisplay">
+                                <div class="demo-placeholder">
+                                    <div class="icon">🎬</div>
+                                    <p>Select a scenario to begin</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Current Path Display -->
+                            <div class="current-path" id="currentPath" style="display: none;">
+                                <div class="path-label">Current Path:</div>
+                                <div class="path-steps" id="pathSteps">
+                                    <!-- Path will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -130,7 +148,7 @@
 
         <!-- One Column Layout Example -->
         <section class="section" id="single-column">
-            <h2 class="section-title">System Overview (One Column Layout)</h2>
+            <h2 class="section-title">System Overview</h2>
             <div class="grid-one-column">
                 <div class="grid-item">
                     <div class="item-image">
@@ -144,7 +162,7 @@
 
         <!-- Two Column Layout Example -->
         <section class="section" id="two-column">
-            <h2 class="section-title">Key Components (Two Column Layout)</h2>
+            <h2 class="section-title">Key Components</h2>
             <div class="grid-two-column">
                 <div class="grid-item">
                     <div class="item-image">
@@ -166,7 +184,7 @@
 
         <!-- Three Column Layout Example -->
         <section class="section" id="three-column">
-            <h2 class="section-title">Technical Details (Three Column Layout)</h2>
+            <h2 class="section-title">Technical Details</h2>
             <div class="grid-three-column">
                 <div class="grid-item">
                     <div class="item-image">
@@ -269,21 +287,6 @@
   author={Zhang, Wanpeng and Feng, Yicheng and Luo, Hao and Li, Yijiang and Yue, Zihao and Zheng, Sipeng and Lu, Zongqing},
   booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
   year={2025}
-}</pre>
-            </div>
-
-            <!-- Second BibTeX Entry -->
-            <div class="bibtex-container">
-                <div class="bibtex-header">
-                    <h3>Being-VL-0</h3>
-                    <button class="copy-btn" onclick="copyBibTeX('bibtex-content-2')">Copy</button>
-                </div>
-                <pre class="bibtex-code" id="bibtex-content-2">@inproceedings{zhang2025beingvl0,
-  title={From Pixels to Tokens: Byte-Pair Encoding on Quantized Visual Modalities},
-  author={Zhang, Wanpeng and Xie, Zilong and Feng, Yicheng and Li, Yijiang and Xing, Xingrun and Zheng, Sipeng and Lu, Zongqing},
-  booktitle={The Thirteenth International Conference on Learning Representations},
-  year={2025},
-  url={https://openreview.net/forum?id=3TnLGGHhNx}
 }</pre>
             </div>
         </section>

@@ -1,63 +1,4 @@
-// Theme Toggle Functionality
-function toggleTheme() {
-    const html = document.documentElement;
-    const themeToggle = document.querySelector('.theme-toggle');
-    const themeIcon = themeToggle.querySelector('.theme-icon');
-    
-    const currentTheme = html.getAttribute('data-theme');
-    
-    if (currentTheme === 'dark') {
-        // Switch to light theme
-        html.removeAttribute('data-theme');
-        themeIcon.textContent = '🌙';
-        localStorage.setItem('theme', 'light');
-    } else {
-        // Switch to dark theme
-        html.setAttribute('data-theme', 'dark');
-        themeIcon.textContent = '☀️';
-        localStorage.setItem('theme', 'dark');
-    }
-}
-
-// Initialize theme on page load
-function initTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    const html = document.documentElement;
-    const themeToggle = document.querySelector('.theme-toggle');
-    const themeIcon = themeToggle.querySelector('.theme-icon');
-    
-    // Default to light theme if no preference is saved
-    if (savedTheme === 'dark') {
-        html.setAttribute('data-theme', 'dark');
-        themeIcon.textContent = '☀️';
-    } else {
-        html.removeAttribute('data-theme');
-        themeIcon.textContent = '🌙';
-    }
-}
-
-// Handle theme toggle visibility based on scroll position
-function handleThemeToggleVisibility() {
-    const themeToggle = document.querySelector('.theme-toggle');
-    const header = document.querySelector('.header');
-    
-    if (!themeToggle || !header) return;
-    
-    const headerHeight = header.offsetHeight;
-    const scrollY = window.scrollY;
-    
-    // Show button when scrolled past 50% of header height
-    if (scrollY > headerHeight * 0.5) {
-        themeToggle.classList.add('visible');
-    } else {
-        themeToggle.classList.remove('visible');
-    }
-}
-
-// Add scroll listener for theme toggle visibility
-window.addEventListener('scroll', handleThemeToggleVisibility);
-window.addEventListener('resize', handleThemeToggleVisibility);
-
+// Theme system removed - light theme only
 
 
 // Video interactions
@@ -85,366 +26,474 @@ document.querySelectorAll('.section').forEach(section => {
     observer.observe(section);
 });
 
-// Interactive Demo Data and Functions
+// Enhanced Interactive Demo with Tree-like Step Progression
 const demoData = {
-    // Configuration
-    maxSteps: 3, // Maximum number of steps allowed per sequence
-    
+    maxSteps: 3,
     scenarios: {
         kitchen: {
             name: "Kitchen",
-            thumbnail: "assets/image/scenarios/scene_1.png", // Placeholder - replace with real thumbnails
-            initialImage: "assets/image/scenarios/scene_1.png", // Placeholder - replace with real images
+            description: "Cooking and food preparation tasks",
+            thumbnail: "assets/image/scenarios/scene_1.png",
+            initialVideo: "assets/video/demo1.mp4",
             operations: {
-                wash_hands: { name: "Wash hands", video: "assets/video/demo1.mp4" },
-                pick_up_bowl: { name: "Pick up bowl", video: "assets/video/demo1.mp4" },
-                cut_carrots: { name: "Cut carrots", video: "assets/video/demo1.mp4" },
-                dry_hands: { name: "Dry hands", video: "assets/video/demo1.mp4" },
-                wash_bowl: { name: "Wash bowl", video: "assets/video/demo1.mp4" }
+                wash_hands: { 
+                    name: "Wash hands", 
+                    description: "Clean hands before cooking", 
+                    video: "assets/video/demo1.mp4" 
+                },
+                pick_up_bowl: { 
+                    name: "Pick up bowl", 
+                    description: "Grab mixing bowl", 
+                    video: "assets/video/demo1.mp4" 
+                },
+                cut_carrots: { 
+                    name: "Cut carrots", 
+                    description: "Slice carrots for cooking", 
+                    video: "assets/video/demo1.mp4" 
+                },
+                dry_hands: { 
+                    name: "Dry hands", 
+                    description: "Use towel to dry hands", 
+                    video: "assets/video/demo1.mp4" 
+                },
+                wash_bowl: { 
+                    name: "Wash bowl", 
+                    description: "Clean the bowl after use", 
+                    video: "assets/video/demo1.mp4" 
+                }
             }
         },
         bathroom: {
             name: "Bathroom",
-            thumbnail: "assets/image/scenarios/scene_1.png", // Placeholder
-            initialImage: "assets/image/scenarios/scene_1.png", // Placeholder
+            description: "Personal hygiene and cleaning tasks",
+            thumbnail: "assets/image/scenarios/scene_1.png",
+            initialVideo: "assets/video/demo1.mp4",
             operations: {
-                brush_teeth: { name: "Brush teeth", video: "assets/video/demo1.mp4" },
-                wash_face: { name: "Wash face", video: "assets/video/demo1.mp4" },
-                use_towel: { name: "Use towel", video: "assets/video/demo1.mp4" },
-                apply_soap: { name: "Apply soap", video: "assets/video/demo1.mp4" }
+                brush_teeth: { 
+                    name: "Brush teeth", 
+                    description: "Morning dental hygiene", 
+                    video: "assets/video/demo1.mp4" 
+                },
+                wash_face: { 
+                    name: "Wash face", 
+                    description: "Cleanse facial area", 
+                    video: "assets/video/demo1.mp4" 
+                },
+                use_towel: { 
+                    name: "Use towel", 
+                    description: "Dry face with towel", 
+                    video: "assets/video/demo1.mp4" 
+                },
+                apply_soap: { 
+                    name: "Apply soap", 
+                    description: "Use soap for washing", 
+                    video: "assets/video/demo1.mp4" 
+                }
             }
         },
         office: {
             name: "Office",
-            thumbnail: "assets/image/scenarios/scene_1.png", // Placeholder
-            initialImage: "assets/image/scenarios/scene_1.png", // Placeholder
+            description: "Work and productivity tasks",
+            thumbnail: "assets/image/scenarios/scene_1.png",
+            initialVideo: "assets/video/demo1.mp4",
             operations: {
-                type_keyboard: { name: "Type on keyboard", video: "assets/video/demo1.mp4" },
-                move_mouse: { name: "Move mouse", video: "assets/video/demo1.mp4" },
-                pick_up_pen: { name: "Pick up pen", video: "assets/video/demo1.mp4" },
-                open_drawer: { name: "Open drawer", video: "assets/video/demo1.mp4" }
+                type_keyboard: { 
+                    name: "Type on keyboard", 
+                    description: "Input text on computer", 
+                    video: "assets/video/demo1.mp4" 
+                },
+                move_mouse: { 
+                    name: "Move mouse", 
+                    description: "Navigate computer interface", 
+                    video: "assets/video/demo1.mp4" 
+                },
+                pick_up_pen: { 
+                    name: "Pick up pen", 
+                    description: "Grab writing instrument", 
+                    video: "assets/video/demo1.mp4" 
+                },
+                open_drawer: { 
+                    name: "Open drawer", 
+                    description: "Access storage compartment", 
+                    video: "assets/video/demo1.mp4" 
+                }
+            }
+        },
+        living_room: {
+            name: "Living Room",
+            description: "Relaxation and entertainment activities",
+            thumbnail: "assets/image/scenarios/scene_1.png",
+            initialVideo: "assets/video/demo1.mp4",
+            operations: {
+                pick_up_remote: { 
+                    name: "Pick up remote", 
+                    description: "Grab TV remote control", 
+                    video: "assets/video/demo1.mp4" 
+                },
+                adjust_cushions: { 
+                    name: "Adjust cushions", 
+                    description: "Arrange sofa cushions", 
+                    video: "assets/video/demo1.mp4" 
+                },
+                open_book: { 
+                    name: "Open book", 
+                    description: "Start reading activity", 
+                    video: "assets/video/demo1.mp4" 
+                },
+                turn_on_lamp: { 
+                    name: "Turn on lamp", 
+                    description: "Provide room lighting", 
+                    video: "assets/video/demo1.mp4" 
+                }
+            }
+        },
+        garden: {
+            name: "Garden",
+            description: "Outdoor gardening and maintenance",
+            thumbnail: "assets/image/scenarios/scene_1.png",
+            initialVideo: "assets/video/demo1.mp4",
+            operations: {
+                water_plants: { 
+                    name: "Water plants", 
+                    description: "Irrigate garden plants", 
+                    video: "assets/video/demo1.mp4" 
+                },
+                pick_flowers: { 
+                    name: "Pick flowers", 
+                    description: "Harvest blooming flowers", 
+                    video: "assets/video/demo1.mp4" 
+                },
+                use_pruners: { 
+                    name: "Use pruners", 
+                    description: "Trim plant branches", 
+                    video: "assets/video/demo1.mp4" 
+                },
+                collect_seeds: { 
+                    name: "Collect seeds", 
+                    description: "Gather seeds for planting", 
+                    video: "assets/video/demo1.mp4" 
+                }
             }
         }
     }
 };
 
-let currentScenario = null;
-let selectedOperations = [];
-let currentStep = 1;
+// Demo state management
+let selectedScenario = null;
+let currentStep = 0; // 0 = scenario selection, 1-3 = action steps
+let actionSequence = []; // Array to store the sequence of selected actions
 
 // Initialize the demo
 function initDemo() {
-    // Set step limit text dynamically
-    const stepLimitElement = document.getElementById('stepLimitText');
-    if (stepLimitElement) {
-        stepLimitElement.textContent = `You can select up to ${demoData.maxSteps} steps to build your sequence.`;
-    }
-    
+    console.log('Initializing tree-like interactive demo');
     renderScenarios();
+    updateStepCounter();
+    console.log('Demo initialized with', Object.keys(demoData.scenarios).length, 'scenarios');
 }
 
-// Render scenario selection
+// Render scenarios in slider
 function renderScenarios() {
-    const grid = document.getElementById('scenarioGrid');
-    if (!grid) return; // Exit if element doesn't exist
+    const scenarioTrack = document.getElementById('scenarioTrack');
+    if (!scenarioTrack) return;
     
-    grid.innerHTML = '';
-
+    scenarioTrack.innerHTML = '';
+    
     Object.keys(demoData.scenarios).forEach(scenarioKey => {
         const scenario = demoData.scenarios[scenarioKey];
-        const item = document.createElement('div');
-        item.className = 'scenario-item';
-        item.onclick = () => selectScenario(scenarioKey, item);
+        const card = document.createElement('div');
+        card.className = 'scenario-card';
+        card.onclick = () => selectScenario(scenarioKey);
         
-        item.innerHTML = `
-            <img src="${scenario.thumbnail}" alt="${scenario.name}" onerror="this.src='assets/image/framework.png'">
+        card.innerHTML = `
+            <div class="scenario-image">
+                <img src="${scenario.thumbnail}" alt="${scenario.name}" onerror="this.src='assets/image/framework.png'">
+            </div>
             <div class="scenario-name">${scenario.name}</div>
         `;
         
-        grid.appendChild(item);
+        scenarioTrack.appendChild(card);
     });
 }
 
-// Select a scenario
-function selectScenario(scenarioKey, element) {
-    currentScenario = scenarioKey;
-    selectedOperations = [];
-    currentStep = 1;
+// No slider controls needed - full horizontal scroll
 
+// Select a scenario and show its initial video
+function selectScenario(scenarioKey) {
+    selectedScenario = scenarioKey;
+    currentStep = 1;
+    actionSequence = []; // Reset action sequence
+    
+    // Update visual selection
+    document.querySelectorAll('.scenario-card').forEach(card => {
+        card.classList.remove('selected');
+    });
+    
+    event.target.closest('.scenario-card').classList.add('selected');
+    
+    // Show initial scenario video
+    const scenario = demoData.scenarios[scenarioKey];
+    showVideo(scenario.initialVideo, `${scenario.name} - Initial State`);
+    
+    // Show action selection for step 1
+    showActionSelection();
+    
     // Update UI
-    document.querySelectorAll('.scenario-item').forEach(item => item.classList.remove('active'));
-    element.classList.add('active');
-
-    // Show initial image
-    showInitialImage();
+    updateStepCounter();
+    updateSequencePath();
     
-    // Show operation section
-    const operationSection = document.getElementById('operationSection');
-    if (operationSection) {
-        operationSection.style.display = 'block';
-        renderOperationSteps();
-        // Highlight operations (none selected initially)
-        setTimeout(() => highlightSelectedOperations(), 50);
-    }
-    
-    // Hide sequence display initially
-    const sequenceDisplay = document.getElementById('sequenceDisplay');
-    const executeBtn = document.getElementById('executeBtn');
-    if (sequenceDisplay) sequenceDisplay.style.display = 'none';
-    if (executeBtn) executeBtn.style.display = 'none';
+    console.log('Selected scenario:', scenarioKey);
 }
 
-// Show initial scenario image
-function showInitialImage() {
-    const scenario = demoData.scenarios[currentScenario];
-    const display = document.getElementById('demoDisplay');
-    if (!display) return;
+// Show action selection for current step
+function showActionSelection() {
+    const actionSection = document.getElementById('actionSection');
+    const actionTitle = document.getElementById('actionTitle');
+    const actionsGrid = document.getElementById('actionsGrid');
     
-    display.innerHTML = `
-        <img src="${scenario.initialImage}" alt="${scenario.name} initial state" 
-             style="width: 100%; max-height: 400px; object-fit: contain; border-radius: 8px;"
-             onerror="this.src='assets/image/framework.png'">
-        <div class="demo-info">${scenario.name} - Initial State</div>
-    `;
-}
-
-// Render operation steps
-function renderOperationSteps() {
-    const stepsContainer = document.getElementById('operationSteps');
-    if (!stepsContainer) return;
+    if (!actionSection || !actionTitle || !actionsGrid || !selectedScenario) return;
     
-    const scenario = demoData.scenarios[currentScenario];
+    // Show action section
+    actionSection.style.display = 'block';
     
-    stepsContainer.innerHTML = `
-        <div class="operation-step">
-            <div class="step-label">Step ${currentStep} of ${demoData.maxSteps}:</div>
-            <div class="operation-buttons">
-                ${Object.keys(scenario.operations).map(opKey => {
-                    const op = scenario.operations[opKey];
-                    return `<button class="operation-btn" onclick="selectOperation('${opKey}')" title="Click to select this operation">${op.name}</button>`;
-                }).join('')}
-                <button class="operation-btn more-btn">...</button>
+    // Update title
+    if (currentStep > demoData.maxSteps) {
+        actionTitle.textContent = 'Sequence Complete!';
+        actionsGrid.innerHTML = `
+            <div style="text-align: center; padding: 2rem; color: var(--demo-light-text);">
+                <h3>All steps completed!</h3>
+                <p>You've completed a ${demoData.maxSteps}-step interaction sequence.</p>
             </div>
-        </div>
-    `;
-}
-
-// Select an operation
-function selectOperation(operationKey) {
-    // Find which step this button belongs to by looking at the clicked element's parent
-    const clickedButton = event.target;
-    const stepElement = clickedButton.closest('.operation-step');
-    const allSteps = document.querySelectorAll('.operation-step');
-    let targetStep = 1;
-    
-    // Find which step was clicked
-    for (let i = 0; i < allSteps.length; i++) {
-        if (allSteps[i] === stepElement) {
-            targetStep = i + 1;
-            break;
-        }
+        `;
+        return;
     }
     
-    // If clicking on an earlier step, truncate the sequence
-    if (targetStep < currentStep) {
-        // Remove all operations after this step
-        selectedOperations = selectedOperations.filter(op => op.step < targetStep);
-        
-        // Reset current step
-        currentStep = targetStep;
-        
-        // Remove later step elements and completion message
-        removeStepsAfter(targetStep);
-        
-        // Hide execute button if no operations selected
-        const executeBtn = document.getElementById('executeBtn');
-        if (executeBtn && selectedOperations.length === 0) {
-            executeBtn.style.display = 'none';
-        }
-    }
+    actionTitle.textContent = `Select Action for Step ${currentStep}`;
     
-    // Check if we've reached the maximum steps (but allow the current step)
-    if (targetStep > demoData.maxSteps) {
-        return; // Don't allow more operations
-    }
+    // Render available actions
+    const scenario = demoData.scenarios[selectedScenario];
+    actionsGrid.innerHTML = '';
     
-    const scenario = demoData.scenarios[currentScenario];
-    const operation = scenario.operations[operationKey];
-    
-    selectedOperations.push({
-        key: operationKey,
-        name: operation.name,
-        step: targetStep
+    Object.keys(scenario.operations).forEach(actionKey => {
+        const action = scenario.operations[actionKey];
+        const card = document.createElement('div');
+        card.className = 'action-card';
+        card.onclick = () => selectAction(actionKey, action);
+        
+        card.innerHTML = `
+            <div class="action-name">${action.name}</div>
+        `;
+        
+        actionsGrid.appendChild(card);
     });
-
-    // Show operation video
-    showOperationVideo(operation);
     
-    // Update sequence display
-    updateSequenceDisplay();
-    
-    // Update current step to next step
-    currentStep = targetStep + 1;
-    
-    // Check if we've reached the maximum steps
-    if (targetStep < demoData.maxSteps) {
-        // Add next step
-        renderNextStep();
-    }
-    
-    // Show execute button
-    const executeBtn = document.getElementById('executeBtn');
-    if (executeBtn) executeBtn.style.display = 'inline-block';
+    console.log('Showing actions for step', currentStep);
 }
 
-// Show operation video
-function showOperationVideo(operation) {
-    const display = document.getElementById('demoDisplay');
-    if (!display) return;
+// Select an action and immediately show its video
+function selectAction(actionKey, action) {
+    console.log('Selected action:', action.name, 'for step', currentStep);
     
-    // Find the step number for this operation
-    const stepNumber = selectedOperations[selectedOperations.length - 1]?.step || currentStep;
+    // Add action to sequence
+    actionSequence.push({
+        step: currentStep,
+        key: actionKey,
+        name: action.name,
+        description: action.description
+    });
     
-    display.innerHTML = `
-        <video class="demo-video active" controls autoplay muted>
-            <source src="${operation.video}" type="video/mp4">
+    // Immediately show the action's video
+    showVideo(action.video, `Step ${currentStep}: ${action.name}`);
+    
+    // Move to next step
+    currentStep++;
+    
+    // Update UI
+    updateStepCounter();
+    updateSequencePath();
+    showUndoButton();
+    
+    // Show next action selection or completion
+    setTimeout(() => {
+        showActionSelection();
+    }, 800); // Small delay to let user see the action result
+}
+
+// Show video in the display area
+function showVideo(videoSrc, title) {
+    const videoDisplay = document.getElementById('videoDisplay');
+    if (!videoDisplay) return;
+    
+    videoDisplay.classList.add('playing');
+    videoDisplay.innerHTML = `
+        <video controls autoplay muted>
+            <source src="${videoSrc}" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <div class="demo-info">Step ${stepNumber}: ${operation.name}</div>
+        <div style="position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.8); color: white; padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.9rem;">
+            ${title}
+        </div>
     `;
-}
-
-// Update sequence display
-function updateSequenceDisplay() {
-    const sequenceDisplay = document.getElementById('sequenceDisplay');
-    const sequenceSteps = document.getElementById('sequenceSteps');
-    if (!sequenceDisplay || !sequenceSteps) return;
     
-    sequenceDisplay.style.display = 'block';
-    sequenceSteps.innerHTML = selectedOperations.map(op => 
-        `<span class="sequence-step">${op.step}. ${op.name}</span>`
-    ).join('');
-    
-    // Highlight selected operations in the UI
-    highlightSelectedOperations();
-}
-
-// Highlight selected operations in the UI
-function highlightSelectedOperations() {
-    const allSteps = document.querySelectorAll('.operation-step');
-    
-    allSteps.forEach((stepElement, stepIndex) => {
-        const stepNumber = stepIndex + 1;
-        const selectedOp = selectedOperations.find(op => op.step === stepNumber);
-        const buttons = stepElement.querySelectorAll('.operation-btn:not(.more-btn)');
-        
-        buttons.forEach(button => {
-            button.classList.remove('selected');
-            
-            if (selectedOp) {
-                const scenario = demoData.scenarios[currentScenario];
-                const opKey = Object.keys(scenario.operations).find(key => 
-                    scenario.operations[key].name === selectedOp.name
-                );
-                
-                if (button.textContent.trim() === selectedOp.name) {
-                    button.classList.add('selected');
-                    button.title = `Selected: ${selectedOp.name}. Click to change this step and remove later steps.`;
-                } else {
-                    button.title = `Click to select "${button.textContent.trim()}" for step ${stepNumber} (will remove later steps)`;
-                }
-            } else {
-                button.title = 'Click to select this operation';
-            }
+    // Reset playing state when video ends
+    const video = videoDisplay.querySelector('video');
+    if (video) {
+        video.addEventListener('ended', () => {
+            videoDisplay.classList.remove('playing');
         });
-    });
-}
-
-// Remove steps after a certain step number
-function removeStepsAfter(stepNumber) {
-    const stepsContainer = document.getElementById('operationSteps');
-    if (!stepsContainer) return;
-    
-    const allSteps = stepsContainer.querySelectorAll('.operation-step');
-    
-    // Remove steps after the target step
-    for (let i = stepNumber; i < allSteps.length; i++) {
-        if (allSteps[i]) {
-            allSteps[i].remove();
-        }
     }
 }
 
-
-
-// Render next step
-function renderNextStep() {
-    const stepsContainer = document.getElementById('operationSteps');
-    if (!stepsContainer) return;
+// Update step counter
+function updateStepCounter() {
+    const stepCounter = document.getElementById('stepCounter');
+    if (!stepCounter) return;
     
-    const scenario = demoData.scenarios[currentScenario];
-    
-    // Add new step
-    const newStep = document.createElement('div');
-    newStep.className = 'operation-step';
-    newStep.innerHTML = `
-        <div class="step-label">Step ${currentStep} of ${demoData.maxSteps}:</div>
-        <div class="operation-buttons">
-            ${Object.keys(scenario.operations).map(opKey => {
-                const op = scenario.operations[opKey];
-                return `<button class="operation-btn" onclick="selectOperation('${opKey}')" title="Click to select this operation">${op.name}</button>`;
-            }).join('')}
-            <button class="operation-btn more-btn">...</button>
-        </div>
-    `;
-    
-    stepsContainer.appendChild(newStep);
+    if (!selectedScenario) {
+        stepCounter.textContent = 'Step 1: Choose Scenario';
+    } else if (currentStep <= demoData.maxSteps) {
+        stepCounter.textContent = `Step ${currentStep + 1}: Select Action ${currentStep}`;
+    } else {
+        stepCounter.textContent = 'Sequence Complete!';
+    }
 }
 
-// Execute full sequence
-function executeSequence() {
-    if (selectedOperations.length === 0) return;
+// Update sequence path display
+function updateSequencePath() {
+    const sequencePath = document.getElementById('sequencePath');
+    const currentPath = document.getElementById('currentPath');
+    const pathSteps = document.getElementById('pathSteps');
     
-    const display = document.getElementById('demoDisplay');
-    if (!display) return;
+    if (!sequencePath) return;
     
-    display.innerHTML = `
-        <video class="demo-video active" controls autoplay muted>
-            <source src="assets/video/demo1.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="demo-info">Executing Full Sequence (${selectedOperations.length} steps)</div>
-    `;
+    sequencePath.innerHTML = '';
+    
+    if (selectedScenario && actionSequence.length > 0) {
+        const scenario = demoData.scenarios[selectedScenario];
+        
+        // Add scenario to path
+        const scenarioItem = document.createElement('div');
+        scenarioItem.className = 'path-item';
+        scenarioItem.textContent = scenario.name;
+        sequencePath.appendChild(scenarioItem);
+        
+        // Add actions to path
+        actionSequence.forEach((action, index) => {
+            // Add arrow
+            const arrow = document.createElement('span');
+            arrow.className = 'path-arrow';
+            arrow.textContent = '→';
+            sequencePath.appendChild(arrow);
+            
+            // Add action
+            const actionItem = document.createElement('div');
+            actionItem.className = 'path-item';
+            actionItem.textContent = `${action.step}. ${action.name}`;
+            sequencePath.appendChild(actionItem);
+        });
+        
+        // Show current path section
+        if (currentPath) {
+            currentPath.style.display = 'block';
+            if (pathSteps) {
+                pathSteps.innerHTML = actionSequence.map((action, index) => `
+                    <div class="path-step">
+                        <div class="step-num">${action.step}</div>
+                        ${action.name}
+                    </div>
+                    ${index < actionSequence.length - 1 ? '<span class="path-arrow">→</span>' : ''}
+                `).join('');
+            }
+        }
+    } else if (currentPath) {
+        currentPath.style.display = 'none';
+    }
 }
 
-// Reset demo
+// Show undo button when there are actions to undo
+function showUndoButton() {
+    const undoBtn = document.getElementById('undoBtn');
+    if (undoBtn && actionSequence.length > 0) {
+        undoBtn.style.display = 'inline-block';
+    }
+}
+
+// Undo last step
+function undoLastStep() {
+    if (actionSequence.length === 0) return;
+    
+    // Remove last action from sequence
+    actionSequence.pop();
+    currentStep--;
+    
+    // Show previous state
+    if (actionSequence.length === 0) {
+        // Back to initial scenario video
+        const scenario = demoData.scenarios[selectedScenario];
+        showVideo(scenario.initialVideo, `${scenario.name} - Initial State`);
+    } else {
+        // Show video of previous action
+        const lastAction = actionSequence[actionSequence.length - 1];
+        const scenario = demoData.scenarios[selectedScenario];
+        const action = scenario.operations[lastAction.key];
+        showVideo(action.video, `Step ${lastAction.step}: ${lastAction.name}`);
+    }
+    
+    // Update UI
+    updateStepCounter();
+    updateSequencePath();
+    showActionSelection();
+    
+    // Hide undo button if no more actions
+    if (actionSequence.length === 0) {
+        const undoBtn = document.getElementById('undoBtn');
+        if (undoBtn) undoBtn.style.display = 'none';
+    }
+    
+    console.log('Undid last step. Current sequence:', actionSequence);
+}
+
+// Reset demo to initial state
 function resetDemo() {
-    currentScenario = null;
-    selectedOperations = [];
-    currentStep = 1;
+    selectedScenario = null;
+    currentStep = 0;
+    actionSequence = [];
     
     // Reset UI
-    document.querySelectorAll('.scenario-item').forEach(item => item.classList.remove('active'));
+    document.querySelectorAll('.scenario-card').forEach(card => {
+        card.classList.remove('selected');
+    });
     
-    const operationSection = document.getElementById('operationSection');
-    const sequenceDisplay = document.getElementById('sequenceDisplay');
-    const executeBtn = document.getElementById('executeBtn');
+    const actionSection = document.getElementById('actionSection');
+    if (actionSection) actionSection.style.display = 'none';
     
-    if (operationSection) operationSection.style.display = 'none';
-    if (sequenceDisplay) sequenceDisplay.style.display = 'none';
-    if (executeBtn) executeBtn.style.display = 'none';
+    const undoBtn = document.getElementById('undoBtn');
+    if (undoBtn) undoBtn.style.display = 'none';
     
-    // Reset display
-    const display = document.getElementById('demoDisplay');
-    if (display) {
-        display.innerHTML = `
+    const currentPath = document.getElementById('currentPath');
+    if (currentPath) currentPath.style.display = 'none';
+    
+    const videoDisplay = document.getElementById('videoDisplay');
+    if (videoDisplay) {
+        videoDisplay.classList.remove('playing');
+        videoDisplay.innerHTML = `
             <div class="demo-placeholder">
                 <div class="icon">🎬</div>
-                <p>Select a scenario to begin the demonstration</p>
+                <p>Select a scenario to begin</p>
             </div>
         `;
     }
+    
+    updateStepCounter();
+    updateSequencePath();
+    
+    console.log('Demo reset');
 }
+
+// Event listeners
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize demo
+    setTimeout(initDemo, 100);
+});
 
 // BibTeX copy functionality
 function copyBibTeX(contentId) {
@@ -483,15 +532,3 @@ function copyBibTeX(contentId) {
         }, 2000);
     });
 }
-
-// Initialize demo when page loads
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize theme first
-    initTheme();
-    
-    // Initialize theme toggle visibility
-    setTimeout(handleThemeToggleVisibility, 100);
-    
-    // Add a small delay to ensure all elements are loaded
-    setTimeout(initDemo, 100);
-});
