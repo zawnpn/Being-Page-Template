@@ -69,8 +69,60 @@
             <h2 class="section-title">Abstract</h2>
             <div class="abstract">
                 <p class="abstract-text">
-                    This groundbreaking research presents Being-O, a novel humanoid robotic agent that seamlessly integrates vision-language models with modular skills to achieve unprecedented performance in complex robotic tasks. Our methodology combines cutting-edge deep learning techniques with innovative computational frameworks, enabling robots to understand and interact with the world through natural language instructions and visual understanding. The implications of this work extend far beyond traditional robotics applications, opening new possibilities for human-robot collaboration and intelligent autonomous systems. We demonstrate significant improvements in both task completion rates and user interaction quality, with our approach showing 23% better performance than state-of-the-art methods across diverse evaluation metrics.
+                    Multimodal large language models (MLLMs) have made significant progress in vision-language understanding, yet effectively aligning different modalities remains a fundamental challenge. We present a framework that unifies multimodal understanding by applying byte-pair encoding to visual tokens. Unlike conventional approaches that rely on modality-specific encoders, our method directly incorporates structural information into visual tokens, mirroring successful tokenization strategies in text-only language models. We introduce a priority-guided encoding scheme that considers both frequency and spatial consistency, coupled with a multi-stage training procedure based on curriculum-driven data composition. These enhancements enable the transformer model to better capture cross-modal relationships and reason with visual information. Comprehensive experiments demonstrate improved performance across diverse vision-language tasks. By bridging the gap between visual and textual representations, our approach contributes to the advancement of more capable and efficient multimodal foundation models.
                 </p>
+            </div>
+        </section>
+
+
+        <!-- Interactive Demo Section -->
+        <section class="section" id="interactive-demo">
+            <h2 class="section-title">Interactive Demonstration</h2>
+            
+            <div class="interactive-demo">
+                <div class="demo-content">
+                    <!-- Header -->
+                    <div class="demo-header">
+                        <p class="demo-subtitle">Please select an observation and language actions you would like to use for interaction. <br><em id="stepLimitText">You can select up to steps to build your sequence.</em></p>
+                    </div>
+
+                    <!-- Scenario Selection -->
+                    <div class="scenario-section">
+                        <div class="scenario-label">Select Scenario:</div>
+                        <div class="scenario-grid" id="scenarioGrid">
+                            <!-- Scenarios will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Operation Selection -->
+                    <div class="operation-section" id="operationSection" style="display: none;">
+                        <div class="operation-steps" id="operationSteps">
+                            <!-- Steps will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Demo Display -->
+                    <div class="demo-display" id="demoDisplay">
+                        <div class="demo-placeholder">
+                            <div class="icon">🎬</div>
+                            <p>Select a scenario to begin the demonstration</p>
+                        </div>
+                    </div>
+
+                    <!-- Sequence Display -->
+                    <div class="sequence-display" id="sequenceDisplay" style="display: none;">
+                        <div class="sequence-title">Current Sequence:</div>
+                        <div class="sequence-steps" id="sequenceSteps">
+                            <!-- Sequence steps will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <div class="demo-controls">
+                        <button class="control-btn" onclick="resetDemo()">Reset</button>
+                        <button class="control-btn primary" onclick="executeSequence()" id="executeBtn" style="display: none;">Execute Sequence</button>
+                    </div>
+                </div>
             </div>
         </section>
 
