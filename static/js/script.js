@@ -27,8 +27,36 @@ document.querySelectorAll('.section').forEach(section => {
 });
 
 // Interactive Demo - Hierarchical Navigation System
+// 
+// CONFIGURATION GUIDE:
+// 1. Set maxCategoryLevels to desired depth (1=2 levels total, 2=3 levels total, etc.)
+// 2. Structure your data accordingly:
+//    - For 2 levels: scenarios -> categories -> videos
+//    - For 3 levels: scenarios -> categories -> categories -> videos
+//    - For 4 levels: scenarios -> categories -> categories -> categories -> videos
+// 3. The system will automatically handle navigation for any depth
+//
+// EXAMPLES:
+// maxCategoryLevels: 1 → scenarios → categories → videos (current setup)
+// maxCategoryLevels: 2 → scenarios → categories → subcategories → videos
+// maxCategoryLevels: 3 → scenarios → categories → subcategories → subsubcategories → videos
+//
+// EXAMPLE 3-LEVEL STRUCTURE (maxCategoryLevels: 2):
+// health_fitness: {
+//     name: "Health & Fitness",
+//     categories: {
+//         exercise: {
+//             name: "Exercise", 
+//             categories: {
+//                 cardio: { name: "Cardio", videos: {...} },
+//                 strength: { name: "Strength", videos: {...} }
+//             }
+//         }
+//     }
+// }
+//
 const demoData = {
-    maxCategoryLevels: 1, // Maximum depth of category navigation (simplified to 2 levels)
+    maxCategoryLevels: 1, // Maximum depth of category navigation (configurable)
     
     scenarios: {
         home_activities: {
@@ -257,73 +285,63 @@ const demoData = {
             description: "Exercise, wellness, and health activities",
             thumbnail: "assets/image/scenarios/scene_1.png",
             categories: {
-                exercise: {
-                    name: "Exercise",
-                    categories: {
-                        cardio: {
-                            name: "Cardio Workouts",
-                            videos: {
-                                running: { 
-                                    name: "Running", 
-                                    description: "Outdoor running exercise", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                cycling: { 
-                                    name: "Cycling", 
-                                    description: "Bicycle exercise", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                jumping: { 
-                                    name: "Jumping jacks", 
-                                    description: "High-intensity jumping", 
-                                    video: "assets/video/demo1.mp4" 
-                                }
-                            }
+                exercise_cardio: {
+                    name: "Exercise - Cardio",
+                    videos: {
+                        running: { 
+                            name: "Running", 
+                            description: "Outdoor running exercise", 
+                            video: "assets/video/demo1.mp4" 
                         },
-                        strength: {
-                            name: "Strength Training",
-                            videos: {
-                                push_ups: { 
-                                    name: "Push-ups", 
-                                    description: "Upper body strength", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                squats: { 
-                                    name: "Squats", 
-                                    description: "Lower body strength", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                planks: { 
-                                    name: "Planks", 
-                                    description: "Core strengthening", 
-                                    video: "assets/video/demo1.mp4" 
-                                }
-                            }
+                        cycling: { 
+                            name: "Cycling", 
+                            description: "Bicycle exercise", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        jumping: { 
+                            name: "Jumping jacks", 
+                            description: "High-intensity jumping", 
+                            video: "assets/video/demo1.mp4" 
                         }
                     }
                 },
-                wellness: {
-                    name: "Wellness",
-                    categories: {
-                        meditation: {
-                            name: "Meditation",
-                            videos: {
-                                breathing: { 
-                                    name: "Breathing exercises", 
-                                    description: "Deep breathing techniques", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                mindfulness: { 
-                                    name: "Mindfulness", 
-                                    description: "Present moment awareness", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                relaxation: { 
-                                    name: "Relaxation", 
-                                    description: "Stress relief techniques", 
-                                    video: "assets/video/demo1.mp4" 
-                                }
-                            }
+                exercise_strength: {
+                    name: "Exercise - Strength",
+                    videos: {
+                        push_ups: { 
+                            name: "Push-ups", 
+                            description: "Upper body strength", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        squats: { 
+                            name: "Squats", 
+                            description: "Lower body strength", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        planks: { 
+                            name: "Planks", 
+                            description: "Core strengthening", 
+                            video: "assets/video/demo1.mp4" 
+                        }
+                    }
+                },
+                wellness_meditation: {
+                    name: "Wellness - Meditation",
+                    videos: {
+                        breathing: { 
+                            name: "Breathing exercises", 
+                            description: "Deep breathing techniques", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        mindfulness: { 
+                            name: "Mindfulness", 
+                            description: "Present moment awareness", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        relaxation: { 
+                            name: "Relaxation", 
+                            description: "Stress relief techniques", 
+                            video: "assets/video/demo1.mp4" 
                         }
                     }
                 }
@@ -334,48 +352,43 @@ const demoData = {
             description: "Study, research, and learning activities",
             thumbnail: "assets/image/scenarios/scene_1.png",
             categories: {
-                study: {
-                    name: "Study Sessions",
-                    categories: {
-                        reading: {
-                            name: "Reading",
-                            videos: {
-                                textbooks: { 
-                                    name: "Reading textbooks", 
-                                    description: "Academic reading", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                note_taking: { 
-                                    name: "Note taking", 
-                                    description: "Writing study notes", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                highlighting: { 
-                                    name: "Highlighting", 
-                                    description: "Marking important text", 
-                                    video: "assets/video/demo1.mp4" 
-                                }
-                            }
+                study_reading: {
+                    name: "Study - Reading",
+                    videos: {
+                        textbooks: { 
+                            name: "Reading textbooks", 
+                            description: "Academic reading", 
+                            video: "assets/video/demo1.mp4" 
                         },
-                        research: {
-                            name: "Research",
-                            videos: {
-                                online_search: { 
-                                    name: "Online research", 
-                                    description: "Internet information gathering", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                library_work: { 
-                                    name: "Library work", 
-                                    description: "Academic library research", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                data_analysis: { 
-                                    name: "Data analysis", 
-                                    description: "Analyzing research data", 
-                                    video: "assets/video/demo1.mp4" 
-                                }
-                            }
+                        note_taking: { 
+                            name: "Note taking", 
+                            description: "Writing study notes", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        highlighting: { 
+                            name: "Highlighting", 
+                            description: "Marking important text", 
+                            video: "assets/video/demo1.mp4" 
+                        }
+                    }
+                },
+                study_research: {
+                    name: "Study - Research",
+                    videos: {
+                        online_search: { 
+                            name: "Online research", 
+                            description: "Internet information gathering", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        library_work: { 
+                            name: "Library work", 
+                            description: "Academic library research", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        data_analysis: { 
+                            name: "Data analysis", 
+                            description: "Analyzing research data", 
+                            video: "assets/video/demo1.mp4" 
                         }
                     }
                 }
@@ -386,53 +399,43 @@ const demoData = {
             description: "Recreation, hobbies, and leisure activities",
             thumbnail: "assets/image/scenarios/scene_1.png",
             categories: {
-                gaming: {
-                    name: "Gaming",
-                    categories: {
-                        video_games: {
-                            name: "Video Games",
-                            videos: {
-                                console_gaming: { 
-                                    name: "Console gaming", 
-                                    description: "Playing console games", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                pc_gaming: { 
-                                    name: "PC gaming", 
-                                    description: "Computer game playing", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                mobile_gaming: { 
-                                    name: "Mobile gaming", 
-                                    description: "Smartphone games", 
-                                    video: "assets/video/demo1.mp4" 
-                                }
-                            }
+                gaming_video: {
+                    name: "Gaming - Video Games",
+                    videos: {
+                        console_gaming: { 
+                            name: "Console gaming", 
+                            description: "Playing console games", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        pc_gaming: { 
+                            name: "PC gaming", 
+                            description: "Computer game playing", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        mobile_gaming: { 
+                            name: "Mobile gaming", 
+                            description: "Smartphone games", 
+                            video: "assets/video/demo1.mp4" 
                         }
                     }
                 },
-                arts_crafts: {
-                    name: "Arts & Crafts",
-                    categories: {
-                        drawing: {
-                            name: "Drawing",
-                            videos: {
-                                sketching: { 
-                                    name: "Sketching", 
-                                    description: "Basic sketching techniques", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                coloring: { 
-                                    name: "Coloring", 
-                                    description: "Adding colors to artwork", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                digital_art: { 
-                                    name: "Digital art", 
-                                    description: "Creating digital artwork", 
-                                    video: "assets/video/demo1.mp4" 
-                                }
-                            }
+                arts_drawing: {
+                    name: "Arts - Drawing",
+                    videos: {
+                        sketching: { 
+                            name: "Sketching", 
+                            description: "Basic sketching techniques", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        coloring: { 
+                            name: "Coloring", 
+                            description: "Adding colors to artwork", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        digital_art: { 
+                            name: "Digital art", 
+                            description: "Creating digital artwork", 
+                            video: "assets/video/demo1.mp4" 
                         }
                     }
                 }
@@ -443,110 +446,113 @@ const demoData = {
             description: "Daily errands and shopping activities",
             thumbnail: "assets/image/scenarios/scene_1.png",
             categories: {
-                grocery_shopping: {
-                    name: "Grocery Shopping",
-                    categories: {
-                        store_navigation: {
-                            name: "Store Navigation",
-                            videos: {
-                                find_items: { 
-                                    name: "Finding items", 
-                                    description: "Locating products in store", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                cart_management: { 
-                                    name: "Cart management", 
-                                    description: "Using shopping cart", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                checkout: { 
-                                    name: "Checkout process", 
-                                    description: "Paying for purchases", 
-                                    video: "assets/video/demo1.mp4" 
-                                }
-                            }
+                grocery_navigation: {
+                    name: "Grocery - Navigation",
+                    videos: {
+                        find_items: { 
+                            name: "Finding items", 
+                            description: "Locating products in store", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        cart_management: { 
+                            name: "Cart management", 
+                            description: "Using shopping cart", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        checkout: { 
+                            name: "Checkout process", 
+                            description: "Paying for purchases", 
+                            video: "assets/video/demo1.mp4" 
                         }
                     }
                 },
-                banking: {
-                    name: "Banking",
-                    categories: {
-                        atm_usage: {
-                            name: "ATM Usage",
-                            videos: {
-                                withdrawal: { 
-                                    name: "Cash withdrawal", 
-                                    description: "Getting cash from ATM", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                deposit: { 
-                                    name: "Making deposits", 
-                                    description: "Depositing money", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                balance_check: { 
-                                    name: "Balance check", 
-                                    description: "Checking account balance", 
-                                    video: "assets/video/demo1.mp4" 
-                                }
-                            }
+                banking_atm: {
+                    name: "Banking - ATM",
+                    videos: {
+                        withdrawal: { 
+                            name: "Cash withdrawal", 
+                            description: "Getting cash from ATM", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        deposit: { 
+                            name: "Making deposits", 
+                            description: "Depositing money", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        balance_check: { 
+                            name: "Balance check", 
+                            description: "Checking account balance", 
+                            video: "assets/video/demo1.mp4" 
                         }
                     }
                 }
             }
         },
+        // EXAMPLE: To enable 3-level navigation, change maxCategoryLevels to 2 and uncomment this:
+        // example_3level: {
+        //     name: "Example 3-Level",
+        //     description: "Demonstrates 3-level category navigation",
+        //     thumbnail: "assets/image/scenarios/scene_1.png",
+        //     categories: {
+        //         level1_category: {
+        //             name: "Level 1 Category",
+        //             categories: {
+        //                 level2_subcategory: {
+        //                     name: "Level 2 Subcategory",
+        //                     videos: {
+        //                         sample_video: {
+        //                             name: "Sample Video",
+        //                             description: "3-level navigation example",
+        //                             video: "assets/video/demo1.mp4"
+        //                         }
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //     }
+        // },
         social_activities: {
             name: "Social Activities",
             description: "Interactions and social engagement",
             thumbnail: "assets/image/scenarios/scene_1.png",
             categories: {
-                communication: {
-                    name: "Communication",
-                    categories: {
-                        phone_calls: {
-                            name: "Phone Calls",
-                            videos: {
-                                making_calls: { 
-                                    name: "Making calls", 
-                                    description: "Initiating phone calls", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                answering_calls: { 
-                                    name: "Answering calls", 
-                                    description: "Receiving phone calls", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                video_calls: { 
-                                    name: "Video calls", 
-                                    description: "Video conferencing", 
-                                    video: "assets/video/demo1.mp4" 
-                                }
-                            }
+                communication_phone: {
+                    name: "Communication - Phone",
+                    videos: {
+                        making_calls: { 
+                            name: "Making calls", 
+                            description: "Initiating phone calls", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        answering_calls: { 
+                            name: "Answering calls", 
+                            description: "Receiving phone calls", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        video_calls: { 
+                            name: "Video calls", 
+                            description: "Video conferencing", 
+                            video: "assets/video/demo1.mp4" 
                         }
                     }
                 },
-                social_media: {
-                    name: "Social Media",
-                    categories: {
-                        posting: {
-                            name: "Posting Content",
-                            videos: {
-                                photo_sharing: { 
-                                    name: "Photo sharing", 
-                                    description: "Sharing photos online", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                status_updates: { 
-                                    name: "Status updates", 
-                                    description: "Posting status messages", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                commenting: { 
-                                    name: "Commenting", 
-                                    description: "Engaging with posts", 
-                                    video: "assets/video/demo1.mp4" 
-                                }
-                            }
+                social_posting: {
+                    name: "Social - Posting",
+                    videos: {
+                        photo_sharing: { 
+                            name: "Photo sharing", 
+                            description: "Sharing photos online", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        status_updates: { 
+                            name: "Status updates", 
+                            description: "Posting status messages", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        commenting: { 
+                            name: "Commenting", 
+                            description: "Engaging with posts", 
+                            video: "assets/video/demo1.mp4" 
                         }
                     }
                 }
@@ -555,10 +561,10 @@ const demoData = {
     }
 };
 
-// Hierarchical Demo State Management
+// Hierarchical Demo State Management - Dynamic based on maxCategoryLevels
 let currentNavigation = {
     scenario: null,
-    category1: null,
+    categories: [], // Dynamic array to handle n-level categories
     selectedVideo: null
 };
 
@@ -648,8 +654,7 @@ function updateSliderControls() {
 // Select scenario
 function selectScenario(scenarioKey) {
     currentNavigation.scenario = scenarioKey;
-    currentNavigation.category1 = null;
-    currentNavigation.category2 = null;
+    currentNavigation.categories = [];
     currentNavigation.selectedVideo = null;
     
     // Update visual selection
@@ -699,17 +704,26 @@ function updateIntegratedBreadcrumb() {
     breadcrumbNav.style.display = 'block';
 }
 
-// Select category level 1
-function selectCategory1(categoryKey) {
-    currentNavigation.category1 = categoryKey;
+// Select category at specific level (modular)
+function selectCategory(categoryKey, level) {
+    // Truncate categories array to current level
+    currentNavigation.categories = currentNavigation.categories.slice(0, level);
+    // Set category at current level
+    currentNavigation.categories[level] = categoryKey;
+    // Clear video selection
     currentNavigation.selectedVideo = null;
     
     // Update integrated breadcrumb navigation
     updateIntegratedBreadcrumb();
-    console.log('Selected category 1:', categoryKey);
+    console.log(`Selected category level ${level}:`, categoryKey);
 }
 
-// Build breadcrumb path display
+// Backwards compatibility wrapper
+function selectCategory1(categoryKey) {
+    selectCategory(categoryKey, 0);
+}
+
+// Build breadcrumb path display (modular for n-levels)
 function buildBreadcrumbPath() {
     const pathItems = [];
     
@@ -717,18 +731,27 @@ function buildBreadcrumbPath() {
         const scenario = demoData.scenarios[currentNavigation.scenario];
         pathItems.push(`<span class="breadcrumb-item clickable" onclick="navigateFromBreadcrumb('scenario')">${scenario.name}</span>`);
         
-        if (currentNavigation.category1) {
-            const category1 = scenario.categories[currentNavigation.category1];
-            const isClickable = currentNavigation.selectedVideo;
-            const clickHandler = isClickable ? ` onclick="navigateFromBreadcrumb('category1')"` : '';
-            const classes = isClickable ? 'breadcrumb-item clickable' : 'breadcrumb-item current';
-            pathItems.push(`<span class="${classes}"${clickHandler}>${category1.name}</span>`);
-            
-            if (currentNavigation.selectedVideo) {
-                const videos = category1.videos;
-                if (videos && videos[currentNavigation.selectedVideo]) {
-                    pathItems.push(`<span class="breadcrumb-item current">${videos[currentNavigation.selectedVideo].name}</span>`);
-                }
+        // Navigate through categories dynamically
+        let currentData = scenario;
+        for (let i = 0; i < currentNavigation.categories.length; i++) {
+            const categoryKey = currentNavigation.categories[i];
+            if (currentData.categories && currentData.categories[categoryKey]) {
+                const category = currentData.categories[categoryKey];
+                const isClickable = currentNavigation.selectedVideo || i < currentNavigation.categories.length - 1;
+                const clickHandler = isClickable ? ` onclick="navigateFromBreadcrumb('category', ${i})"` : '';
+                const classes = isClickable ? 'breadcrumb-item clickable' : 'breadcrumb-item current';
+                pathItems.push(`<span class="${classes}"${clickHandler}>${category.name}</span>`);
+                
+                // Move to next level
+                currentData = category;
+            }
+        }
+        
+        // Add video if selected
+        if (currentNavigation.selectedVideo && currentData.videos) {
+            const video = currentData.videos[currentNavigation.selectedVideo];
+            if (video) {
+                pathItems.push(`<span class="breadcrumb-item current">${video.name}</span>`);
             }
         }
     }
@@ -737,7 +760,7 @@ function buildBreadcrumbPath() {
 }
 
 
-// Build breadcrumb options display
+// Build breadcrumb options display (modular for n-levels)
 function buildBreadcrumbOptions() {
     if (!currentNavigation.scenario) {
         return '<span class="breadcrumb-hint">Select a scenario above to continue</span>';
@@ -745,21 +768,29 @@ function buildBreadcrumbOptions() {
     
     const scenario = demoData.scenarios[currentNavigation.scenario];
     
-    // Show category1 options
-    if (!currentNavigation.category1) {
-        const options = Object.keys(scenario.categories).map(categoryKey => {
-            const category = scenario.categories[categoryKey];
-            return `<button class="breadcrumb-option" onclick="selectCategory1('${categoryKey}')">${category.name}</button>`;
+    // Navigate to current level data
+    let currentData = scenario;
+    for (let i = 0; i < currentNavigation.categories.length; i++) {
+        const categoryKey = currentNavigation.categories[i];
+        if (currentData.categories && currentData.categories[categoryKey]) {
+            currentData = currentData.categories[categoryKey];
+        }
+    }
+    
+    // If we haven't reached max depth and there are more categories
+    if (currentNavigation.categories.length < demoData.maxCategoryLevels && currentData.categories) {
+        const currentLevel = currentNavigation.categories.length;
+        const options = Object.keys(currentData.categories).map(categoryKey => {
+            const category = currentData.categories[categoryKey];
+            return `<button class="breadcrumb-option" onclick="selectCategory('${categoryKey}', ${currentLevel})">${category.name}</button>`;
         }).join('');
         return `<div class="breadcrumb-options-container">${options}</div>`;
     }
     
-    const category1 = scenario.categories[currentNavigation.category1];
-    
-    // Show video options directly under category1
-    if (category1.videos && !currentNavigation.selectedVideo) {
-        const options = Object.keys(category1.videos).map(videoKey => {
-            const video = category1.videos[videoKey];
+    // Show video options if we're at max depth or no more categories
+    if (currentData.videos && !currentNavigation.selectedVideo) {
+        const options = Object.keys(currentData.videos).map(videoKey => {
+            const video = currentData.videos[videoKey];
             return `<button class="breadcrumb-option" onclick="selectVideo('${videoKey}')">${video.name}</button>`;
         }).join('');
         return `<div class="breadcrumb-options-container">${options}</div>`;
@@ -768,20 +799,31 @@ function buildBreadcrumbOptions() {
     return '';
 }
 
-// Select video
+// Select video (modular for n-levels)
 function selectVideo(videoKey) {
     currentNavigation.selectedVideo = videoKey;
     
-    // Get video data
+    // Navigate to current level data to get videos
     const scenario = demoData.scenarios[currentNavigation.scenario];
-    const category1 = scenario.categories[currentNavigation.category1];
-    const videos = category1.videos;
+    let currentData = scenario;
     
-    const video = videos[videoKey];
-    showVideo(video.video, video.name);
-    updateIntegratedBreadcrumb();
+    // Navigate through categories to find videos
+    for (let i = 0; i < currentNavigation.categories.length; i++) {
+        const categoryKey = currentNavigation.categories[i];
+        if (currentData.categories && currentData.categories[categoryKey]) {
+            currentData = currentData.categories[categoryKey];
+        }
+    }
     
-    console.log('Selected video:', videoKey);
+    if (currentData.videos && currentData.videos[videoKey]) {
+        const video = currentData.videos[videoKey];
+        showVideo(video.video, video.name);
+        updateIntegratedBreadcrumb();
+        
+        console.log('Selected video:', videoKey);
+    } else {
+        console.error('Video not found:', videoKey);
+    }
 }
 
 // Show video function
@@ -823,18 +865,16 @@ function updateBreadcrumb() {
     updateIntegratedBreadcrumb();
 }
 
-// Navigate back from breadcrumb click
-function navigateFromBreadcrumb(level) {
-    switch (level) {
-        case 'scenario':
-            // Go back to scenario selection (show category level 1)
-            currentNavigation.category1 = null;
-            currentNavigation.selectedVideo = null;
-            break;
-        case 'category1':
-            // Go back to category 1 selection (show video level)
-            currentNavigation.selectedVideo = null;
-            break;
+// Navigate back from breadcrumb click (modular for n-levels)
+function navigateFromBreadcrumb(level, categoryIndex = null) {
+    if (level === 'scenario') {
+        // Go back to scenario selection (clear all categories)
+        currentNavigation.categories = [];
+        currentNavigation.selectedVideo = null;
+    } else if (level === 'category' && categoryIndex !== null) {
+        // Go back to specific category level
+        currentNavigation.categories = currentNavigation.categories.slice(0, categoryIndex + 1);
+        currentNavigation.selectedVideo = null;
     }
     
     // Update visual selections
@@ -859,11 +899,11 @@ function navigateFromBreadcrumb(level) {
     updateIntegratedBreadcrumb();
 }
 
-// Reset navigation
+// Reset navigation (modular)
 function resetNavigation() {
     currentNavigation = {
         scenario: null,
-        category1: null,
+        categories: [],
         selectedVideo: null
     };
     

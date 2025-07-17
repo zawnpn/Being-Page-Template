@@ -129,10 +129,14 @@ The interactive demo system is built around a hierarchical data structure in `sc
 ## Common Development Tasks
 
 ### Updating Demo Content
-1. **Add new scenarios**: Edit `demoData.scenarios` object in `script.js`
-2. **Add videos**: Place in `assets/video/` following the hierarchical structure
-3. **Update images**: Replace placeholders in `assets/image/scenarios/`
-4. **Configure max steps**: Modify `maxSteps` value in `demoData`
+1. **Configure navigation depth**: Set `maxCategoryLevels` in `demoData` (1=2 levels, 2=3 levels, etc.)
+2. **Add new scenarios**: Edit `demoData.scenarios` object in `script.js`
+3. **Structure data**: Organize categories according to desired depth
+   - Level 1: scenarios → categories → videos
+   - Level 2: scenarios → categories → categories → videos
+   - Level 3: scenarios → categories → categories → categories → videos
+4. **Add videos**: Place in `assets/video/` following the hierarchical structure
+5. **Update images**: Replace placeholders in `assets/image/scenarios/`
 
 ### Styling Modifications
 1. **Colors**: Update CSS custom properties in `:root` selector in `styles.css`
