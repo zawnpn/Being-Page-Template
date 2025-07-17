@@ -1063,7 +1063,7 @@ body {
     background: var(--bg-white);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-large);
-    padding: 1.5rem;
+    padding: 0.5rem;
     cursor: pointer;
     transition: all 0.4s var(--ease-out);
     text-align: center;
@@ -1086,11 +1086,10 @@ body {
 
 .scenario-image {
     width: 100%;
-    height: 120px;
     border-radius: 6px;
     overflow: hidden;
-    margin-bottom: 0.75rem;
-    background: var(--bg-light);
+    margin-bottom: 0.3rem;
+    background: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1098,15 +1097,18 @@ body {
 
 .scenario-image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
+    border-radius: 6px;
 }
 
 .scenario-name {
     font-size: 1rem;
     font-weight: 600;
     color: var(--demo-text);
-    line-height: 1.3;
+    line-height: 1.2;
+    margin: 0;
+    padding: 0.2rem 0;
 }
 
 /* Navigation Content Buttons */
@@ -1391,8 +1393,7 @@ body {
 
 .scenario-image {
     width: 100%;
-    height: 80px;
-    background: var(--bg-light);
+    background: transparent;
     border-radius: var(--border-radius-small);
     margin-bottom: 0.75rem;
     overflow: hidden;
@@ -1403,8 +1404,9 @@ body {
 
 .scenario-image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
+    border-radius: 6px;
 }
 
 .scenario-name {
@@ -1447,12 +1449,11 @@ body {
     .scenario-card {
         min-width: 160px;
         width: 160px;
-        padding: 1rem;
+        padding: 0.4rem;
     }
 
     .scenario-image {
-        height: 80px;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.2rem;
     }
 
     .scenario-name {
@@ -1992,7 +1993,7 @@ body {
 
 
 .scenario-image {
-    aspect-ratio: 4/3;
+    background: transparent;
     border-radius: var(--border-radius-small);
     overflow: hidden;
     transition: all 0.3s var(--ease-out);
@@ -2000,8 +2001,9 @@ body {
 
 .scenario-image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
+    border-radius: 6px;
 }
 
 .scenario-name {
@@ -2476,6 +2478,7 @@ body {
 
     .scenario-card {
         min-width: 120px;
+        padding: 0.3rem;
     }
 
     .action-card {
