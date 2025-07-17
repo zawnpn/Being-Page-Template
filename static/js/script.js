@@ -62,26 +62,26 @@ const demoData = {
         home_activities: {
             name: "Home Activities",
             description: "Daily household tasks and activities",
-            thumbnail: "assets/image/scenarios/scene_1.png",
+            thumbnail: "assets/image/scenarios/scene_1.jpg",
             categories: {
                 kitchen_cooking: {
                     name: "Kitchen Cooking",
-                    video: "assets/video/demo1.mp4",
+                    video: "assets/video/prediction/task1.mp4",
                     description: "Cooking activities in the kitchen"
                 },
                 kitchen_cleaning: {
                     name: "Kitchen Cleaning", 
-                    video: "assets/video/demo1.mp4",
+                    video: "assets/video/prediction/task1.mp4",
                     description: "Cleaning activities in the kitchen"
                 },
                 bathroom_hygiene: {
                     name: "Bathroom Hygiene",
-                    video: "assets/video/demo1.mp4",
+                    video: "assets/video/prediction/task1.mp4",
                     description: "Personal hygiene activities"
                 },
                 living_room: {
                     name: "Living Room",
-                    video: "assets/video/demo1.mp4",
+                    video: "assets/video/prediction/task1.mp4",
                     description: "Living room activities"
                 }
             }
@@ -89,21 +89,21 @@ const demoData = {
         work_activities: {
             name: "Work Activities",
             description: "Professional and productivity tasks",
-            thumbnail: "assets/image/scenarios/scene_1.png",
+            thumbnail: "assets/image/scenarios/scene_1.jpg",
             categories: {
                 computer_typing: {
                     name: "Computer Typing",
-                    video: "assets/video/demo1.mp4",
+                    video: "assets/video/prediction/task1.mp4",
                     description: "Computer typing activities"
                 },
                 computer_navigation: {
                     name: "Computer Navigation",
-                    video: "assets/video/demo1.mp4",
+                    video: "assets/video/prediction/task1.mp4",
                     description: "Computer navigation activities"
                 },
                 desk_organization: {
                     name: "Desk Organization",
-                    video: "assets/video/demo1.mp4",
+                    video: "assets/video/prediction/task1.mp4",
                     description: "Desk organization activities"
                 }
             }
@@ -111,21 +111,21 @@ const demoData = {
         outdoor_activities: {
             name: "Outdoor Activities",
             description: "Garden and outdoor maintenance tasks",
-            thumbnail: "assets/image/scenarios/scene_1.png",
+            thumbnail: "assets/image/scenarios/scene_1.jpg",
             categories: {
                 garden_care: {
                     name: "Garden Care",
-                    video: "assets/video/demo1.mp4",
+                    video: "assets/video/prediction/task1.mp4",
                     description: "Garden care activities"
                 },
                 garden_tools: {
                     name: "Garden Tools",
-                    video: "assets/video/demo1.mp4",
+                    video: "assets/video/prediction/task1.mp4",
                     description: "Garden tools usage"
                 },
                 outdoor_maintenance: {
                     name: "Outdoor Maintenance",
-                    video: "assets/video/demo1.mp4",
+                    video: "assets/video/prediction/task1.mp4",
                     description: "Outdoor maintenance activities"
                 }
             }
@@ -133,21 +133,21 @@ const demoData = {
         health_fitness: {
             name: "Health & Fitness",
             description: "Exercise, wellness, and health activities",
-            thumbnail: "assets/image/scenarios/scene_1.png",
+            thumbnail: "assets/image/scenarios/scene_1.jpg",
             categories: {
                 exercise_cardio: {
                     name: "Exercise - Cardio",
-                    video: "assets/video/demo1.mp4",
+                    video: "assets/video/prediction/task1.mp4",
                     description: "Cardio exercise activities"
                 },
                 exercise_strength: {
                     name: "Exercise - Strength",
-                    video: "assets/video/demo1.mp4",
+                    video: "assets/video/prediction/task1.mp4",
                     description: "Strength training activities"
                 },
                 wellness_meditation: {
                     name: "Wellness - Meditation",
-                    video: "assets/video/demo1.mp4",
+                    video: "assets/video/prediction/task1.mp4",
                     description: "Wellness and meditation activities"
                 }
             }
@@ -155,16 +155,16 @@ const demoData = {
         education_learning: {
             name: "Education & Learning",
             description: "Study, research, and learning activities",
-            thumbnail: "assets/image/scenarios/scene_1.png",
+            thumbnail: "assets/image/scenarios/scene_1.jpg",
             categories: {
                 study_reading: {
                     name: "Study - Reading",
-                    video: "assets/video/demo1.mp4",
+                    video: "assets/video/prediction/task1.mp4",
                     description: "Study and reading activities"
                 },
                 study_research: {
                     name: "Study - Research",
-                    video: "assets/video/demo1.mp4",
+                    video: "assets/video/prediction/task1.mp4",
                     description: "Research and analysis activities"
                 }
             }
@@ -172,16 +172,16 @@ const demoData = {
         entertainment_leisure: {
             name: "Entertainment & Leisure",
             description: "Recreation, hobbies, and leisure activities",
-            thumbnail: "assets/image/scenarios/scene_1.png",
+            thumbnail: "assets/image/scenarios/scene_1.jpg",
             categories: {
                 gaming_video: {
                     name: "Gaming - Video Games",
-                    video: "assets/video/demo1.mp4",
+                    video: "assets/video/prediction/task1.mp4",
                     description: "Video gaming activities"
                 },
                 arts_drawing: {
                     name: "Arts - Drawing",
-                    video: "assets/video/demo1.mp4",
+                    video: "assets/video/prediction/task1.mp4",
                     description: "Drawing and art activities"
                 }
             }
@@ -189,16 +189,16 @@ const demoData = {
         shopping_errands: {
             name: "Shopping & Errands",
             description: "Daily errands and shopping activities",
-            thumbnail: "assets/image/scenarios/scene_1.png",
+            thumbnail: "assets/image/scenarios/scene_1.jpg",
             categories: {
                 grocery_navigation: {
                     name: "Grocery - Navigation",
-                    video: "assets/video/demo1.mp4",
+                    video: "assets/video/prediction/task1.mp4",
                     description: "Grocery shopping activities"
                 },
                 banking_atm: {
                     name: "Banking - ATM",
-                    video: "assets/video/demo1.mp4",
+                    video: "assets/video/prediction/task1.mp4",
                     description: "ATM and banking activities"
                 }
             }
@@ -207,7 +207,7 @@ const demoData = {
         // example_3level: {
         //     name: "Example 3-Level",
         //     description: "Demonstrates 3-level category navigation",
-        //     thumbnail: "assets/image/scenarios/scene_1.png",
+        //     thumbnail: "assets/image/scenarios/scene_1.jpg",
         //     categories: {
         //         level1_category: {
         //             name: "Level 1 Category",
@@ -218,7 +218,7 @@ const demoData = {
         //                         sample_video: {
         //                             name: "Sample Video",
         //                             description: "3-level navigation example",
-        //                             video: "assets/video/demo1.mp4"
+        //                             video: "assets/video/prediction/task1.mp4"
         //                         }
         //                     }
         //                 }
@@ -229,16 +229,16 @@ const demoData = {
         social_activities: {
             name: "Social Activities",
             description: "Interactions and social engagement",
-            thumbnail: "assets/image/scenarios/scene_1.png",
+            thumbnail: "assets/image/scenarios/scene_1.jpg",
             categories: {
                 communication_phone: {
                     name: "Communication - Phone",
-                    video: "assets/video/demo1.mp4",
+                    video: "assets/video/prediction/task1.mp4",
                     description: "Phone communication activities"
                 },
                 social_posting: {
                     name: "Social - Posting",
-                    video: "assets/video/demo1.mp4",
+                    video: "assets/video/prediction/task1.mp4",
                     description: "Social media posting activities"
                 }
             }
@@ -489,7 +489,7 @@ function renderCategories(scenarioKey) {
     
     categoryContainer.innerHTML = `
         <div class="category-selection">
-            <span class="category-title">Select Category</span>
+            <span class="category-title">Select Action</span>
             <div class="category-options">${categoryButtons}</div>
         </div>
     `;

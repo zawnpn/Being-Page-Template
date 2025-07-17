@@ -24,10 +24,10 @@
 
             <!-- Authors with clickable links -->
             <div class="authors">
-                <a href="#" class="author-link">Author 1</a><sup>1*</sup>, 
-                <a href="#" class="author-link">Author 2</a><sup>1*</sup>, 
-                <a href="#" class="author-link">Author 3</a><sup>2</sup>, 
-                <a href="#" class="author-link">Author 4</a><sup>2</sup>, 
+                <a href="#" class="author-link">Author 1</a><sup>1*</sup>, &nbsp;&nbsp;
+                <a href="#" class="author-link">Author 2</a><sup>1*</sup>, &nbsp;&nbsp;
+                <a href="#" class="author-link">Author 3</a><sup>2</sup>, &nbsp;&nbsp;
+                <a href="#" class="author-link">Author 4</a><sup>2</sup>, &nbsp;&nbsp;
                 <a href="#" class="author-link">Author 5</a><sup>1,2†</sup>
             </div>
             
@@ -85,7 +85,7 @@
             
             <!-- Scenario Selection with Horizontal Slider -->
             <div class="nav-section scenario-section">
-                <div class="nav-title">Choose Scenario</div>
+                <div class="nav-title">Select a scene, then choose the action you want to perform</div>
                 <div class="slider-container">
                     <button class="slider-btn slider-btn-left" id="scenarioSliderLeft" onclick="slideScenarios('left')" style="display: none;">‹</button>
                     <div class="slider-viewport">
@@ -197,11 +197,20 @@
             <div class="video-grid">
                 <div class="video-item">
                     <video autoplay loop muted playsinline>
+                        <source src="assets/video/real_demo/unfold_clothes.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-title">Unfold Clothes</div>
+                    <div class="video-description">Showcasing dexterous, multi-finger coordination to manipulate a deformable object.</div>
+                </div>
+
+                <div class="video-item">
+                    <video autoplay loop muted playsinline>
                         <source src="assets/video/real_demo/close_lid.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <div class="video-title">Close Lid</div>
-                    <div class="video-description">Complete walkthrough of Being-0's capabilities and architecture</div>
+                    <div class="video-description">Showcasing high precision and stable control by securely closing a cup lid.</div>
                 </div>
 
                 <div class="video-item">
@@ -210,7 +219,7 @@
                         Your browser does not support the video tag.
                     </video>
                     <div class="video-title">Close Toolbox</div>
-                    <div class="video-description">Real-time demonstration of natural language instruction following</div>
+                    <div class="video-description">Demonstrating interaction with articulated objects by smoothly closing a hinged toolbox.</div>
                 </div>
 
                 <div class="video-item">
@@ -219,7 +228,7 @@
                         Your browser does not support the video tag.
                     </video>
                     <div class="video-title">Pick and Place</div>
-                    <div class="video-description">Dynamic skill combination for complex task execution</div>
+                    <div class="video-description">Executing natural language commands to test language-grounded manipulation.</div>
                 </div>
 
                 <div class="video-item">
@@ -228,7 +237,7 @@
                         Your browser does not support the video tag.
                     </video>
                     <div class="video-title">Pick and Place (clutter)</div>
-                    <div class="video-description">Natural and intuitive interaction scenarios</div>
+                    <div class="video-description">Locating and grasping a target in a cluttered scene, highlighting robust perception and discrimination.</div>
                 </div>
 
                 <div class="video-item">
@@ -237,17 +246,9 @@
                         Your browser does not support the video tag.
                     </video>
                     <div class="video-title">Pour Cup</div>
-                    <div class="video-description">Comprehensive evaluation across robotic benchmarks</div>
+                    <div class="video-description">Highlighting smooth and precise motion control by pouring items from one container to another.</div>
                 </div>
 
-                <div class="video-item">
-                    <video autoplay loop muted playsinline>
-                        <source src="assets/video/real_demo/unfold_clothes.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="video-title">Unfold Clothes</div>
-                    <div class="video-description">Potential applications and future research directions</div>
-                </div>
             </div>
         </section>
 
