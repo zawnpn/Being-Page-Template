@@ -910,7 +910,7 @@ body {
     background: var(--bg-white);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-large);
-    padding: 1.5rem;
+    padding: 1rem;
     transition: all 0.4s var(--ease-out);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
@@ -1029,7 +1029,7 @@ body {
     font-size: 1rem;
     font-weight: 600;
     color: var(--demo-text);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
     text-align: center;
     letter-spacing: -0.016em;
 }
@@ -1047,7 +1047,7 @@ body {
     overflow: hidden;
     border-radius: var(--border-radius-large);
     background: transparent;
-    padding: 1rem;
+    padding: 0.5rem;
     cursor: grab;
     user-select: none;
     transition: all 0.4s var(--ease-out);
@@ -1061,7 +1061,7 @@ body {
     display: flex;
     gap: 1.5rem;
     transition: transform 0.3s var(--ease-out);
-    padding: 0.5rem;
+    padding: 0.25rem 0.5rem;
     align-items: flex-start;
 }
 
