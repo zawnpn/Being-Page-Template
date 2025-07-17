@@ -854,7 +854,6 @@ body {
 /* Interactive Demo - Hierarchical Navigation */
 .interactive-demo {
     background: var(--bg-white);
-    border: 1px solid var(--demo-border);
     border-radius: var(--border-radius-large);
     padding: 2rem;
     margin: 2rem 0;
