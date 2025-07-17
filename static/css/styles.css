@@ -55,7 +55,7 @@
     
     /* Apple-style spacing */
     --section-spacing: 5rem;
-    --content-spacing: 1.5rem;
+    --content-spacing: 1rem;
     
     /* Apple-style animation easing */
     --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -458,7 +458,7 @@ body {
     cursor: default;
     background: var(--bg-white);
     border-radius: var(--border-radius-large);
-    padding: 1.5rem;
+    padding: 1rem;
     border: 1px solid var(--border-color);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
@@ -562,7 +562,7 @@ body {
 .video-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
+    gap: 1rem;
     margin-top: 2.5rem;
 }
 
@@ -571,7 +571,7 @@ body {
     cursor: default;
     background: var(--bg-white);
     border-radius: var(--border-radius-large);
-    padding: 1rem;
+    padding: 0.75rem;
     border: 1px solid var(--border-color);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
