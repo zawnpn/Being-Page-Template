@@ -912,6 +912,7 @@ body {
     padding: 1rem;
     transition: all 0.4s var(--ease-out);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    margin-bottom: 1.5rem;
 }
 
 .nav-section:hover {

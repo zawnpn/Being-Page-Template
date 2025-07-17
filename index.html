@@ -78,53 +78,41 @@
         <section class="section" id="interactive-demo">
             <h2 class="section-title">Interactive Demo</h2>
             
-            <div class="interactive-demo">
-                <div class="demo-content">
-                    <!-- Header -->
-                    <div class="demo-header">
+            <!-- Scenario Selection with Horizontal Slider -->
+            <div class="nav-section scenario-section">
+                <div class="nav-title">Choose Scenario</div>
+                <div class="slider-container">
+                    <button class="slider-btn slider-btn-left" id="scenarioSliderLeft" onclick="slideScenarios('left')" style="display: none;">‹</button>
+                    <div class="slider-viewport">
+                        <div class="slider-track" id="scenarioTrack">
+                            <!-- Scenarios will be populated by JavaScript -->
+                        </div>
                     </div>
+                    <button class="slider-btn slider-btn-right" id="scenarioSliderRight" onclick="slideScenarios('right')" style="display: none;">›</button>
+                </div>
+            </div>
 
-                    <!-- Fixed Navigation Structure -->
-                    <div class="demo-navigation">
-                        <!-- Scenario Selection with Horizontal Slider -->
-                        <div class="nav-section scenario-section">
-                            <div class="nav-title">Choose Scenario</div>
-                            <div class="slider-container">
-                                <button class="slider-btn slider-btn-left" id="scenarioSliderLeft" onclick="slideScenarios('left')" style="display: none;">‹</button>
-                                <div class="slider-viewport">
-                                    <div class="slider-track" id="scenarioTrack">
-                                        <!-- Scenarios will be populated by JavaScript -->
-                                    </div>
-                                </div>
-                                <button class="slider-btn slider-btn-right" id="scenarioSliderRight" onclick="slideScenarios('right')" style="display: none;">›</button>
-                            </div>
+            <!-- Fixed Video Display Area -->
+            <div class="demo-video-container">
+                <!-- Reset Button -->
+                <button class="demo-reset-btn" onclick="resetDemo()">Reset</button>
+                
+                <!-- Integrated Breadcrumb Navigation -->
+                <div class="breadcrumb-nav" id="breadcrumbNav">
+                    <div class="breadcrumb-content">
+                        <div class="breadcrumb-path" id="breadcrumbPath">
+                            <!-- Current path will be populated by JavaScript -->
                         </div>
-
+                        <div class="breadcrumb-options" id="breadcrumbOptions">
+                            <!-- Available options will be populated by JavaScript -->
+                        </div>
                     </div>
-
-                    <!-- Fixed Video Display Area -->
-                    <div class="demo-video-container">
-                        <!-- Reset Button -->
-                        <button class="demo-reset-btn" onclick="resetDemo()">Reset</button>
-                        
-                        <!-- Integrated Breadcrumb Navigation -->
-                        <div class="breadcrumb-nav" id="breadcrumbNav">
-                            <div class="breadcrumb-content">
-                                <div class="breadcrumb-path" id="breadcrumbPath">
-                                    <!-- Current path will be populated by JavaScript -->
-                                </div>
-                                <div class="breadcrumb-options" id="breadcrumbOptions">
-                                    <!-- Available options will be populated by JavaScript -->
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="video-display" id="videoDisplay">
-                            <div class="demo-placeholder">
-                                <div class="icon">🎬</div>
-                                <p>Select a scenario to begin</p>
-                            </div>
-                        </div>
+                </div>
+                
+                <div class="video-display" id="videoDisplay">
+                    <div class="demo-placeholder">
+                        <div class="icon">🎬</div>
+                        <p>Select a scenario to begin</p>
                     </div>
                 </div>
             </div>
