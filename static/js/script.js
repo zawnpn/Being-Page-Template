@@ -26,168 +26,366 @@ document.querySelectorAll('.section').forEach(section => {
     observer.observe(section);
 });
 
-// Enhanced Interactive Demo with Tree-like Step Progression
+// Interactive Demo - Hierarchical Navigation System
 const demoData = {
-    maxSteps: 3,
+    maxCategoryLevels: 2, // Maximum depth of category navigation
+    
     scenarios: {
-        kitchen: {
-            name: "Kitchen",
-            description: "Cooking and food preparation tasks",
+        home_activities: {
+            name: "Home Activities",
+            description: "Daily household tasks and activities",
             thumbnail: "assets/image/scenarios/scene_1.png",
-            initialVideo: "assets/video/demo1.mp4",
-            operations: {
-                wash_hands: { 
-                    name: "Wash hands", 
-                    description: "Clean hands before cooking", 
-                    video: "assets/video/demo1.mp4" 
+            categories: {
+                kitchen: {
+                    name: "Kitchen",
+                    categories: {
+                        cooking: {
+                            name: "Cooking",
+                            videos: {
+                                prep_ingredients: { 
+                                    name: "Prep ingredients", 
+                                    description: "Prepare cooking ingredients", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                use_stove: { 
+                                    name: "Use stove", 
+                                    description: "Cook on stovetop", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                season_food: { 
+                                    name: "Season food", 
+                                    description: "Add spices and seasonings", 
+                                    video: "assets/video/demo1.mp4" 
+                                }
+                            }
+                        },
+                        cleaning: {
+                            name: "Cleaning",
+                            videos: {
+                                wash_dishes: { 
+                                    name: "Wash dishes", 
+                                    description: "Clean kitchen utensils", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                wipe_counter: { 
+                                    name: "Wipe counter", 
+                                    description: "Clean kitchen surfaces", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                organize_items: { 
+                                    name: "Organize items", 
+                                    description: "Arrange kitchen tools", 
+                                    video: "assets/video/demo1.mp4" 
+                                }
+                            }
+                        }
+                    }
                 },
-                pick_up_bowl: { 
-                    name: "Pick up bowl", 
-                    description: "Grab mixing bowl", 
-                    video: "assets/video/demo1.mp4" 
+                bathroom: {
+                    name: "Bathroom",
+                    categories: {
+                        hygiene: {
+                            name: "Personal Hygiene",
+                            videos: {
+                                brush_teeth: { 
+                                    name: "Brush teeth", 
+                                    description: "Clean teeth with toothbrush", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                wash_face: { 
+                                    name: "Wash face", 
+                                    description: "Clean face with water", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                apply_skincare: { 
+                                    name: "Apply skincare", 
+                                    description: "Use facial care products", 
+                                    video: "assets/video/demo1.mp4" 
+                                }
+                            }
+                        },
+                        grooming: {
+                            name: "Grooming",
+                            videos: {
+                                comb_hair: { 
+                                    name: "Comb hair", 
+                                    description: "Style hair with comb", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                use_mirror: { 
+                                    name: "Use mirror", 
+                                    description: "Check appearance in mirror", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                trim_nails: { 
+                                    name: "Trim nails", 
+                                    description: "Cut fingernails", 
+                                    video: "assets/video/demo1.mp4" 
+                                }
+                            }
+                        }
+                    }
                 },
-                cut_carrots: { 
-                    name: "Cut carrots", 
-                    description: "Slice carrots for cooking", 
-                    video: "assets/video/demo1.mp4" 
-                },
-                dry_hands: { 
-                    name: "Dry hands", 
-                    description: "Use towel to dry hands", 
-                    video: "assets/video/demo1.mp4" 
-                },
-                wash_bowl: { 
-                    name: "Wash bowl", 
-                    description: "Clean the bowl after use", 
-                    video: "assets/video/demo1.mp4" 
+                living_room: {
+                    name: "Living Room",
+                    categories: {
+                        entertainment: {
+                            name: "Entertainment",
+                            videos: {
+                                watch_tv: { 
+                                    name: "Watch TV", 
+                                    description: "Use television for entertainment", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                read_book: { 
+                                    name: "Read book", 
+                                    description: "Read for leisure", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                listen_music: { 
+                                    name: "Listen to music", 
+                                    description: "Play music for relaxation", 
+                                    video: "assets/video/demo1.mp4" 
+                                }
+                            }
+                        },
+                        comfort: {
+                            name: "Comfort",
+                            videos: {
+                                adjust_lighting: { 
+                                    name: "Adjust lighting", 
+                                    description: "Control room brightness", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                arrange_pillows: { 
+                                    name: "Arrange pillows", 
+                                    description: "Position cushions comfortably", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                control_temperature: { 
+                                    name: "Control temperature", 
+                                    description: "Adjust room climate", 
+                                    video: "assets/video/demo1.mp4" 
+                                }
+                            }
+                        }
+                    }
                 }
             }
         },
-        bathroom: {
-            name: "Bathroom",
-            description: "Personal hygiene and cleaning tasks",
+        work_activities: {
+            name: "Work Activities",
+            description: "Professional and productivity tasks",
             thumbnail: "assets/image/scenarios/scene_1.png",
-            initialVideo: "assets/video/demo1.mp4",
-            operations: {
-                brush_teeth: { 
-                    name: "Brush teeth", 
-                    description: "Morning dental hygiene", 
-                    video: "assets/video/demo1.mp4" 
+            categories: {
+                computer_work: {
+                    name: "Computer Work",
+                    categories: {
+                        typing: {
+                            name: "Typing & Input",
+                            videos: {
+                                type_document: { 
+                                    name: "Type document", 
+                                    description: "Create text content", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                use_shortcuts: { 
+                                    name: "Use shortcuts", 
+                                    description: "Utilize keyboard shortcuts", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                correct_text: { 
+                                    name: "Correct text", 
+                                    description: "Edit and revise content", 
+                                    video: "assets/video/demo1.mp4" 
+                                }
+                            }
+                        },
+                        navigation: {
+                            name: "Navigation",
+                            videos: {
+                                browse_files: { 
+                                    name: "Browse files", 
+                                    description: "Navigate file system", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                switch_applications: { 
+                                    name: "Switch applications", 
+                                    description: "Change between programs", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                scroll_content: { 
+                                    name: "Scroll content", 
+                                    description: "Navigate through documents", 
+                                    video: "assets/video/demo1.mp4" 
+                                }
+                            }
+                        }
+                    }
                 },
-                wash_face: { 
-                    name: "Wash face", 
-                    description: "Cleanse facial area", 
-                    video: "assets/video/demo1.mp4" 
-                },
-                use_towel: { 
-                    name: "Use towel", 
-                    description: "Dry face with towel", 
-                    video: "assets/video/demo1.mp4" 
-                },
-                apply_soap: { 
-                    name: "Apply soap", 
-                    description: "Use soap for washing", 
-                    video: "assets/video/demo1.mp4" 
+                desk_organization: {
+                    name: "Desk Organization",
+                    categories: {
+                        tools: {
+                            name: "Tools & Supplies",
+                            videos: {
+                                use_pen: { 
+                                    name: "Use pen", 
+                                    description: "Write with pen", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                organize_papers: { 
+                                    name: "Organize papers", 
+                                    description: "Arrange documents", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                access_drawer: { 
+                                    name: "Access drawer", 
+                                    description: "Open storage compartment", 
+                                    video: "assets/video/demo1.mp4" 
+                                }
+                            }
+                        },
+                        workspace: {
+                            name: "Workspace Setup",
+                            videos: {
+                                adjust_chair: { 
+                                    name: "Adjust chair", 
+                                    description: "Set comfortable seating", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                position_monitor: { 
+                                    name: "Position monitor", 
+                                    description: "Adjust screen placement", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                clean_desk: { 
+                                    name: "Clean desk", 
+                                    description: "Maintain tidy workspace", 
+                                    video: "assets/video/demo1.mp4" 
+                                }
+                            }
+                        }
+                    }
                 }
             }
         },
-        office: {
-            name: "Office",
-            description: "Work and productivity tasks",
+        outdoor_activities: {
+            name: "Outdoor Activities",
+            description: "Garden and outdoor maintenance tasks",
             thumbnail: "assets/image/scenarios/scene_1.png",
-            initialVideo: "assets/video/demo1.mp4",
-            operations: {
-                type_keyboard: { 
-                    name: "Type on keyboard", 
-                    description: "Input text on computer", 
-                    video: "assets/video/demo1.mp4" 
+            categories: {
+                gardening: {
+                    name: "Gardening",
+                    categories: {
+                        plant_care: {
+                            name: "Plant Care",
+                            videos: {
+                                water_plants: { 
+                                    name: "Water plants", 
+                                    description: "Irrigate garden plants", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                prune_branches: { 
+                                    name: "Prune branches", 
+                                    description: "Trim plant growth", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                apply_fertilizer: { 
+                                    name: "Apply fertilizer", 
+                                    description: "Nourish plants", 
+                                    video: "assets/video/demo1.mp4" 
+                                }
+                            }
+                        },
+                        harvesting: {
+                            name: "Harvesting",
+                            videos: {
+                                pick_flowers: { 
+                                    name: "Pick flowers", 
+                                    description: "Harvest blooms", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                collect_vegetables: { 
+                                    name: "Collect vegetables", 
+                                    description: "Gather garden produce", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                gather_seeds: { 
+                                    name: "Gather seeds", 
+                                    description: "Collect for replanting", 
+                                    video: "assets/video/demo1.mp4" 
+                                }
+                            }
+                        }
+                    }
                 },
-                move_mouse: { 
-                    name: "Move mouse", 
-                    description: "Navigate computer interface", 
-                    video: "assets/video/demo1.mp4" 
-                },
-                pick_up_pen: { 
-                    name: "Pick up pen", 
-                    description: "Grab writing instrument", 
-                    video: "assets/video/demo1.mp4" 
-                },
-                open_drawer: { 
-                    name: "Open drawer", 
-                    description: "Access storage compartment", 
-                    video: "assets/video/demo1.mp4" 
-                }
-            }
-        },
-        living_room: {
-            name: "Living Room",
-            description: "Relaxation and entertainment activities",
-            thumbnail: "assets/image/scenarios/scene_1.png",
-            initialVideo: "assets/video/demo1.mp4",
-            operations: {
-                pick_up_remote: { 
-                    name: "Pick up remote", 
-                    description: "Grab TV remote control", 
-                    video: "assets/video/demo1.mp4" 
-                },
-                adjust_cushions: { 
-                    name: "Adjust cushions", 
-                    description: "Arrange sofa cushions", 
-                    video: "assets/video/demo1.mp4" 
-                },
-                open_book: { 
-                    name: "Open book", 
-                    description: "Start reading activity", 
-                    video: "assets/video/demo1.mp4" 
-                },
-                turn_on_lamp: { 
-                    name: "Turn on lamp", 
-                    description: "Provide room lighting", 
-                    video: "assets/video/demo1.mp4" 
-                }
-            }
-        },
-        garden: {
-            name: "Garden",
-            description: "Outdoor gardening and maintenance",
-            thumbnail: "assets/image/scenarios/scene_1.png",
-            initialVideo: "assets/video/demo1.mp4",
-            operations: {
-                water_plants: { 
-                    name: "Water plants", 
-                    description: "Irrigate garden plants", 
-                    video: "assets/video/demo1.mp4" 
-                },
-                pick_flowers: { 
-                    name: "Pick flowers", 
-                    description: "Harvest blooming flowers", 
-                    video: "assets/video/demo1.mp4" 
-                },
-                use_pruners: { 
-                    name: "Use pruners", 
-                    description: "Trim plant branches", 
-                    video: "assets/video/demo1.mp4" 
-                },
-                collect_seeds: { 
-                    name: "Collect seeds", 
-                    description: "Gather seeds for planting", 
-                    video: "assets/video/demo1.mp4" 
+                maintenance: {
+                    name: "Maintenance",
+                    categories: {
+                        tools: {
+                            name: "Tool Usage",
+                            videos: {
+                                use_rake: { 
+                                    name: "Use rake", 
+                                    description: "Clear leaves and debris", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                operate_hose: { 
+                                    name: "Operate hose", 
+                                    description: "Water with garden hose", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                handle_shovel: { 
+                                    name: "Handle shovel", 
+                                    description: "Dig and move soil", 
+                                    video: "assets/video/demo1.mp4" 
+                                }
+                            }
+                        },
+                        cleanup: {
+                            name: "Cleanup",
+                            videos: {
+                                remove_weeds: { 
+                                    name: "Remove weeds", 
+                                    description: "Clear unwanted plants", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                sweep_pathways: { 
+                                    name: "Sweep pathways", 
+                                    description: "Clean walkways", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                organize_tools: { 
+                                    name: "Organize tools", 
+                                    description: "Store garden equipment", 
+                                    video: "assets/video/demo1.mp4" 
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
     }
 };
 
-// Demo state management
-let selectedScenario = null;
-let currentStep = 0; // 0 = scenario selection, 1-3 = action steps
-let actionSequence = []; // Array to store the sequence of selected actions
+// Hierarchical Demo State Management
+let currentNavigation = {
+    scenario: null,
+    category1: null,
+    category2: null,
+    selectedVideo: null
+};
+
+let sliderOffset = 0;
+const sliderStep = 200; // pixels per slide
 
 // Initialize the demo
 function initDemo() {
-    console.log('Initializing tree-like interactive demo');
+    console.log('Initializing hierarchical interactive demo');
     renderScenarios();
-    updateStepCounter();
+    resetNavigation();
     console.log('Demo initialized with', Object.keys(demoData.scenarios).length, 'scenarios');
 }
 
@@ -213,286 +411,383 @@ function renderScenarios() {
         
         scenarioTrack.appendChild(card);
     });
+    
+    updateSliderControls();
 }
 
-// No slider controls needed - full horizontal scroll
+// Slider controls
+function slideScenarios(direction) {
+    const viewport = document.querySelector('.slider-viewport');
+    const track = document.getElementById('scenarioTrack');
+    if (!viewport || !track) return;
+    
+    const viewportWidth = viewport.offsetWidth;
+    const trackWidth = track.scrollWidth;
+    const maxOffset = trackWidth - viewportWidth;
+    
+    if (direction === 'left') {
+        sliderOffset = Math.max(0, sliderOffset - sliderStep);
+    } else {
+        sliderOffset = Math.min(maxOffset, sliderOffset + sliderStep);
+    }
+    
+    track.style.transform = `translateX(-${sliderOffset}px)`;
+    updateSliderControls();
+}
 
-// Select a scenario and show its initial video
+function updateSliderControls() {
+    const leftBtn = document.getElementById('scenarioSliderLeft');
+    const rightBtn = document.getElementById('scenarioSliderRight');
+    const viewport = document.querySelector('.slider-viewport');
+    const track = document.getElementById('scenarioTrack');
+    
+    if (!leftBtn || !rightBtn || !viewport || !track) return;
+    
+    const viewportWidth = viewport.offsetWidth;
+    const trackWidth = track.scrollWidth;
+    const maxOffset = trackWidth - viewportWidth;
+    
+    // Show/hide buttons based on need
+    if (trackWidth > viewportWidth) {
+        leftBtn.style.display = sliderOffset > 0 ? 'flex' : 'none';
+        rightBtn.style.display = sliderOffset < maxOffset ? 'flex' : 'none';
+    } else {
+        leftBtn.style.display = 'none';
+        rightBtn.style.display = 'none';
+    }
+}
+
+// Select scenario
 function selectScenario(scenarioKey) {
-    selectedScenario = scenarioKey;
-    currentStep = 1;
-    actionSequence = []; // Reset action sequence
+    currentNavigation.scenario = scenarioKey;
+    currentNavigation.category1 = null;
+    currentNavigation.category2 = null;
+    currentNavigation.selectedVideo = null;
     
     // Update visual selection
     document.querySelectorAll('.scenario-card').forEach(card => {
         card.classList.remove('selected');
     });
-    
     event.target.closest('.scenario-card').classList.add('selected');
     
-    // Show initial scenario video
-    const scenario = demoData.scenarios[scenarioKey];
-    showVideo(scenario.initialVideo, `${scenario.name} - Initial State`);
-    
-    // Show action selection for step 1
-    showActionSelection();
-    
-    // Update UI
-    updateStepCounter();
-    updateSequencePath();
+    // Show first category level
+    showCategoryLevel1();
+    hideVideoLevel();
+    hideCategoryLevel2();
+    updateBreadcrumb();
     
     console.log('Selected scenario:', scenarioKey);
 }
 
-// Show action selection for current step
-function showActionSelection() {
-    const actionSection = document.getElementById('actionSection');
-    const actionTitle = document.getElementById('actionTitle');
-    const actionsGrid = document.getElementById('actionsGrid');
+// Show category level 1
+function showCategoryLevel1() {
+    const level = document.getElementById('categoryLevel1');
+    const buttons = document.getElementById('categoryButtons1');
     
-    if (!actionSection || !actionTitle || !actionsGrid || !selectedScenario) return;
+    if (!level || !buttons || !currentNavigation.scenario) return;
     
-    // Show action section
-    actionSection.style.display = 'block';
+    const scenario = demoData.scenarios[currentNavigation.scenario];
+    buttons.innerHTML = '';
     
-    // Update title
-    if (currentStep > demoData.maxSteps) {
-        actionTitle.textContent = 'Sequence Complete!';
-        actionsGrid.innerHTML = `
-            <div style="text-align: center; padding: 2rem; color: var(--demo-light-text);">
-                <h3>All steps completed!</h3>
-                <p>You've completed a ${demoData.maxSteps}-step interaction sequence.</p>
-            </div>
-        `;
-        return;
+    Object.keys(scenario.categories).forEach(categoryKey => {
+        const category = scenario.categories[categoryKey];
+        const btn = document.createElement('button');
+        btn.className = 'category-btn';
+        btn.textContent = category.name;
+        btn.onclick = () => selectCategory1(categoryKey);
+        
+        buttons.appendChild(btn);
+    });
+    
+    level.style.display = 'block';
+}
+
+// Select category level 1
+function selectCategory1(categoryKey) {
+    currentNavigation.category1 = categoryKey;
+    currentNavigation.category2 = null;
+    currentNavigation.selectedVideo = null;
+    
+    // Update visual selection
+    document.querySelectorAll('#categoryButtons1 .category-btn').forEach(btn => {
+        btn.classList.remove('selected');
+    });
+    event.target.classList.add('selected');
+    
+    const scenario = demoData.scenarios[currentNavigation.scenario];
+    const category = scenario.categories[categoryKey];
+    
+    // Check if this category has subcategories or videos
+    if (category.categories) {
+        showCategoryLevel2();
+        hideVideoLevel();
+    } else if (category.videos) {
+        showVideoLevel();
+        hideCategoryLevel2();
     }
     
-    actionTitle.textContent = `Select Action for Step ${currentStep}`;
-    
-    // Render available actions
-    const scenario = demoData.scenarios[selectedScenario];
-    actionsGrid.innerHTML = '';
-    
-    Object.keys(scenario.operations).forEach(actionKey => {
-        const action = scenario.operations[actionKey];
-        const card = document.createElement('div');
-        card.className = 'action-card';
-        card.onclick = () => selectAction(actionKey, action);
-        
-        card.innerHTML = `
-            <div class="action-name">${action.name}</div>
-        `;
-        
-        actionsGrid.appendChild(card);
-    });
-    
-    console.log('Showing actions for step', currentStep);
+    updateBreadcrumb();
+    console.log('Selected category 1:', categoryKey);
 }
 
-// Select an action and immediately show its video
-function selectAction(actionKey, action) {
-    console.log('Selected action:', action.name, 'for step', currentStep);
+// Show category level 2
+function showCategoryLevel2() {
+    const level = document.getElementById('categoryLevel2');
+    const buttons = document.getElementById('categoryButtons2');
     
-    // Add action to sequence
-    actionSequence.push({
-        step: currentStep,
-        key: actionKey,
-        name: action.name,
-        description: action.description
-    });
+    if (!level || !buttons || !currentNavigation.scenario || !currentNavigation.category1) return;
     
-    // Immediately show the action's video
-    showVideo(action.video, `Step ${currentStep}: ${action.name}`);
+    const scenario = demoData.scenarios[currentNavigation.scenario];
+    const category1 = scenario.categories[currentNavigation.category1];
+    buttons.innerHTML = '';
     
-    // Move to next step
-    currentStep++;
-    
-    // Update UI
-    updateStepCounter();
-    updateSequencePath();
-    showUndoButton();
-    
-    // Show next action selection or completion
-    setTimeout(() => {
-        showActionSelection();
-    }, 800); // Small delay to let user see the action result
+    if (category1.categories) {
+        Object.keys(category1.categories).forEach(categoryKey => {
+            const category = category1.categories[categoryKey];
+            const btn = document.createElement('button');
+            btn.className = 'category-btn';
+            btn.textContent = category.name;
+            btn.onclick = () => selectCategory2(categoryKey);
+            
+            buttons.appendChild(btn);
+        });
+        
+        level.style.display = 'block';
+    }
 }
 
-// Show video in the display area
+// Select category level 2
+function selectCategory2(categoryKey) {
+    currentNavigation.category2 = categoryKey;
+    currentNavigation.selectedVideo = null;
+    
+    // Update visual selection
+    document.querySelectorAll('#categoryButtons2 .category-btn').forEach(btn => {
+        btn.classList.remove('selected');
+    });
+    event.target.classList.add('selected');
+    
+    showVideoLevel();
+    updateBreadcrumb();
+    console.log('Selected category 2:', categoryKey);
+}
+
+// Show video level
+function showVideoLevel() {
+    const level = document.getElementById('videoLevel');
+    const buttons = document.getElementById('videoButtons');
+    
+    if (!level || !buttons || !currentNavigation.scenario || !currentNavigation.category1) return;
+    
+    const scenario = demoData.scenarios[currentNavigation.scenario];
+    const category1 = scenario.categories[currentNavigation.category1];
+    let videos = null;
+    
+    if (currentNavigation.category2 && category1.categories) {
+        const category2 = category1.categories[currentNavigation.category2];
+        videos = category2.videos;
+    } else {
+        videos = category1.videos;
+    }
+    
+    if (!videos) return;
+    
+    buttons.innerHTML = '';
+    
+    Object.keys(videos).forEach(videoKey => {
+        const video = videos[videoKey];
+        const btn = document.createElement('button');
+        btn.className = 'video-btn';
+        btn.textContent = video.name;
+        btn.onclick = () => selectVideo(videoKey);
+        
+        buttons.appendChild(btn);
+    });
+    
+    level.style.display = 'block';
+}
+
+// Select video
+function selectVideo(videoKey) {
+    currentNavigation.selectedVideo = videoKey;
+    
+    // Update visual selection
+    document.querySelectorAll('#videoButtons .video-btn').forEach(btn => {
+        btn.classList.remove('selected');
+    });
+    event.target.classList.add('selected');
+    
+    // Get video data
+    const scenario = demoData.scenarios[currentNavigation.scenario];
+    const category1 = scenario.categories[currentNavigation.category1];
+    let videos = null;
+    
+    if (currentNavigation.category2 && category1.categories) {
+        const category2 = category1.categories[currentNavigation.category2];
+        videos = category2.videos;
+    } else {
+        videos = category1.videos;
+    }
+    
+    const video = videos[videoKey];
+    showVideo(video.video, video.name);
+    updateBreadcrumb();
+    
+    console.log('Selected video:', videoKey);
+}
+
+// Show video function
 function showVideo(videoSrc, title) {
     const videoDisplay = document.getElementById('videoDisplay');
     if (!videoDisplay) return;
     
+    // Create video element
+    const video = document.createElement('video');
+    video.src = videoSrc;
+    video.autoplay = true;
+    video.loop = true;
+    video.muted = true;
+    video.controls = true;
+    
+    // Handle video loading error
+    video.onerror = () => {
+        console.error('Video failed to load:', videoSrc);
+        videoDisplay.innerHTML = `
+            <div class="demo-placeholder">
+                <div class="icon">⚠️</div>
+                <p>Video not available</p>
+                <small>${title}</small>
+            </div>
+        `;
+    };
+    
+    // Clear and add video
+    videoDisplay.innerHTML = '';
+    videoDisplay.appendChild(video);
     videoDisplay.classList.add('playing');
-    videoDisplay.innerHTML = `
-        <video controls autoplay muted>
-            <source src="${videoSrc}" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div style="position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.8); color: white; padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.9rem;">
-            ${title}
-        </div>
-    `;
     
-    // Reset playing state when video ends
-    const video = videoDisplay.querySelector('video');
-    if (video) {
-        video.addEventListener('ended', () => {
-            videoDisplay.classList.remove('playing');
-        });
-    }
+    console.log('Showing video:', title, videoSrc);
 }
 
-// Update step counter
-function updateStepCounter() {
-    const stepCounter = document.getElementById('stepCounter');
-    if (!stepCounter) return;
+// Update breadcrumb navigation
+function updateBreadcrumb() {
+    const breadcrumbNav = document.getElementById('breadcrumbNav');
+    const breadcrumbItems = document.getElementById('breadcrumbItems');
     
-    if (!selectedScenario) {
-        stepCounter.textContent = 'Step 1: Choose Scenario';
-    } else if (currentStep <= demoData.maxSteps) {
-        stepCounter.textContent = `Step ${currentStep + 1}: Select Action ${currentStep}`;
-    } else {
-        stepCounter.textContent = 'Sequence Complete!';
-    }
-}
-
-// Update sequence path display
-function updateSequencePath() {
-    const sequencePath = document.getElementById('sequencePath');
-    const currentPath = document.getElementById('currentPath');
-    const pathSteps = document.getElementById('pathSteps');
+    if (!breadcrumbNav || !breadcrumbItems) return;
     
-    if (!sequencePath) return;
+    const path = [];
     
-    sequencePath.innerHTML = '';
-    
-    if (selectedScenario && actionSequence.length > 0) {
-        const scenario = demoData.scenarios[selectedScenario];
+    if (currentNavigation.scenario) {
+        const scenario = demoData.scenarios[currentNavigation.scenario];
+        path.push(scenario.name);
         
-        // Add scenario to path
-        const scenarioItem = document.createElement('div');
-        scenarioItem.className = 'path-item';
-        scenarioItem.textContent = scenario.name;
-        sequencePath.appendChild(scenarioItem);
-        
-        // Add actions to path
-        actionSequence.forEach((action, index) => {
-            // Add arrow
-            const arrow = document.createElement('span');
-            arrow.className = 'path-arrow';
-            arrow.textContent = '→';
-            sequencePath.appendChild(arrow);
+        if (currentNavigation.category1) {
+            const category1 = scenario.categories[currentNavigation.category1];
+            path.push(category1.name);
             
-            // Add action
-            const actionItem = document.createElement('div');
-            actionItem.className = 'path-item';
-            actionItem.textContent = `${action.step}. ${action.name}`;
-            sequencePath.appendChild(actionItem);
-        });
-        
-        // Show current path section
-        if (currentPath) {
-            currentPath.style.display = 'block';
-            if (pathSteps) {
-                pathSteps.innerHTML = actionSequence.map((action, index) => `
-                    <div class="path-step">
-                        <div class="step-num">${action.step}</div>
-                        ${action.name}
-                    </div>
-                    ${index < actionSequence.length - 1 ? '<span class="path-arrow">→</span>' : ''}
-                `).join('');
+            if (currentNavigation.category2) {
+                const category2 = category1.categories[currentNavigation.category2];
+                path.push(category2.name);
+            }
+            
+            if (currentNavigation.selectedVideo) {
+                let videos = null;
+                if (currentNavigation.category2 && category1.categories) {
+                    const category2 = category1.categories[currentNavigation.category2];
+                    videos = category2.videos;
+                } else {
+                    videos = category1.videos;
+                }
+                
+                if (videos && videos[currentNavigation.selectedVideo]) {
+                    path.push(videos[currentNavigation.selectedVideo].name);
+                }
             }
         }
-    } else if (currentPath) {
-        currentPath.style.display = 'none';
     }
-}
-
-// Show undo button when there are actions to undo
-function showUndoButton() {
-    const undoBtn = document.getElementById('undoBtn');
-    if (undoBtn && actionSequence.length > 0) {
-        undoBtn.style.display = 'inline-block';
-    }
-}
-
-// Undo last step
-function undoLastStep() {
-    if (actionSequence.length === 0) return;
     
-    // Remove last action from sequence
-    actionSequence.pop();
-    currentStep--;
-    
-    // Show previous state
-    if (actionSequence.length === 0) {
-        // Back to initial scenario video
-        const scenario = demoData.scenarios[selectedScenario];
-        showVideo(scenario.initialVideo, `${scenario.name} - Initial State`);
+    if (path.length > 0) {
+        breadcrumbItems.innerHTML = path.map((item, index) => 
+            `<span class="breadcrumb-item ${index === path.length - 1 ? 'current' : ''}">${item}</span>`
+        ).join('');
+        breadcrumbNav.style.display = 'block';
     } else {
-        // Show video of previous action
-        const lastAction = actionSequence[actionSequence.length - 1];
-        const scenario = demoData.scenarios[selectedScenario];
-        const action = scenario.operations[lastAction.key];
-        showVideo(action.video, `Step ${lastAction.step}: ${lastAction.name}`);
+        breadcrumbNav.style.display = 'none';
     }
-    
-    // Update UI
-    updateStepCounter();
-    updateSequencePath();
-    showActionSelection();
-    
-    // Hide undo button if no more actions
-    if (actionSequence.length === 0) {
-        const undoBtn = document.getElementById('undoBtn');
-        if (undoBtn) undoBtn.style.display = 'none';
-    }
-    
-    console.log('Undid last step. Current sequence:', actionSequence);
 }
 
-// Reset demo to initial state
-function resetDemo() {
-    selectedScenario = null;
-    currentStep = 0;
-    actionSequence = [];
+// Hide navigation levels
+function hideCategoryLevel2() {
+    const level = document.getElementById('categoryLevel2');
+    if (level) level.style.display = 'none';
+}
+
+function hideVideoLevel() {
+    const level = document.getElementById('videoLevel');
+    if (level) level.style.display = 'none';
+}
+
+// Reset navigation
+function resetNavigation() {
+    currentNavigation = {
+        scenario: null,
+        category1: null,
+        category2: null,
+        selectedVideo: null
+    };
     
-    // Reset UI
-    document.querySelectorAll('.scenario-card').forEach(card => {
-        card.classList.remove('selected');
+    // Hide all levels except scenario
+    hideCategoryLevel2();
+    hideVideoLevel();
+    const categoryLevel1 = document.getElementById('categoryLevel1');
+    if (categoryLevel1) categoryLevel1.style.display = 'none';
+    
+    // Reset selections
+    document.querySelectorAll('.scenario-card, .category-btn, .video-btn').forEach(el => {
+        el.classList.remove('selected');
     });
     
-    const actionSection = document.getElementById('actionSection');
-    if (actionSection) actionSection.style.display = 'none';
-    
-    const undoBtn = document.getElementById('undoBtn');
-    if (undoBtn) undoBtn.style.display = 'none';
-    
-    const currentPath = document.getElementById('currentPath');
-    if (currentPath) currentPath.style.display = 'none';
-    
+    // Reset video display
     const videoDisplay = document.getElementById('videoDisplay');
     if (videoDisplay) {
-        videoDisplay.classList.remove('playing');
         videoDisplay.innerHTML = `
             <div class="demo-placeholder">
                 <div class="icon">🎬</div>
                 <p>Select a scenario to begin</p>
             </div>
         `;
+        videoDisplay.classList.remove('playing');
     }
     
-    updateStepCounter();
-    updateSequencePath();
-    
+    updateBreadcrumb();
+}
+
+// Reset demo
+function resetDemo() {
+    resetNavigation();
+    sliderOffset = 0;
+    const track = document.getElementById('scenarioTrack');
+    if (track) {
+        track.style.transform = 'translateX(0)';
+    }
+    updateSliderControls();
     console.log('Demo reset');
 }
 
 // Event listeners
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize demo
     setTimeout(initDemo, 100);
+    
+    // Handle window resize for slider
+    window.addEventListener('resize', () => {
+        sliderOffset = 0;
+        const track = document.getElementById('scenarioTrack');
+        if (track) {
+            track.style.transform = 'translateX(0)';
+        }
+        updateSliderControls();
+    });
 });
 
 // BibTeX copy functionality

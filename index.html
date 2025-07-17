@@ -82,65 +82,70 @@
                 <div class="demo-content">
                     <!-- Header -->
                     <div class="demo-header">
-                        <p class="demo-subtitle">Select a scenario, then choose actions step by step to see immediate results</p>
-                        <div class="demo-progress" id="demoProgress">
-                            <div class="progress-indicator">
-                                <div class="step-counter" id="stepCounter">Step 1: Choose Scenario</div>
-                                <div class="sequence-path" id="sequencePath">
-                                    <!-- Dynamic sequence path will be shown here -->
+                        <p class="demo-subtitle">Navigate through scenarios and categories to explore video demonstrations</p>
+                    </div>
+
+                    <!-- Navigation Structure -->
+                    <div class="demo-navigation">
+                        <!-- Scenario Selection with Horizontal Slider -->
+                        <div class="nav-level" id="scenarioLevel">
+                            <div class="nav-title">Choose Scenario</div>
+                            <div class="slider-container">
+                                <button class="slider-btn slider-btn-left" id="scenarioSliderLeft" onclick="slideScenarios('left')" style="display: none;">‹</button>
+                                <div class="slider-viewport">
+                                    <div class="slider-track" id="scenarioTrack">
+                                        <!-- Scenarios will be populated by JavaScript -->
+                                    </div>
                                 </div>
+                                <button class="slider-btn slider-btn-right" id="scenarioSliderRight" onclick="slideScenarios('right')" style="display: none;">›</button>
+                            </div>
+                        </div>
+
+                        <!-- Category Level 1 -->
+                        <div class="nav-level" id="categoryLevel1" style="display: none;">
+                            <div class="nav-title" id="categoryTitle1">Choose Category</div>
+                            <div class="category-buttons" id="categoryButtons1">
+                                <!-- Category buttons will be populated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <!-- Category Level 2 -->
+                        <div class="nav-level" id="categoryLevel2" style="display: none;">
+                            <div class="nav-title" id="categoryTitle2">Choose Subcategory</div>
+                            <div class="category-buttons" id="categoryButtons2">
+                                <!-- Subcategory buttons will be populated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <!-- Video Selection -->
+                        <div class="nav-level" id="videoLevel" style="display: none;">
+                            <div class="nav-title" id="videoTitle">Select Video</div>
+                            <div class="video-buttons" id="videoButtons">
+                                <!-- Video buttons will be populated by JavaScript -->
                             </div>
                         </div>
                     </div>
 
-                    <!-- Main Demo Content -->
-                    <div class="demo-main-content">
-                        <!-- Left Panel: Navigation and Controls -->
-                        <div class="demo-controls-panel">
-                            <!-- Scenario Selection -->
-                            <div class="demo-section" id="scenarioSection">
-                                <div class="section-title">Choose Scenario</div>
-                                <div class="scenario-slider-container">
-                                    <div class="scenario-slider" id="scenarioSlider">
-                                        <div class="scenario-track" id="scenarioTrack">
-                                            <!-- Scenarios will be populated by JavaScript -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Action Selection -->
-                            <div class="demo-section" id="actionSection" style="display: none;">
-                                <div class="section-title" id="actionTitle">Select Action for Step 1</div>
-                                <div class="actions-grid" id="actionsGrid">
-                                    <!-- Actions will be populated by JavaScript -->
-                                </div>
-                            </div>
-
-                            <!-- Demo Controls -->
-                            <div class="demo-controls" id="demoControls">
-                                <button class="demo-btn secondary" onclick="resetDemo()">Reset Demo</button>
-                                <button class="demo-btn" onclick="undoLastStep()" id="undoBtn" style="display: none;">Undo Last Step</button>
+                    <!-- Fixed Video Display Area -->
+                    <div class="demo-video-container">
+                        <div class="video-display" id="videoDisplay">
+                            <div class="demo-placeholder">
+                                <div class="icon">🎬</div>
+                                <p>Select a scenario to begin</p>
                             </div>
                         </div>
-
-                        <!-- Right Panel: Video Display -->
-                        <div class="demo-video-panel">
-                            <div class="video-display" id="videoDisplay">
-                                <div class="demo-placeholder">
-                                    <div class="icon">🎬</div>
-                                    <p>Select a scenario to begin</p>
-                                </div>
-                            </div>
-                            
-                            <!-- Current Path Display -->
-                            <div class="current-path" id="currentPath" style="display: none;">
-                                <div class="path-label">Current Path:</div>
-                                <div class="path-steps" id="pathSteps">
-                                    <!-- Path will be populated by JavaScript -->
-                                </div>
+                        
+                        <!-- Breadcrumb Navigation -->
+                        <div class="breadcrumb-nav" id="breadcrumbNav" style="display: none;">
+                            <div class="breadcrumb-items" id="breadcrumbItems">
+                                <!-- Breadcrumb will be populated by JavaScript -->
                             </div>
                         </div>
+                    </div>
+
+                    <!-- Reset Button -->
+                    <div class="demo-controls">
+                        <button class="demo-btn secondary" onclick="resetDemo()">Reset Demo</button>
                     </div>
                 </div>
             </div>

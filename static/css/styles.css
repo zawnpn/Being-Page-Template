@@ -851,6 +851,7 @@ body {
 /* Ensure no spacing issues with removed dark theme */
 
 /* Apple-style elegant Interactive Demo Section */
+/* Interactive Demo - Hierarchical Navigation */
 .interactive-demo {
     background: var(--bg-white);
     border: 1px solid var(--demo-border);
@@ -861,7 +862,7 @@ body {
     position: relative;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    min-height: 600px;
+    min-height: 700px;
 }
 
 .interactive-demo::before {
@@ -878,11 +879,14 @@ body {
 .demo-content {
     position: relative;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: 100%;
 }
 
 .demo-header {
     text-align: center;
-    margin-bottom: 2rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--demo-border);
 }
@@ -891,74 +895,18 @@ body {
     font-size: 1rem;
     color: var(--demo-light-text);
     font-weight: 400;
-    margin-bottom: 1rem;
+    margin: 0;
 }
 
-/* Progress indicator */
-.demo-progress {
-    display: flex;
-    justify-content: center;
-    margin: 1.5rem 0;
-}
-
-.progress-indicator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    text-align: center;
-}
-
-.step-counter {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--demo-text);
-}
-
-.sequence-path {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    min-height: 24px;
-}
-
-.path-item {
-    background: #1d1d1f;
-    color: white;
-    padding: 0.25rem 0.75rem;
-    border-radius: 12px;
-    font-size: 0.8rem;
-    font-weight: 500;
-}
-
-.path-arrow {
-    color: var(--demo-light-text);
-    font-size: 0.8rem;
-}
-
-/* Main demo layout */
-.demo-main-content {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 2rem;
-    min-height: 500px;
-}
-
-.demo-controls-panel {
+/* Navigation Structure */
+.demo-navigation {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    flex: 1;
 }
 
-.demo-video-panel {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.demo-section {
+.nav-level {
     background: var(--bg-light);
     border: 1px solid var(--demo-border);
     border-radius: var(--border-radius-medium);
@@ -966,24 +914,43 @@ body {
     transition: all 0.3s var(--ease-out);
 }
 
-.demo-section .section-title {
+.nav-title {
     font-size: 1.1rem;
     font-weight: 600;
     color: var(--demo-text);
     margin-bottom: 1rem;
     text-align: center;
+    letter-spacing: -0.016em;
 }
 
-/* Scenario slider */
-.scenario-slider-container {
-    margin: 1rem 0;
+/* Horizontal Slider for Scenarios */
+.slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.slider-viewport {
+    flex: 1;
+    overflow: hidden;
+    border-radius: var(--border-radius-medium);
+    background: rgba(245, 245, 247, 0.5);
+    padding: 0.5rem;
+}
+
+.slider-track {
+    display: flex;
+    gap: 1rem;
+    transition: transform 0.3s var(--ease-out);
+    padding: 0.5rem;
 }
 
 .slider-btn {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: var(--bg-light);
+    background: var(--bg-white);
     border: 1px solid var(--demo-border);
     display: flex;
     align-items: center;
@@ -991,11 +958,15 @@ body {
     cursor: pointer;
     transition: all 0.3s var(--ease-out);
     color: var(--demo-text);
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .slider-btn:hover {
     background: var(--demo-button-hover);
     transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .slider-btn:disabled {
@@ -1004,23 +975,9 @@ body {
     transform: none;
 }
 
-.scenario-slider {
-    width: 100%;
-    overflow-x: auto;
-    border-radius: var(--border-radius-medium);
-    padding: 0.5rem;
-    background: rgba(245, 245, 247, 0.5);
-}
-
-.scenario-track {
-    display: flex;
-    gap: 1rem;
-    padding: 0.5rem;
-    min-width: max-content;
-}
-
+/* Scenario Cards */
 .scenario-card {
-    min-width: 140px;
+    min-width: 160px;
     flex: 0 0 auto;
     background: var(--bg-white);
     border: 2px solid var(--demo-border);
@@ -1045,21 +1002,194 @@ body {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
-.scenario-card.selected::after {
-    content: '\u2713';
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    width: 20px;
-    height: 20px;
-    background: #1d1d1f;
-    color: white;
-    border-radius: 50%;
+.scenario-image {
+    width: 100%;
+    height: 80px;
+    border-radius: var(--border-radius-small);
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+    background: var(--bg-light);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.7rem;
-    font-weight: bold;
+}
+
+.scenario-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.scenario-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--demo-text);
+    line-height: 1.3;
+}
+
+/* Category and Video Buttons */
+.category-buttons,
+.video-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.category-btn,
+.video-btn {
+    background: var(--bg-white);
+    border: 1px solid var(--demo-border);
+    border-radius: var(--border-radius-small);
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s var(--ease-out);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--demo-text);
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    position: relative;
+    overflow: hidden;
+}
+
+.category-btn:hover,
+.video-btn:hover {
+    background: var(--demo-button-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-color: var(--hover-border);
+}
+
+.category-btn.selected,
+.video-btn.selected {
+    background: #1d1d1f;
+    color: white;
+    border-color: #1d1d1f;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.video-btn {
+    min-width: 140px;
+}
+
+/* Fixed Video Display Area */
+.demo-video-container {
+    position: relative;
+    background: var(--bg-light);
+    border: 1px solid var(--demo-border);
+    border-radius: var(--border-radius-medium);
+    padding: 1.5rem;
+    min-height: 300px;
+}
+
+.video-display {
+    background: var(--bg-white);
+    border: 1px solid var(--demo-border);
+    border-radius: var(--border-radius-medium);
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s var(--ease-out);
+    margin-bottom: 1rem;
+}
+
+.video-display.playing {
+    border-color: #1d1d1f;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.video-display video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius-medium);
+}
+
+.demo-placeholder {
+    text-align: center;
+    color: var(--demo-light-text);
+}
+
+.demo-placeholder .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.7;
+}
+
+.demo-placeholder p {
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Breadcrumb Navigation */
+.breadcrumb-nav {
+    background: var(--bg-white);
+    border: 1px solid var(--demo-border);
+    border-radius: var(--border-radius-small);
+    padding: 0.75rem 1rem;
+}
+
+.breadcrumb-items {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.breadcrumb-item {
+    font-size: 0.85rem;
+    color: var(--demo-text);
+    font-weight: 500;
+}
+
+.breadcrumb-item:not(:last-child):after {
+    content: '›';
+    margin-left: 0.5rem;
+    color: var(--demo-light-text);
+}
+
+.breadcrumb-item.current {
+    color: #1d1d1f;
+    font-weight: 600;
+}
+
+/* Demo Controls */
+.demo-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: auto;
+    padding-top: 1rem;
+}
+
+.demo-btn {
+    background: var(--bg-white);
+    color: var(--demo-text);
+    border: 1px solid var(--demo-border);
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    transition: all 0.3s var(--ease-out);
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.demo-btn:hover {
+    background: var(--demo-button-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.demo-btn.secondary {
+    background: var(--bg-light);
+    border-color: var(--demo-border);
+    color: var(--demo-text);
 }
 
 .scenario-image {
@@ -1069,13 +1199,95 @@ body {
     border-radius: var(--border-radius-small);
     margin-bottom: 0.75rem;
     overflow: hidden;
-    transition: all 0.3s var(--ease-out);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .scenario-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.scenario-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--demo-text);
+    line-height: 1.3;
+}
+
+/* Responsive Design for Interactive Demo */
+@media (max-width: 768px) {
+    .interactive-demo {
+        padding: 1.5rem 1rem;
+        min-height: auto;
+    }
+
+    .demo-navigation {
+        gap: 1rem;
+    }
+
+    .nav-level {
+        padding: 1rem;
+    }
+
+    .nav-title {
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .slider-container {
+        gap: 0.5rem;
+    }
+
+    .slider-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+
+    .scenario-card {
+        min-width: 120px;
+        padding: 0.75rem;
+    }
+
+    .scenario-image {
+        height: 60px;
+        margin-bottom: 0.5rem;
+    }
+
+    .scenario-name {
+        font-size: 0.8rem;
+    }
+
+    .category-buttons,
+    .video-buttons {
+        gap: 0.5rem;
+    }
+
+    .category-btn,
+    .video-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .video-btn {
+        min-width: 120px;
+    }
+
+    .demo-video-container {
+        padding: 1rem;
+        min-height: 250px;
+    }
+
+    .breadcrumb-items {
+        gap: 0.25rem;
+    }
+
+    .breadcrumb-item {
+        font-size: 0.8rem;
+    }
 }
 
 .scenario-name {
