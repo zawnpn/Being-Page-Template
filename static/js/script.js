@@ -468,26 +468,35 @@ function selectScenario(scenarioKey) {
     document.querySelectorAll('.scenario-card').forEach(card => {
         card.classList.remove('selected');
     });
-    event.target.closest('.scenario-card').classList.add('selected');
+    // Fix deprecated event usage
+    const scenarioCard = document.querySelector(`.scenario-card[onclick*="${scenarioKey}"]`);
+    if (scenarioCard) {
+        scenarioCard.classList.add('selected');
+    }
     
-    // Show first category level
+    // Show first category level in fixed navigation area
     showCategoryLevel1();
-    hideVideoLevel();
-    hideCategoryLevel2();
     updateBreadcrumb();
     
     console.log('Selected scenario:', scenarioKey);
 }
 
-// Show category level 1
+// Show category level 1 in fixed navigation area
 function showCategoryLevel1() {
-    const level = document.getElementById('categoryLevel1');
-    const buttons = document.getElementById('categoryButtons1');
+    const navigationTitle = document.getElementById('navigationTitle');
+    const navigationContent = document.getElementById('navigationContent');
     
-    if (!level || !buttons || !currentNavigation.scenario) return;
+    if (!navigationTitle || !navigationContent || !currentNavigation.scenario) return;
     
     const scenario = demoData.scenarios[currentNavigation.scenario];
-    buttons.innerHTML = '';
+    
+    // Update title and content
+    navigationTitle.textContent = 'Choose Category';
+    navigationContent.innerHTML = '';
+    
+    // Create button container
+    const buttonContainer = document.createElement('div');
+    buttonContainer.className = 'category-buttons';
     
     Object.keys(scenario.categories).forEach(categoryKey => {
         const category = scenario.categories[categoryKey];
@@ -496,10 +505,10 @@ function showCategoryLevel1() {
         btn.textContent = category.name;
         btn.onclick = () => selectCategory1(categoryKey);
         
-        buttons.appendChild(btn);
+        buttonContainer.appendChild(btn);
     });
     
-    level.style.display = 'block';
+    navigationContent.appendChild(buttonContainer);
 }
 
 // Select category level 1
@@ -509,10 +518,14 @@ function selectCategory1(categoryKey) {
     currentNavigation.selectedVideo = null;
     
     // Update visual selection
-    document.querySelectorAll('#categoryButtons1 .category-btn').forEach(btn => {
+    document.querySelectorAll('.category-btn').forEach(btn => {
         btn.classList.remove('selected');
     });
-    event.target.classList.add('selected');
+    // Find the clicked button without using deprecated event
+    const clickedBtn = document.querySelector(`.category-btn[onclick*="${categoryKey}"]`);
+    if (clickedBtn) {
+        clickedBtn.classList.add('selected');
+    }
     
     const scenario = demoData.scenarios[currentNavigation.scenario];
     const category = scenario.categories[categoryKey];
@@ -520,28 +533,33 @@ function selectCategory1(categoryKey) {
     // Check if this category has subcategories or videos
     if (category.categories) {
         showCategoryLevel2();
-        hideVideoLevel();
     } else if (category.videos) {
         showVideoLevel();
-        hideCategoryLevel2();
     }
     
     updateBreadcrumb();
     console.log('Selected category 1:', categoryKey);
 }
 
-// Show category level 2
+// Show category level 2 in fixed navigation area
 function showCategoryLevel2() {
-    const level = document.getElementById('categoryLevel2');
-    const buttons = document.getElementById('categoryButtons2');
+    const navigationTitle = document.getElementById('navigationTitle');
+    const navigationContent = document.getElementById('navigationContent');
     
-    if (!level || !buttons || !currentNavigation.scenario || !currentNavigation.category1) return;
+    if (!navigationTitle || !navigationContent || !currentNavigation.scenario || !currentNavigation.category1) return;
     
     const scenario = demoData.scenarios[currentNavigation.scenario];
     const category1 = scenario.categories[currentNavigation.category1];
-    buttons.innerHTML = '';
     
     if (category1.categories) {
+        // Update title and content
+        navigationTitle.textContent = 'Choose Subcategory';
+        navigationContent.innerHTML = '';
+        
+        // Create button container
+        const buttonContainer = document.createElement('div');
+        buttonContainer.className = 'category-buttons';
+        
         Object.keys(category1.categories).forEach(categoryKey => {
             const category = category1.categories[categoryKey];
             const btn = document.createElement('button');
@@ -549,10 +567,10 @@ function showCategoryLevel2() {
             btn.textContent = category.name;
             btn.onclick = () => selectCategory2(categoryKey);
             
-            buttons.appendChild(btn);
+            buttonContainer.appendChild(btn);
         });
         
-        level.style.display = 'block';
+        navigationContent.appendChild(buttonContainer);
     }
 }
 
@@ -562,22 +580,26 @@ function selectCategory2(categoryKey) {
     currentNavigation.selectedVideo = null;
     
     // Update visual selection
-    document.querySelectorAll('#categoryButtons2 .category-btn').forEach(btn => {
+    document.querySelectorAll('.category-btn').forEach(btn => {
         btn.classList.remove('selected');
     });
-    event.target.classList.add('selected');
+    // Find the clicked button without using deprecated event
+    const clickedBtn = document.querySelector(`.category-btn[onclick*="${categoryKey}"]`);
+    if (clickedBtn) {
+        clickedBtn.classList.add('selected');
+    }
     
     showVideoLevel();
     updateBreadcrumb();
     console.log('Selected category 2:', categoryKey);
 }
 
-// Show video level
+// Show video level in fixed navigation area
 function showVideoLevel() {
-    const level = document.getElementById('videoLevel');
-    const buttons = document.getElementById('videoButtons');
+    const navigationTitle = document.getElementById('navigationTitle');
+    const navigationContent = document.getElementById('navigationContent');
     
-    if (!level || !buttons || !currentNavigation.scenario || !currentNavigation.category1) return;
+    if (!navigationTitle || !navigationContent || !currentNavigation.scenario || !currentNavigation.category1) return;
     
     const scenario = demoData.scenarios[currentNavigation.scenario];
     const category1 = scenario.categories[currentNavigation.category1];
@@ -592,7 +614,13 @@ function showVideoLevel() {
     
     if (!videos) return;
     
-    buttons.innerHTML = '';
+    // Update title and content
+    navigationTitle.textContent = 'Select Video';
+    navigationContent.innerHTML = '';
+    
+    // Create button container
+    const buttonContainer = document.createElement('div');
+    buttonContainer.className = 'video-buttons';
     
     Object.keys(videos).forEach(videoKey => {
         const video = videos[videoKey];
@@ -601,10 +629,10 @@ function showVideoLevel() {
         btn.textContent = video.name;
         btn.onclick = () => selectVideo(videoKey);
         
-        buttons.appendChild(btn);
+        buttonContainer.appendChild(btn);
     });
     
-    level.style.display = 'block';
+    navigationContent.appendChild(buttonContainer);
 }
 
 // Select video
@@ -612,10 +640,14 @@ function selectVideo(videoKey) {
     currentNavigation.selectedVideo = videoKey;
     
     // Update visual selection
-    document.querySelectorAll('#videoButtons .video-btn').forEach(btn => {
+    document.querySelectorAll('.video-btn').forEach(btn => {
         btn.classList.remove('selected');
     });
-    event.target.classList.add('selected');
+    // Find the clicked button without using deprecated event
+    const clickedBtn = document.querySelector(`.video-btn[onclick*="${videoKey}"]`);
+    if (clickedBtn) {
+        clickedBtn.classList.add('selected');
+    }
     
     // Get video data
     const scenario = demoData.scenarios[currentNavigation.scenario];
@@ -717,17 +749,6 @@ function updateBreadcrumb() {
     }
 }
 
-// Hide navigation levels
-function hideCategoryLevel2() {
-    const level = document.getElementById('categoryLevel2');
-    if (level) level.style.display = 'none';
-}
-
-function hideVideoLevel() {
-    const level = document.getElementById('videoLevel');
-    if (level) level.style.display = 'none';
-}
-
 // Reset navigation
 function resetNavigation() {
     currentNavigation = {
@@ -737,11 +758,17 @@ function resetNavigation() {
         selectedVideo: null
     };
     
-    // Hide all levels except scenario
-    hideCategoryLevel2();
-    hideVideoLevel();
-    const categoryLevel1 = document.getElementById('categoryLevel1');
-    if (categoryLevel1) categoryLevel1.style.display = 'none';
+    // Reset navigation area
+    const navigationTitle = document.getElementById('navigationTitle');
+    const navigationContent = document.getElementById('navigationContent');
+    
+    if (navigationTitle) {
+        navigationTitle.textContent = 'Select a scenario to continue';
+    }
+    
+    if (navigationContent) {
+        navigationContent.innerHTML = '';
+    }
     
     // Reset selections
     document.querySelectorAll('.scenario-card, .category-btn, .video-btn').forEach(el => {
@@ -809,21 +836,40 @@ function copyBibTeX(contentId) {
         }, 2000);
     }).catch(err => {
         console.error('Failed to copy text: ', err);
-        // Fallback for older browsers
-        const textArea = document.createElement('textarea');
-        textArea.value = text;
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textArea);
-        
-        const originalText = copyBtn.textContent;
-        copyBtn.textContent = 'Copied!';
-        copyBtn.style.background = '#28a745';
-        
-        setTimeout(() => {
-            copyBtn.textContent = originalText;
-            copyBtn.style.background = '';
-        }, 2000);
+        // Modern fallback - try using the legacy API if clipboard API fails
+        try {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.opacity = '0';
+            document.body.appendChild(textArea);
+            textArea.select();
+            
+            // Use legacy API with warning suppression
+            const success = document.execCommand('copy'); // Legacy API for older browsers
+            document.body.removeChild(textArea);
+            
+            if (success) {
+                const originalText = copyBtn.textContent;
+                copyBtn.textContent = 'Copied!';
+                copyBtn.style.background = '#28a745';
+                
+                setTimeout(() => {
+                    copyBtn.textContent = originalText;
+                    copyBtn.style.background = '';
+                }, 2000);
+            } else {
+                throw new Error('Copy command failed');
+            }
+        } catch (fallbackErr) {
+            console.error('All copy methods failed:', fallbackErr);
+            // Show error to user
+            copyBtn.textContent = 'Copy failed';
+            copyBtn.style.background = '#dc3545';
+            setTimeout(() => {
+                copyBtn.textContent = 'Copy';
+                copyBtn.style.background = '';
+            }, 2000);
+        }
     });
 }

@@ -85,10 +85,10 @@
                         <p class="demo-subtitle">Navigate through scenarios and categories to explore video demonstrations</p>
                     </div>
 
-                    <!-- Navigation Structure -->
+                    <!-- Fixed Navigation Structure -->
                     <div class="demo-navigation">
                         <!-- Scenario Selection with Horizontal Slider -->
-                        <div class="nav-level" id="scenarioLevel">
+                        <div class="nav-section scenario-section">
                             <div class="nav-title">Choose Scenario</div>
                             <div class="slider-container">
                                 <button class="slider-btn slider-btn-left" id="scenarioSliderLeft" onclick="slideScenarios('left')" style="display: none;">‹</button>
@@ -101,27 +101,11 @@
                             </div>
                         </div>
 
-                        <!-- Category Level 1 -->
-                        <div class="nav-level" id="categoryLevel1" style="display: none;">
-                            <div class="nav-title" id="categoryTitle1">Choose Category</div>
-                            <div class="category-buttons" id="categoryButtons1">
-                                <!-- Category buttons will be populated by JavaScript -->
-                            </div>
-                        </div>
-
-                        <!-- Category Level 2 -->
-                        <div class="nav-level" id="categoryLevel2" style="display: none;">
-                            <div class="nav-title" id="categoryTitle2">Choose Subcategory</div>
-                            <div class="category-buttons" id="categoryButtons2">
-                                <!-- Subcategory buttons will be populated by JavaScript -->
-                            </div>
-                        </div>
-
-                        <!-- Video Selection -->
-                        <div class="nav-level" id="videoLevel" style="display: none;">
-                            <div class="nav-title" id="videoTitle">Select Video</div>
-                            <div class="video-buttons" id="videoButtons">
-                                <!-- Video buttons will be populated by JavaScript -->
+                        <!-- Fixed Navigation Area -->
+                        <div class="nav-section navigation-area" id="navigationArea">
+                            <div class="nav-title" id="navigationTitle">Select a scenario to continue</div>
+                            <div class="navigation-content" id="navigationContent">
+                                <!-- Navigation buttons will be populated by JavaScript -->
                             </div>
                         </div>
                     </div>
