@@ -656,11 +656,10 @@ function initTrackpadScrolling() {
     let scrollTimeout;
     
     viewport.addEventListener('wheel', (e) => {
-        // Prevent default page scroll
-        e.preventDefault();
-        
         // Only handle horizontal scrolling or when no vertical scroll
         if (Math.abs(e.deltaX) > Math.abs(e.deltaY) || e.deltaY === 0) {
+            // Prevent default page scroll only when handling horizontal scrolling
+            e.preventDefault();
             const track = document.getElementById('scenarioTrack');
             if (!track) return;
             
