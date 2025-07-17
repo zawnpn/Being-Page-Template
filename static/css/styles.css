@@ -961,6 +961,8 @@ body {
     flex-direction: column;
     gap: 0.5rem;
     align-items: center;
+    width: 100%;
+    justify-content: center;
 }
 
 .breadcrumb-options-container {
@@ -969,6 +971,9 @@ body {
     gap: 0.5rem;
     justify-content: center;
     max-width: 400px;
+    width: 100%;
+    align-items: center;
+    margin: 0 auto;
 }
 
 .breadcrumb-option {
@@ -1007,6 +1012,8 @@ body {
     font-style: italic;
     text-align: center;
     padding: 0.5rem;
+    width: 100%;
+    display: block;
 }
 
 .nav-title {
@@ -1032,6 +1039,12 @@ body {
     border-radius: var(--border-radius-medium);
     background: rgba(255, 255, 255, 0.5);
     padding: 1rem;
+    cursor: grab;
+    user-select: none;
+}
+
+.slider-viewport:active {
+    cursor: grabbing;
 }
 
 .slider-track {

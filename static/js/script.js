@@ -1105,9 +1105,67 @@ function resetDemo() {
     console.log('Demo reset');
 }
 
+// Add trackpad scrolling support to slider
+function initTrackpadScrolling() {
+    const viewport = document.querySelector('.slider-viewport');
+    if (!viewport) return;
+    
+    let isScrolling = false;
+    let scrollTimeout;
+    
+    viewport.addEventListener('wheel', (e) => {
+        // Prevent default page scroll
+        e.preventDefault();
+        
+        // Only handle horizontal scrolling or when no vertical scroll
+        if (Math.abs(e.deltaX) > Math.abs(e.deltaY) || e.deltaY === 0) {
+            const track = document.getElementById('scenarioTrack');
+            if (!track) return;
+            
+            const viewportWidth = viewport.offsetWidth;
+            const trackWidth = track.scrollWidth;
+            const maxOffset = Math.max(0, trackWidth - viewportWidth);
+            
+            // Adjust scroll sensitivity
+            const scrollAmount = e.deltaX * 2; // Multiply for better sensitivity
+            
+            // Update slider offset
+            sliderOffset = Math.max(0, Math.min(maxOffset, sliderOffset + scrollAmount));
+            
+            // Apply transform
+            track.style.transform = `translateX(-${sliderOffset}px)`;
+            
+            // Update controls
+            updateSliderControls();
+            
+            // Set scrolling state
+            isScrolling = true;
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                isScrolling = false;
+            }, 150);
+        }
+    }, { passive: false });
+    
+    // Add visual feedback for scrolling
+    viewport.addEventListener('wheel', (e) => {
+        if (Math.abs(e.deltaX) > Math.abs(e.deltaY) || e.deltaY === 0) {
+            viewport.style.cursor = 'grabbing';
+            setTimeout(() => {
+                if (!isScrolling) {
+                    viewport.style.cursor = 'grab';
+                }
+            }, 150);
+        }
+    });
+}
+
 // Event listeners
 document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(initDemo, 100);
+    setTimeout(() => {
+        initDemo();
+        initTrackpadScrolling();
+    }, 100);
     
     // Handle window resize for slider
     window.addEventListener('resize', () => {
