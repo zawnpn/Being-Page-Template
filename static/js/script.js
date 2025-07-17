@@ -56,7 +56,7 @@ document.querySelectorAll('.section').forEach(section => {
 // }
 //
 const demoData = {
-    maxCategoryLevels: 1, // Maximum depth of category navigation (configurable)
+    maxCategoryLevels: 0, // Maximum depth of category navigation (0 = scenario->category->videos only)
     
     scenarios: {
         home_activities: {
@@ -66,83 +66,23 @@ const demoData = {
             categories: {
                 kitchen_cooking: {
                     name: "Kitchen Cooking",
-                    videos: {
-                        prep_ingredients: { 
-                            name: "Prep ingredients", 
-                            description: "Prepare cooking ingredients", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        use_stove: { 
-                            name: "Use stove", 
-                            description: "Cook on stovetop", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        season_food: { 
-                            name: "Season food", 
-                            description: "Add spices and seasonings", 
-                            video: "assets/video/demo1.mp4" 
-                        }
-                    }
+                    video: "assets/video/demo1.mp4",
+                    description: "Cooking activities in the kitchen"
                 },
                 kitchen_cleaning: {
-                    name: "Kitchen Cleaning",
-                    videos: {
-                        wash_dishes: { 
-                            name: "Wash dishes", 
-                            description: "Clean kitchen utensils", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        wipe_counter: { 
-                            name: "Wipe counter", 
-                            description: "Clean kitchen surfaces", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        organize_items: { 
-                            name: "Organize items", 
-                            description: "Arrange kitchen tools", 
-                            video: "assets/video/demo1.mp4" 
-                        }
-                    }
+                    name: "Kitchen Cleaning", 
+                    video: "assets/video/demo1.mp4",
+                    description: "Cleaning activities in the kitchen"
                 },
                 bathroom_hygiene: {
                     name: "Bathroom Hygiene",
-                    videos: {
-                        brush_teeth: { 
-                            name: "Brush teeth", 
-                            description: "Clean teeth with toothbrush", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        wash_face: { 
-                            name: "Wash face", 
-                            description: "Clean face with water", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        apply_skincare: { 
-                            name: "Apply skincare", 
-                            description: "Use facial care products", 
-                            video: "assets/video/demo1.mp4" 
-                        }
-                    }
+                    video: "assets/video/demo1.mp4",
+                    description: "Personal hygiene activities"
                 },
                 living_room: {
                     name: "Living Room",
-                    videos: {
-                        watch_tv: { 
-                            name: "Watch TV", 
-                            description: "Use television for entertainment", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        read_book: { 
-                            name: "Read book", 
-                            description: "Read for leisure", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        adjust_lighting: { 
-                            name: "Adjust lighting", 
-                            description: "Control room brightness", 
-                            video: "assets/video/demo1.mp4" 
-                        }
-                    }
+                    video: "assets/video/demo1.mp4",
+                    description: "Living room activities"
                 }
             }
         },
@@ -153,63 +93,18 @@ const demoData = {
             categories: {
                 computer_typing: {
                     name: "Computer Typing",
-                    videos: {
-                        type_document: { 
-                            name: "Type document", 
-                            description: "Create text content", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        use_shortcuts: { 
-                            name: "Use shortcuts", 
-                            description: "Utilize keyboard shortcuts", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        correct_text: { 
-                            name: "Correct text", 
-                            description: "Edit and revise content", 
-                            video: "assets/video/demo1.mp4" 
-                        }
-                    }
+                    video: "assets/video/demo1.mp4",
+                    description: "Computer typing activities"
                 },
                 computer_navigation: {
                     name: "Computer Navigation",
-                    videos: {
-                        browse_files: { 
-                            name: "Browse files", 
-                            description: "Navigate file system", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        switch_applications: { 
-                            name: "Switch applications", 
-                            description: "Change between programs", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        scroll_content: { 
-                            name: "Scroll content", 
-                            description: "Navigate through documents", 
-                            video: "assets/video/demo1.mp4" 
-                        }
-                    }
+                    video: "assets/video/demo1.mp4",
+                    description: "Computer navigation activities"
                 },
                 desk_organization: {
                     name: "Desk Organization",
-                    videos: {
-                        use_pen: { 
-                            name: "Use pen", 
-                            description: "Write with pen", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        organize_papers: { 
-                            name: "Organize papers", 
-                            description: "Arrange documents", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        adjust_chair: { 
-                            name: "Adjust chair", 
-                            description: "Set comfortable seating", 
-                            video: "assets/video/demo1.mp4" 
-                        }
-                    }
+                    video: "assets/video/demo1.mp4",
+                    description: "Desk organization activities"
                 }
             }
         },
@@ -220,63 +115,18 @@ const demoData = {
             categories: {
                 garden_care: {
                     name: "Garden Care",
-                    videos: {
-                        water_plants: { 
-                            name: "Water plants", 
-                            description: "Irrigate garden plants", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        prune_branches: { 
-                            name: "Prune branches", 
-                            description: "Trim plant growth", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        apply_fertilizer: { 
-                            name: "Apply fertilizer", 
-                            description: "Nourish plants", 
-                            video: "assets/video/demo1.mp4" 
-                        }
-                    }
+                    video: "assets/video/demo1.mp4",
+                    description: "Garden care activities"
                 },
                 garden_tools: {
                     name: "Garden Tools",
-                    videos: {
-                        use_rake: { 
-                            name: "Use rake", 
-                            description: "Clear leaves and debris", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        operate_hose: { 
-                            name: "Operate hose", 
-                            description: "Water with garden hose", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        handle_shovel: { 
-                            name: "Handle shovel", 
-                            description: "Dig and move soil", 
-                            video: "assets/video/demo1.mp4" 
-                        }
-                    }
+                    video: "assets/video/demo1.mp4",
+                    description: "Garden tools usage"
                 },
                 outdoor_maintenance: {
                     name: "Outdoor Maintenance",
-                    videos: {
-                        remove_weeds: { 
-                            name: "Remove weeds", 
-                            description: "Clear unwanted plants", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        sweep_pathways: { 
-                            name: "Sweep pathways", 
-                            description: "Clean walkways", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        organize_tools: { 
-                            name: "Organize tools", 
-                            description: "Store garden equipment", 
-                            video: "assets/video/demo1.mp4" 
-                        }
-                    }
+                    video: "assets/video/demo1.mp4",
+                    description: "Outdoor maintenance activities"
                 }
             }
         },
@@ -287,63 +137,18 @@ const demoData = {
             categories: {
                 exercise_cardio: {
                     name: "Exercise - Cardio",
-                    videos: {
-                        running: { 
-                            name: "Running", 
-                            description: "Outdoor running exercise", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        cycling: { 
-                            name: "Cycling", 
-                            description: "Bicycle exercise", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        jumping: { 
-                            name: "Jumping jacks", 
-                            description: "High-intensity jumping", 
-                            video: "assets/video/demo1.mp4" 
-                        }
-                    }
+                    video: "assets/video/demo1.mp4",
+                    description: "Cardio exercise activities"
                 },
                 exercise_strength: {
                     name: "Exercise - Strength",
-                    videos: {
-                        push_ups: { 
-                            name: "Push-ups", 
-                            description: "Upper body strength", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        squats: { 
-                            name: "Squats", 
-                            description: "Lower body strength", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        planks: { 
-                            name: "Planks", 
-                            description: "Core strengthening", 
-                            video: "assets/video/demo1.mp4" 
-                        }
-                    }
+                    video: "assets/video/demo1.mp4",
+                    description: "Strength training activities"
                 },
                 wellness_meditation: {
                     name: "Wellness - Meditation",
-                    videos: {
-                        breathing: { 
-                            name: "Breathing exercises", 
-                            description: "Deep breathing techniques", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        mindfulness: { 
-                            name: "Mindfulness", 
-                            description: "Present moment awareness", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        relaxation: { 
-                            name: "Relaxation", 
-                            description: "Stress relief techniques", 
-                            video: "assets/video/demo1.mp4" 
-                        }
-                    }
+                    video: "assets/video/demo1.mp4",
+                    description: "Wellness and meditation activities"
                 }
             }
         },
@@ -354,43 +159,13 @@ const demoData = {
             categories: {
                 study_reading: {
                     name: "Study - Reading",
-                    videos: {
-                        textbooks: { 
-                            name: "Reading textbooks", 
-                            description: "Academic reading", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        note_taking: { 
-                            name: "Note taking", 
-                            description: "Writing study notes", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        highlighting: { 
-                            name: "Highlighting", 
-                            description: "Marking important text", 
-                            video: "assets/video/demo1.mp4" 
-                        }
-                    }
+                    video: "assets/video/demo1.mp4",
+                    description: "Study and reading activities"
                 },
                 study_research: {
                     name: "Study - Research",
-                    videos: {
-                        online_search: { 
-                            name: "Online research", 
-                            description: "Internet information gathering", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        library_work: { 
-                            name: "Library work", 
-                            description: "Academic library research", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        data_analysis: { 
-                            name: "Data analysis", 
-                            description: "Analyzing research data", 
-                            video: "assets/video/demo1.mp4" 
-                        }
-                    }
+                    video: "assets/video/demo1.mp4",
+                    description: "Research and analysis activities"
                 }
             }
         },
@@ -401,43 +176,13 @@ const demoData = {
             categories: {
                 gaming_video: {
                     name: "Gaming - Video Games",
-                    videos: {
-                        console_gaming: { 
-                            name: "Console gaming", 
-                            description: "Playing console games", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        pc_gaming: { 
-                            name: "PC gaming", 
-                            description: "Computer game playing", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        mobile_gaming: { 
-                            name: "Mobile gaming", 
-                            description: "Smartphone games", 
-                            video: "assets/video/demo1.mp4" 
-                        }
-                    }
+                    video: "assets/video/demo1.mp4",
+                    description: "Video gaming activities"
                 },
                 arts_drawing: {
                     name: "Arts - Drawing",
-                    videos: {
-                        sketching: { 
-                            name: "Sketching", 
-                            description: "Basic sketching techniques", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        coloring: { 
-                            name: "Coloring", 
-                            description: "Adding colors to artwork", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        digital_art: { 
-                            name: "Digital art", 
-                            description: "Creating digital artwork", 
-                            video: "assets/video/demo1.mp4" 
-                        }
-                    }
+                    video: "assets/video/demo1.mp4",
+                    description: "Drawing and art activities"
                 }
             }
         },
@@ -448,43 +193,13 @@ const demoData = {
             categories: {
                 grocery_navigation: {
                     name: "Grocery - Navigation",
-                    videos: {
-                        find_items: { 
-                            name: "Finding items", 
-                            description: "Locating products in store", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        cart_management: { 
-                            name: "Cart management", 
-                            description: "Using shopping cart", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        checkout: { 
-                            name: "Checkout process", 
-                            description: "Paying for purchases", 
-                            video: "assets/video/demo1.mp4" 
-                        }
-                    }
+                    video: "assets/video/demo1.mp4",
+                    description: "Grocery shopping activities"
                 },
                 banking_atm: {
                     name: "Banking - ATM",
-                    videos: {
-                        withdrawal: { 
-                            name: "Cash withdrawal", 
-                            description: "Getting cash from ATM", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        deposit: { 
-                            name: "Making deposits", 
-                            description: "Depositing money", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        balance_check: { 
-                            name: "Balance check", 
-                            description: "Checking account balance", 
-                            video: "assets/video/demo1.mp4" 
-                        }
-                    }
+                    video: "assets/video/demo1.mp4",
+                    description: "ATM and banking activities"
                 }
             }
         },
@@ -518,43 +233,13 @@ const demoData = {
             categories: {
                 communication_phone: {
                     name: "Communication - Phone",
-                    videos: {
-                        making_calls: { 
-                            name: "Making calls", 
-                            description: "Initiating phone calls", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        answering_calls: { 
-                            name: "Answering calls", 
-                            description: "Receiving phone calls", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        video_calls: { 
-                            name: "Video calls", 
-                            description: "Video conferencing", 
-                            video: "assets/video/demo1.mp4" 
-                        }
-                    }
+                    video: "assets/video/demo1.mp4",
+                    description: "Phone communication activities"
                 },
                 social_posting: {
                     name: "Social - Posting",
-                    videos: {
-                        photo_sharing: { 
-                            name: "Photo sharing", 
-                            description: "Sharing photos online", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        status_updates: { 
-                            name: "Status updates", 
-                            description: "Posting status messages", 
-                            video: "assets/video/demo1.mp4" 
-                        },
-                        commenting: { 
-                            name: "Commenting", 
-                            description: "Engaging with posts", 
-                            video: "assets/video/demo1.mp4" 
-                        }
-                    }
+                    video: "assets/video/demo1.mp4",
+                    description: "Social media posting activities"
                 }
             }
         }
@@ -569,7 +254,7 @@ let currentNavigation = {
 };
 
 let sliderOffset = 0;
-const sliderStep = 220; // pixels per slide (adjusted for larger cards)
+const sliderStep = 250; // pixels per slide (adjusted for larger cards)
 
 // Initialize the demo
 function initDemo() {
@@ -671,11 +356,24 @@ function selectScenario(scenarioKey) {
     document.querySelectorAll('.scenario-card').forEach(card => {
         card.classList.remove('selected');
     });
-    // Fix deprecated event usage
-    const scenarioCard = document.querySelector(`.scenario-card[onclick*="${scenarioKey}"]`);
-    if (scenarioCard) {
-        scenarioCard.classList.add('selected');
+    
+    // Find the clicked scenario card and add selected class
+    const scenarioCards = document.querySelectorAll('.scenario-card');
+    scenarioCards.forEach(card => {
+        const cardText = card.querySelector('.scenario-name');
+        if (cardText && cardText.textContent === demoData.scenarios[scenarioKey].name) {
+            card.classList.add('selected');
+        }
+    });
+    
+    // Show scenario image in video area
+    const scenario = demoData.scenarios[scenarioKey];
+    if (scenario && scenario.thumbnail) {
+        showScenarioImage(scenario.thumbnail, scenario.name);
     }
+    
+    // Show categories in scenario-section
+    renderCategories(scenarioKey);
     
     // Update integrated breadcrumb navigation
     updateIntegratedBreadcrumb();
@@ -687,32 +385,18 @@ function selectScenario(scenarioKey) {
 function updateIntegratedBreadcrumb() {
     const breadcrumbNav = document.getElementById('breadcrumbNav');
     const breadcrumbPath = document.getElementById('breadcrumbPath');
-    const breadcrumbOptions = document.getElementById('breadcrumbOptions');
     
-    if (!breadcrumbNav || !breadcrumbPath || !breadcrumbOptions) return;
+    if (!breadcrumbNav || !breadcrumbPath) return;
     
     // Build and display current path
     const pathItems = buildBreadcrumbPath();
     breadcrumbPath.innerHTML = pathItems.length > 0 ? pathItems.join(' › ') : 'Select a scenario to continue';
     
-    // Check if video is selected - if so, collapse the breadcrumb area
-    if (currentNavigation.selectedVideo) {
-        // Hide options section and make breadcrumb compact
-        breadcrumbOptions.style.display = 'none';
-        breadcrumbNav.classList.add('collapsed');
-    } else {
-        // Show options section and expand breadcrumb area
-        breadcrumbOptions.style.display = 'block';
-        breadcrumbNav.classList.remove('collapsed');
-        
-        // Build and display available options
-        const optionButtons = buildBreadcrumbOptions();
-        breadcrumbOptions.innerHTML = optionButtons;
-    }
-    
     // Show breadcrumb navigation
     breadcrumbNav.style.display = 'block';
 }
+
+// Function removed - no longer needed for simplified 2-step process
 
 // Select category at specific level (modular)
 function selectCategory(categoryKey, level) {
@@ -720,8 +404,27 @@ function selectCategory(categoryKey, level) {
     currentNavigation.categories = currentNavigation.categories.slice(0, level);
     // Set category at current level
     currentNavigation.categories[level] = categoryKey;
-    // Clear video selection
-    currentNavigation.selectedVideo = null;
+    
+    // Update visual selection for categories
+    document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.classList.remove('selected');
+    });
+    
+    // Find and select the clicked category button
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    categoryButtons.forEach(btn => {
+        if (btn.textContent.trim() === demoData.scenarios[currentNavigation.scenario].categories[categoryKey].name) {
+            btn.classList.add('selected');
+        }
+    });
+    
+    // Automatically play the category's video
+    const scenario = demoData.scenarios[currentNavigation.scenario];
+    const category = scenario.categories[categoryKey];
+    if (category && category.video) {
+        currentNavigation.selectedVideo = categoryKey;
+        showVideo(category.video, category.name);
+    }
     
     // Update integrated breadcrumb navigation
     updateIntegratedBreadcrumb();
@@ -733,7 +436,7 @@ function selectCategory1(categoryKey) {
     selectCategory(categoryKey, 0);
 }
 
-// Build breadcrumb path display (modular for n-levels)
+// Build breadcrumb path display (simplified for 2-level navigation)
 function buildBreadcrumbPath() {
     const pathItems = [];
     
@@ -741,27 +444,13 @@ function buildBreadcrumbPath() {
         const scenario = demoData.scenarios[currentNavigation.scenario];
         pathItems.push(`<span class="breadcrumb-item clickable" onclick="navigateFromBreadcrumb('scenario')">${scenario.name}</span>`);
         
-        // Navigate through categories dynamically
-        let currentData = scenario;
-        for (let i = 0; i < currentNavigation.categories.length; i++) {
-            const categoryKey = currentNavigation.categories[i];
-            if (currentData.categories && currentData.categories[categoryKey]) {
-                const category = currentData.categories[categoryKey];
-                const isClickable = currentNavigation.selectedVideo || i < currentNavigation.categories.length - 1;
-                const clickHandler = isClickable ? ` onclick="navigateFromBreadcrumb('category', ${i})"` : '';
-                const classes = isClickable ? 'breadcrumb-item clickable' : 'breadcrumb-item current';
-                pathItems.push(`<span class="${classes}"${clickHandler}>${category.name}</span>`);
-                
-                // Move to next level
-                currentData = category;
-            }
-        }
-        
-        // Add video if selected
-        if (currentNavigation.selectedVideo && currentData.videos) {
-            const video = currentData.videos[currentNavigation.selectedVideo];
-            if (video) {
-                pathItems.push(`<span class="breadcrumb-item current">${video.name}</span>`);
+        // Add category if selected (only one level, no video names)
+        if (currentNavigation.categories.length > 0) {
+            const categoryKey = currentNavigation.categories[0];
+            if (scenario.categories && scenario.categories[categoryKey]) {
+                const category = scenario.categories[categoryKey];
+                // Category is always clickable to go back to scenario
+                pathItems.push(`<span class="breadcrumb-item clickable" onclick="navigateFromBreadcrumb('category', 0)">${category.name}</span>`);
             }
         }
     }
@@ -770,70 +459,69 @@ function buildBreadcrumbPath() {
 }
 
 
-// Build breadcrumb options display (modular for n-levels)
+// Build breadcrumb options display (legacy - no longer used)
 function buildBreadcrumbOptions() {
-    if (!currentNavigation.scenario) {
-        return '<span class="breadcrumb-hint">Select a scenario above to continue</span>';
-    }
-    
-    const scenario = demoData.scenarios[currentNavigation.scenario];
-    
-    // Navigate to current level data
-    let currentData = scenario;
-    for (let i = 0; i < currentNavigation.categories.length; i++) {
-        const categoryKey = currentNavigation.categories[i];
-        if (currentData.categories && currentData.categories[categoryKey]) {
-            currentData = currentData.categories[categoryKey];
-        }
-    }
-    
-    // If we haven't reached max depth and there are more categories
-    if (currentNavigation.categories.length < demoData.maxCategoryLevels && currentData.categories) {
-        const currentLevel = currentNavigation.categories.length;
-        const options = Object.keys(currentData.categories).map(categoryKey => {
-            const category = currentData.categories[categoryKey];
-            return `<button class="breadcrumb-option" onclick="selectCategory('${categoryKey}', ${currentLevel})">${category.name}</button>`;
-        }).join('');
-        return `<div class="breadcrumb-options-container">${options}</div>`;
-    }
-    
-    // Show video options if we're at max depth or no more categories
-    if (currentData.videos && !currentNavigation.selectedVideo) {
-        const options = Object.keys(currentData.videos).map(videoKey => {
-            const video = currentData.videos[videoKey];
-            return `<button class="breadcrumb-option" onclick="selectVideo('${videoKey}')">${video.name}</button>`;
-        }).join('');
-        return `<div class="breadcrumb-options-container">${options}</div>`;
-    }
-    
     return '';
 }
 
-// Select video (modular for n-levels)
+// Select video (legacy function - no longer used in simplified 2-level structure)
 function selectVideo(videoKey) {
-    currentNavigation.selectedVideo = videoKey;
+    console.log('selectVideo function called but no longer needed in simplified structure');
+}
+
+// Render categories in scenario-section
+function renderCategories(scenarioKey) {
+    const categoryContainer = document.getElementById('categoryContainer');
+    if (!categoryContainer) return;
     
-    // Navigate to current level data to get videos
-    const scenario = demoData.scenarios[currentNavigation.scenario];
-    let currentData = scenario;
-    
-    // Navigate through categories to find videos
-    for (let i = 0; i < currentNavigation.categories.length; i++) {
-        const categoryKey = currentNavigation.categories[i];
-        if (currentData.categories && currentData.categories[categoryKey]) {
-            currentData = currentData.categories[categoryKey];
-        }
+    const scenario = demoData.scenarios[scenarioKey];
+    if (!scenario || !scenario.categories) {
+        categoryContainer.innerHTML = '';
+        categoryContainer.style.display = 'none';
+        return;
     }
     
-    if (currentData.videos && currentData.videos[videoKey]) {
-        const video = currentData.videos[videoKey];
-        showVideo(video.video, video.name);
-        updateIntegratedBreadcrumb();
-        
-        console.log('Selected video:', videoKey);
-    } else {
-        console.error('Video not found:', videoKey);
-    }
+    // Build category buttons (each category has its own video)
+    const categoryButtons = Object.keys(scenario.categories).map(categoryKey => {
+        const category = scenario.categories[categoryKey];
+        return `<button class="category-btn" onclick="selectCategory('${categoryKey}', 0)">${category.name}</button>`;
+    }).join('');
+    
+    categoryContainer.innerHTML = `
+        <div class="category-selection">
+            <span class="category-title">Select Category</span>
+            <div class="category-options">${categoryButtons}</div>
+        </div>
+    `;
+    categoryContainer.style.display = 'block';
+}
+
+// Show scenario image function
+function showScenarioImage(imageSrc, title) {
+    const videoDisplay = document.getElementById('videoDisplay');
+    if (!videoDisplay) return;
+    
+    // Create image element
+    const image = document.createElement('img');
+    image.src = imageSrc;
+    image.alt = title;
+    image.style.width = '100%';
+    image.style.height = '100%';
+    image.style.objectFit = 'cover';
+    image.style.borderRadius = 'var(--border-radius-medium)';
+    
+    // Handle image loading error
+    image.onerror = () => {
+        console.error('Image failed to load:', imageSrc);
+        image.src = 'assets/image/framework.png';
+    };
+    
+    // Clear and add image
+    videoDisplay.innerHTML = '';
+    videoDisplay.appendChild(image);
+    videoDisplay.classList.remove('playing');
+    
+    console.log('Showing scenario image:', title, imageSrc);
 }
 
 // Show video function
@@ -881,28 +569,24 @@ function navigateFromBreadcrumb(level, categoryIndex = null) {
         // Go back to scenario selection (clear all categories)
         currentNavigation.categories = [];
         currentNavigation.selectedVideo = null;
+        
+        // Show scenario image if available
+        const scenario = demoData.scenarios[currentNavigation.scenario];
+        if (scenario && scenario.thumbnail) {
+            showScenarioImage(scenario.thumbnail, scenario.name);
+        }
+        
+        // Re-render categories
+        renderCategories(currentNavigation.scenario);
     } else if (level === 'category' && categoryIndex !== null) {
         // Go back to specific category level
         currentNavigation.categories = currentNavigation.categories.slice(0, categoryIndex + 1);
         currentNavigation.selectedVideo = null;
-    }
-    
-    // Update visual selections
-    document.querySelectorAll('.category-btn, .video-btn').forEach(btn => {
-        btn.classList.remove('selected');
-    });
-    
-    // Hide video if we're navigating back
-    if (level !== 'video') {
-        const videoDisplay = document.getElementById('videoDisplay');
-        if (videoDisplay) {
-            videoDisplay.innerHTML = `
-                <div class="demo-placeholder">
-                    <div class="icon">🎬</div>
-                    <p>Make your selection to view video</p>
-                </div>
-            `;
-            videoDisplay.classList.remove('playing');
+        
+        // Show scenario image
+        const scenario = demoData.scenarios[currentNavigation.scenario];
+        if (scenario && scenario.thumbnail) {
+            showScenarioImage(scenario.thumbnail, scenario.name);
         }
     }
     
@@ -919,18 +603,20 @@ function resetNavigation() {
     
     // Reset breadcrumb navigation
     const breadcrumbPath = document.getElementById('breadcrumbPath');
-    const breadcrumbOptions = document.getElementById('breadcrumbOptions');
     
     if (breadcrumbPath) {
         breadcrumbPath.innerHTML = 'Select a scenario to continue';
     }
     
-    if (breadcrumbOptions) {
-        breadcrumbOptions.innerHTML = '';
+    // Reset category display
+    const categoryContainer = document.getElementById('categoryContainer');
+    if (categoryContainer) {
+        categoryContainer.innerHTML = '';
+        categoryContainer.style.display = 'none';
     }
     
     // Reset selections
-    document.querySelectorAll('.scenario-card, .breadcrumb-option').forEach(el => {
+    document.querySelectorAll('.scenario-card, .category-btn, .video-btn').forEach(el => {
         el.classList.remove('selected');
     });
     
@@ -1045,11 +731,15 @@ function copyBibTeX(contentId) {
     navigator.clipboard.writeText(text).then(() => {
         const originalText = copyBtn.textContent;
         copyBtn.textContent = 'Copied!';
-        copyBtn.style.background = '#28a745';
+        copyBtn.style.background = '#1d1d1f';
+        copyBtn.style.color = '#ffffff';
+        copyBtn.style.borderColor = '#1d1d1f';
         
         setTimeout(() => {
             copyBtn.textContent = originalText;
             copyBtn.style.background = '';
+            copyBtn.style.color = '';
+            copyBtn.style.borderColor = '';
         }, 2000);
     }).catch(err => {
         console.error('Failed to copy text: ', err);
@@ -1069,11 +759,15 @@ function copyBibTeX(contentId) {
             if (success) {
                 const originalText = copyBtn.textContent;
                 copyBtn.textContent = 'Copied!';
-                copyBtn.style.background = '#28a745';
+                copyBtn.style.background = '#1d1d1f';
+                copyBtn.style.color = '#ffffff';
+                copyBtn.style.borderColor = '#1d1d1f';
                 
                 setTimeout(() => {
                     copyBtn.textContent = originalText;
                     copyBtn.style.background = '';
+                    copyBtn.style.color = '';
+                    copyBtn.style.borderColor = '';
                 }, 2000);
             } else {
                 throw new Error('Copy command failed');
@@ -1082,10 +776,14 @@ function copyBibTeX(contentId) {
             console.error('All copy methods failed:', fallbackErr);
             // Show error to user
             copyBtn.textContent = 'Copy failed';
-            copyBtn.style.background = '#dc3545';
+            copyBtn.style.background = '#86868b';
+            copyBtn.style.color = '#ffffff';
+            copyBtn.style.borderColor = '#86868b';
             setTimeout(() => {
                 copyBtn.textContent = 'Copy';
                 copyBtn.style.background = '';
+                copyBtn.style.color = '';
+                copyBtn.style.borderColor = '';
             }, 2000);
         }
     });
