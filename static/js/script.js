@@ -615,9 +615,13 @@ function slideScenarios(direction) {
     const trackWidth = track.scrollWidth;
     const maxOffset = Math.max(0, trackWidth - viewportWidth);
     
-    if (direction === 'left') {
+    // Check if button should be disabled
+    const leftBtn = document.getElementById('scenarioSliderLeft');
+    const rightBtn = document.getElementById('scenarioSliderRight');
+    
+    if (direction === 'left' && leftBtn && !leftBtn.disabled) {
         sliderOffset = Math.max(0, sliderOffset - sliderStep);
-    } else {
+    } else if (direction === 'right' && rightBtn && !rightBtn.disabled) {
         sliderOffset = Math.min(maxOffset, sliderOffset + sliderStep);
     }
     
@@ -637,18 +641,24 @@ function updateSliderControls() {
     const trackWidth = track.scrollWidth;
     const maxOffset = Math.max(0, trackWidth - viewportWidth);
     
-    // Show/hide buttons based on need and current position
+    // Always show buttons
+    leftBtn.style.display = 'flex';
+    rightBtn.style.display = 'flex';
+    
+    // Enable/disable based on current position
     if (trackWidth > viewportWidth) {
-        leftBtn.style.display = sliderOffset > 0 ? 'flex' : 'none';
-        rightBtn.style.display = sliderOffset < maxOffset ? 'flex' : 'none';
+        leftBtn.disabled = sliderOffset <= 0;
+        rightBtn.disabled = sliderOffset >= maxOffset;
     } else {
-        leftBtn.style.display = 'none';
-        rightBtn.style.display = 'none';
+        leftBtn.disabled = true;
+        rightBtn.disabled = true;
     }
     
-    // Update button states
-    leftBtn.disabled = sliderOffset <= 0;
-    rightBtn.disabled = sliderOffset >= maxOffset;
+    // Update visual state
+    leftBtn.style.opacity = leftBtn.disabled ? '0.3' : '1';
+    rightBtn.style.opacity = rightBtn.disabled ? '0.3' : '1';
+    leftBtn.style.cursor = leftBtn.disabled ? 'default' : 'pointer';
+    rightBtn.style.cursor = rightBtn.disabled ? 'default' : 'pointer';
 }
 
 // Select scenario
