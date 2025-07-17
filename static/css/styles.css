@@ -918,27 +918,27 @@ body {
 
 .breadcrumb-nav {
     background: var(--bg-white);
-    border: 1px solid var(--demo-border);
-    border-radius: var(--border-radius-small);
-    padding: 1rem;
-    margin-bottom: 1rem;
-    min-height: 100px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    min-height: 80px;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.5rem;
     transition: all 0.3s var(--ease-out);
 }
 
 .breadcrumb-nav.collapsed {
     min-height: auto;
-    padding: 0.75rem 1rem;
-    margin-bottom: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 0.25rem;
 }
 
 .breadcrumb-nav.collapsed .breadcrumb-path {
     border-bottom: none;
     padding: 0.25rem 0;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
 }
 
 .breadcrumb-content {
@@ -948,18 +948,18 @@ body {
 }
 
 .breadcrumb-path {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 500;
     color: var(--demo-text);
-    padding: 0.5rem 0;
-    border-bottom: 1px solid var(--demo-border);
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     letter-spacing: -0.012em;
 }
 
 .breadcrumb-options {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.4rem;
     align-items: center;
     width: 100%;
     justify-content: center;
@@ -968,7 +968,7 @@ body {
 .breadcrumb-options-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.4rem;
     justify-content: center;
     max-width: 400px;
     width: 100%;
@@ -977,12 +977,12 @@ body {
 }
 
 .breadcrumb-option {
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.8rem;
     background: var(--demo-button-bg);
     color: var(--demo-button-text);
-    border: 1px solid var(--demo-button-border);
-    border-radius: var(--border-radius-small);
-    font-size: 0.85rem;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+    font-size: 0.8rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s var(--ease-out);
@@ -991,19 +991,19 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 80px;
+    min-width: 70px;
 }
 
 .breadcrumb-option:hover {
     background: var(--demo-button-hover);
-    border-color: var(--demo-button-border);
+    border-color: rgba(0, 0, 0, 0.12);
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .breadcrumb-option:active {
     transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .breadcrumb-hint {
@@ -1090,38 +1090,38 @@ body {
 
 /* Scenario Cards - Larger Size */
 .scenario-card {
-    min-width: 200px;
-    width: 200px;
+    min-width: 180px;
+    width: 180px;
     flex: 0 0 auto;
     background: var(--bg-white);
-    border: 2px solid var(--demo-border);
-    border-radius: var(--border-radius-medium);
-    padding: 1.25rem;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 1rem;
     cursor: pointer;
     transition: all 0.3s var(--ease-out);
     text-align: center;
     position: relative;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 }
 
 .scenario-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-    border-color: var(--hover-border);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.12);
 }
 
 .scenario-card.selected {
-    border-color: #1d1d1f;
+    border-color: rgba(0, 0, 0, 0.2);
     background: #f8f9fa;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .scenario-image {
     width: 100%;
-    height: 120px;
-    border-radius: var(--border-radius-small);
+    height: 100px;
+    border-radius: 6px;
     overflow: hidden;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     background: var(--bg-light);
     display: flex;
     align-items: center;
@@ -1202,16 +1202,16 @@ body {
 .demo-video-container {
     position: relative;
     background: var(--bg-light);
-    border: 1px solid var(--demo-border);
-    border-radius: var(--border-radius-medium);
-    padding: 1.5rem;
-    min-height: 300px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    padding: 1rem;
+    min-height: 250px;
 }
 
 .video-display {
     background: var(--bg-white);
-    border: 1px solid var(--demo-border);
-    border-radius: var(--border-radius-medium);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
     aspect-ratio: 16/9;
     display: flex;
     align-items: center;
@@ -1219,12 +1219,12 @@ body {
     overflow: hidden;
     position: relative;
     transition: all 0.3s var(--ease-out);
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .video-display.playing {
-    border-color: #1d1d1f;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .video-display video {
@@ -1408,38 +1408,38 @@ body {
     }
 
     .demo-video-container {
-        padding: 1rem;
-        min-height: 250px;
+        padding: 0.75rem;
+        min-height: 200px;
     }
 
     .breadcrumb-nav {
-        padding: 0.75rem;
-        min-height: 80px;
+        padding: 0.5rem;
+        min-height: 60px;
     }
 
     .breadcrumb-nav.collapsed {
-        padding: 0.5rem 0.75rem;
-        margin-bottom: 0.25rem;
+        padding: 0.4rem 0.5rem;
+        margin-bottom: 0.2rem;
     }
 
     .breadcrumb-path {
-        font-size: 0.8rem;
-        padding: 0.4rem 0;
+        font-size: 0.75rem;
+        padding: 0.3rem 0;
     }
 
     .breadcrumb-options-container {
         max-width: 100%;
-        gap: 0.4rem;
+        gap: 0.3rem;
     }
 
     .breadcrumb-option {
-        font-size: 0.8rem;
-        padding: 0.4rem 0.8rem;
-        min-width: 70px;
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+        min-width: 60px;
     }
 
     .breadcrumb-item {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
 }
 

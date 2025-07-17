@@ -28,7 +28,7 @@ document.querySelectorAll('.section').forEach(section => {
 
 // Interactive Demo - Hierarchical Navigation System
 const demoData = {
-    maxCategoryLevels: 2, // Maximum depth of category navigation
+    maxCategoryLevels: 1, // Maximum depth of category navigation (simplified to 2 levels)
     
     scenarios: {
         home_activities: {
@@ -36,138 +36,83 @@ const demoData = {
             description: "Daily household tasks and activities",
             thumbnail: "assets/image/scenarios/scene_1.png",
             categories: {
-                kitchen: {
-                    name: "Kitchen",
-                    categories: {
-                        cooking: {
-                            name: "Cooking",
-                            videos: {
-                                prep_ingredients: { 
-                                    name: "Prep ingredients", 
-                                    description: "Prepare cooking ingredients", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                use_stove: { 
-                                    name: "Use stove", 
-                                    description: "Cook on stovetop", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                season_food: { 
-                                    name: "Season food", 
-                                    description: "Add spices and seasonings", 
-                                    video: "assets/video/demo1.mp4" 
-                                }
-                            }
+                kitchen_cooking: {
+                    name: "Kitchen Cooking",
+                    videos: {
+                        prep_ingredients: { 
+                            name: "Prep ingredients", 
+                            description: "Prepare cooking ingredients", 
+                            video: "assets/video/demo1.mp4" 
                         },
-                        cleaning: {
-                            name: "Cleaning",
-                            videos: {
-                                wash_dishes: { 
-                                    name: "Wash dishes", 
-                                    description: "Clean kitchen utensils", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                wipe_counter: { 
-                                    name: "Wipe counter", 
-                                    description: "Clean kitchen surfaces", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                organize_items: { 
-                                    name: "Organize items", 
-                                    description: "Arrange kitchen tools", 
-                                    video: "assets/video/demo1.mp4" 
-                                }
-                            }
+                        use_stove: { 
+                            name: "Use stove", 
+                            description: "Cook on stovetop", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        season_food: { 
+                            name: "Season food", 
+                            description: "Add spices and seasonings", 
+                            video: "assets/video/demo1.mp4" 
                         }
                     }
                 },
-                bathroom: {
-                    name: "Bathroom",
-                    categories: {
-                        hygiene: {
-                            name: "Personal Hygiene",
-                            videos: {
-                                brush_teeth: { 
-                                    name: "Brush teeth", 
-                                    description: "Clean teeth with toothbrush", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                wash_face: { 
-                                    name: "Wash face", 
-                                    description: "Clean face with water", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                apply_skincare: { 
-                                    name: "Apply skincare", 
-                                    description: "Use facial care products", 
-                                    video: "assets/video/demo1.mp4" 
-                                }
-                            }
+                kitchen_cleaning: {
+                    name: "Kitchen Cleaning",
+                    videos: {
+                        wash_dishes: { 
+                            name: "Wash dishes", 
+                            description: "Clean kitchen utensils", 
+                            video: "assets/video/demo1.mp4" 
                         },
-                        grooming: {
-                            name: "Grooming",
-                            videos: {
-                                comb_hair: { 
-                                    name: "Comb hair", 
-                                    description: "Style hair with comb", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                use_mirror: { 
-                                    name: "Use mirror", 
-                                    description: "Check appearance in mirror", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                trim_nails: { 
-                                    name: "Trim nails", 
-                                    description: "Cut fingernails", 
-                                    video: "assets/video/demo1.mp4" 
-                                }
-                            }
+                        wipe_counter: { 
+                            name: "Wipe counter", 
+                            description: "Clean kitchen surfaces", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        organize_items: { 
+                            name: "Organize items", 
+                            description: "Arrange kitchen tools", 
+                            video: "assets/video/demo1.mp4" 
+                        }
+                    }
+                },
+                bathroom_hygiene: {
+                    name: "Bathroom Hygiene",
+                    videos: {
+                        brush_teeth: { 
+                            name: "Brush teeth", 
+                            description: "Clean teeth with toothbrush", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        wash_face: { 
+                            name: "Wash face", 
+                            description: "Clean face with water", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        apply_skincare: { 
+                            name: "Apply skincare", 
+                            description: "Use facial care products", 
+                            video: "assets/video/demo1.mp4" 
                         }
                     }
                 },
                 living_room: {
                     name: "Living Room",
-                    categories: {
-                        entertainment: {
-                            name: "Entertainment",
-                            videos: {
-                                watch_tv: { 
-                                    name: "Watch TV", 
-                                    description: "Use television for entertainment", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                read_book: { 
-                                    name: "Read book", 
-                                    description: "Read for leisure", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                listen_music: { 
-                                    name: "Listen to music", 
-                                    description: "Play music for relaxation", 
-                                    video: "assets/video/demo1.mp4" 
-                                }
-                            }
+                    videos: {
+                        watch_tv: { 
+                            name: "Watch TV", 
+                            description: "Use television for entertainment", 
+                            video: "assets/video/demo1.mp4" 
                         },
-                        comfort: {
-                            name: "Comfort",
-                            videos: {
-                                adjust_lighting: { 
-                                    name: "Adjust lighting", 
-                                    description: "Control room brightness", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                arrange_pillows: { 
-                                    name: "Arrange pillows", 
-                                    description: "Position cushions comfortably", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                control_temperature: { 
-                                    name: "Control temperature", 
-                                    description: "Adjust room climate", 
-                                    video: "assets/video/demo1.mp4" 
-                                }
-                            }
+                        read_book: { 
+                            name: "Read book", 
+                            description: "Read for leisure", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        adjust_lighting: { 
+                            name: "Adjust lighting", 
+                            description: "Control room brightness", 
+                            video: "assets/video/demo1.mp4" 
                         }
                     }
                 }
@@ -178,93 +123,63 @@ const demoData = {
             description: "Professional and productivity tasks",
             thumbnail: "assets/image/scenarios/scene_1.png",
             categories: {
-                computer_work: {
-                    name: "Computer Work",
-                    categories: {
-                        typing: {
-                            name: "Typing & Input",
-                            videos: {
-                                type_document: { 
-                                    name: "Type document", 
-                                    description: "Create text content", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                use_shortcuts: { 
-                                    name: "Use shortcuts", 
-                                    description: "Utilize keyboard shortcuts", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                correct_text: { 
-                                    name: "Correct text", 
-                                    description: "Edit and revise content", 
-                                    video: "assets/video/demo1.mp4" 
-                                }
-                            }
+                computer_typing: {
+                    name: "Computer Typing",
+                    videos: {
+                        type_document: { 
+                            name: "Type document", 
+                            description: "Create text content", 
+                            video: "assets/video/demo1.mp4" 
                         },
-                        navigation: {
-                            name: "Navigation",
-                            videos: {
-                                browse_files: { 
-                                    name: "Browse files", 
-                                    description: "Navigate file system", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                switch_applications: { 
-                                    name: "Switch applications", 
-                                    description: "Change between programs", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                scroll_content: { 
-                                    name: "Scroll content", 
-                                    description: "Navigate through documents", 
-                                    video: "assets/video/demo1.mp4" 
-                                }
-                            }
+                        use_shortcuts: { 
+                            name: "Use shortcuts", 
+                            description: "Utilize keyboard shortcuts", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        correct_text: { 
+                            name: "Correct text", 
+                            description: "Edit and revise content", 
+                            video: "assets/video/demo1.mp4" 
+                        }
+                    }
+                },
+                computer_navigation: {
+                    name: "Computer Navigation",
+                    videos: {
+                        browse_files: { 
+                            name: "Browse files", 
+                            description: "Navigate file system", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        switch_applications: { 
+                            name: "Switch applications", 
+                            description: "Change between programs", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        scroll_content: { 
+                            name: "Scroll content", 
+                            description: "Navigate through documents", 
+                            video: "assets/video/demo1.mp4" 
                         }
                     }
                 },
                 desk_organization: {
                     name: "Desk Organization",
-                    categories: {
-                        tools: {
-                            name: "Tools & Supplies",
-                            videos: {
-                                use_pen: { 
-                                    name: "Use pen", 
-                                    description: "Write with pen", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                organize_papers: { 
-                                    name: "Organize papers", 
-                                    description: "Arrange documents", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                access_drawer: { 
-                                    name: "Access drawer", 
-                                    description: "Open storage compartment", 
-                                    video: "assets/video/demo1.mp4" 
-                                }
-                            }
+                    videos: {
+                        use_pen: { 
+                            name: "Use pen", 
+                            description: "Write with pen", 
+                            video: "assets/video/demo1.mp4" 
                         },
-                        workspace: {
-                            name: "Workspace Setup",
-                            videos: {
-                                adjust_chair: { 
-                                    name: "Adjust chair", 
-                                    description: "Set comfortable seating", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                position_monitor: { 
-                                    name: "Position monitor", 
-                                    description: "Adjust screen placement", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                clean_desk: { 
-                                    name: "Clean desk", 
-                                    description: "Maintain tidy workspace", 
-                                    video: "assets/video/demo1.mp4" 
-                                }
-                            }
+                        organize_papers: { 
+                            name: "Organize papers", 
+                            description: "Arrange documents", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        adjust_chair: { 
+                            name: "Adjust chair", 
+                            description: "Set comfortable seating", 
+                            video: "assets/video/demo1.mp4" 
                         }
                     }
                 }
@@ -275,93 +190,63 @@ const demoData = {
             description: "Garden and outdoor maintenance tasks",
             thumbnail: "assets/image/scenarios/scene_1.png",
             categories: {
-                gardening: {
-                    name: "Gardening",
-                    categories: {
-                        plant_care: {
-                            name: "Plant Care",
-                            videos: {
-                                water_plants: { 
-                                    name: "Water plants", 
-                                    description: "Irrigate garden plants", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                prune_branches: { 
-                                    name: "Prune branches", 
-                                    description: "Trim plant growth", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                apply_fertilizer: { 
-                                    name: "Apply fertilizer", 
-                                    description: "Nourish plants", 
-                                    video: "assets/video/demo1.mp4" 
-                                }
-                            }
+                garden_care: {
+                    name: "Garden Care",
+                    videos: {
+                        water_plants: { 
+                            name: "Water plants", 
+                            description: "Irrigate garden plants", 
+                            video: "assets/video/demo1.mp4" 
                         },
-                        harvesting: {
-                            name: "Harvesting",
-                            videos: {
-                                pick_flowers: { 
-                                    name: "Pick flowers", 
-                                    description: "Harvest blooms", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                collect_vegetables: { 
-                                    name: "Collect vegetables", 
-                                    description: "Gather garden produce", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                gather_seeds: { 
-                                    name: "Gather seeds", 
-                                    description: "Collect for replanting", 
-                                    video: "assets/video/demo1.mp4" 
-                                }
-                            }
+                        prune_branches: { 
+                            name: "Prune branches", 
+                            description: "Trim plant growth", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        apply_fertilizer: { 
+                            name: "Apply fertilizer", 
+                            description: "Nourish plants", 
+                            video: "assets/video/demo1.mp4" 
                         }
                     }
                 },
-                maintenance: {
-                    name: "Maintenance",
-                    categories: {
-                        tools: {
-                            name: "Tool Usage",
-                            videos: {
-                                use_rake: { 
-                                    name: "Use rake", 
-                                    description: "Clear leaves and debris", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                operate_hose: { 
-                                    name: "Operate hose", 
-                                    description: "Water with garden hose", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                handle_shovel: { 
-                                    name: "Handle shovel", 
-                                    description: "Dig and move soil", 
-                                    video: "assets/video/demo1.mp4" 
-                                }
-                            }
+                garden_tools: {
+                    name: "Garden Tools",
+                    videos: {
+                        use_rake: { 
+                            name: "Use rake", 
+                            description: "Clear leaves and debris", 
+                            video: "assets/video/demo1.mp4" 
                         },
-                        cleanup: {
-                            name: "Cleanup",
-                            videos: {
-                                remove_weeds: { 
-                                    name: "Remove weeds", 
-                                    description: "Clear unwanted plants", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                sweep_pathways: { 
-                                    name: "Sweep pathways", 
-                                    description: "Clean walkways", 
-                                    video: "assets/video/demo1.mp4" 
-                                },
-                                organize_tools: { 
-                                    name: "Organize tools", 
-                                    description: "Store garden equipment", 
-                                    video: "assets/video/demo1.mp4" 
-                                }
-                            }
+                        operate_hose: { 
+                            name: "Operate hose", 
+                            description: "Water with garden hose", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        handle_shovel: { 
+                            name: "Handle shovel", 
+                            description: "Dig and move soil", 
+                            video: "assets/video/demo1.mp4" 
+                        }
+                    }
+                },
+                outdoor_maintenance: {
+                    name: "Outdoor Maintenance",
+                    videos: {
+                        remove_weeds: { 
+                            name: "Remove weeds", 
+                            description: "Clear unwanted plants", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        sweep_pathways: { 
+                            name: "Sweep pathways", 
+                            description: "Clean walkways", 
+                            video: "assets/video/demo1.mp4" 
+                        },
+                        organize_tools: { 
+                            name: "Organize tools", 
+                            description: "Store garden equipment", 
+                            video: "assets/video/demo1.mp4" 
                         }
                     }
                 }
@@ -674,7 +559,6 @@ const demoData = {
 let currentNavigation = {
     scenario: null,
     category1: null,
-    category2: null,
     selectedVideo: null
 };
 
@@ -818,21 +702,7 @@ function updateIntegratedBreadcrumb() {
 // Select category level 1
 function selectCategory1(categoryKey) {
     currentNavigation.category1 = categoryKey;
-    currentNavigation.category2 = null;
     currentNavigation.selectedVideo = null;
-    
-    // Update visual selection
-    document.querySelectorAll('.category-btn').forEach(btn => {
-        btn.classList.remove('selected');
-    });
-    // Find the clicked button without using deprecated event
-    const clickedBtn = document.querySelector(`.category-btn[onclick*="${categoryKey}"]`);
-    if (clickedBtn) {
-        clickedBtn.classList.add('selected');
-    }
-    
-    const scenario = demoData.scenarios[currentNavigation.scenario];
-    const category = scenario.categories[categoryKey];
     
     // Update integrated breadcrumb navigation
     updateIntegratedBreadcrumb();
@@ -849,28 +719,13 @@ function buildBreadcrumbPath() {
         
         if (currentNavigation.category1) {
             const category1 = scenario.categories[currentNavigation.category1];
-            const isClickable = currentNavigation.category2 || currentNavigation.selectedVideo;
+            const isClickable = currentNavigation.selectedVideo;
             const clickHandler = isClickable ? ` onclick="navigateFromBreadcrumb('category1')"` : '';
             const classes = isClickable ? 'breadcrumb-item clickable' : 'breadcrumb-item current';
             pathItems.push(`<span class="${classes}"${clickHandler}>${category1.name}</span>`);
             
-            if (currentNavigation.category2) {
-                const category2 = category1.categories[currentNavigation.category2];
-                const isClickable = currentNavigation.selectedVideo;
-                const clickHandler = isClickable ? ` onclick="navigateFromBreadcrumb('category2')"` : '';
-                const classes = isClickable ? 'breadcrumb-item clickable' : 'breadcrumb-item current';
-                pathItems.push(`<span class="${classes}"${clickHandler}>${category2.name}</span>`);
-            }
-            
             if (currentNavigation.selectedVideo) {
-                let videos = null;
-                if (currentNavigation.category2 && category1.categories) {
-                    const category2 = category1.categories[currentNavigation.category2];
-                    videos = category2.videos;
-                } else {
-                    videos = category1.videos;
-                }
-                
+                const videos = category1.videos;
                 if (videos && videos[currentNavigation.selectedVideo]) {
                     pathItems.push(`<span class="breadcrumb-item current">${videos[currentNavigation.selectedVideo].name}</span>`);
                 }
@@ -881,24 +736,6 @@ function buildBreadcrumbPath() {
     return pathItems;
 }
 
-// Select category level 2
-function selectCategory2(categoryKey) {
-    currentNavigation.category2 = categoryKey;
-    currentNavigation.selectedVideo = null;
-    
-    // Update visual selection
-    document.querySelectorAll('.category-btn').forEach(btn => {
-        btn.classList.remove('selected');
-    });
-    // Find the clicked button without using deprecated event
-    const clickedBtn = document.querySelector(`.category-btn[onclick*="${categoryKey}"]`);
-    if (clickedBtn) {
-        clickedBtn.classList.add('selected');
-    }
-    
-    updateIntegratedBreadcrumb();
-    console.log('Selected category 2:', categoryKey);
-}
 
 // Build breadcrumb options display
 function buildBreadcrumbOptions() {
@@ -919,27 +756,10 @@ function buildBreadcrumbOptions() {
     
     const category1 = scenario.categories[currentNavigation.category1];
     
-    // Show category2 options
-    if (category1.categories && !currentNavigation.category2) {
-        const options = Object.keys(category1.categories).map(categoryKey => {
-            const category = category1.categories[categoryKey];
-            return `<button class="breadcrumb-option" onclick="selectCategory2('${categoryKey}')">${category.name}</button>`;
-        }).join('');
-        return `<div class="breadcrumb-options-container">${options}</div>`;
-    }
-    
-    // Show video options
-    let videos = null;
-    if (currentNavigation.category2 && category1.categories) {
-        const category2 = category1.categories[currentNavigation.category2];
-        videos = category2.videos;
-    } else {
-        videos = category1.videos;
-    }
-    
-    if (videos && !currentNavigation.selectedVideo) {
-        const options = Object.keys(videos).map(videoKey => {
-            const video = videos[videoKey];
+    // Show video options directly under category1
+    if (category1.videos && !currentNavigation.selectedVideo) {
+        const options = Object.keys(category1.videos).map(videoKey => {
+            const video = category1.videos[videoKey];
             return `<button class="breadcrumb-option" onclick="selectVideo('${videoKey}')">${video.name}</button>`;
         }).join('');
         return `<div class="breadcrumb-options-container">${options}</div>`;
@@ -955,14 +775,7 @@ function selectVideo(videoKey) {
     // Get video data
     const scenario = demoData.scenarios[currentNavigation.scenario];
     const category1 = scenario.categories[currentNavigation.category1];
-    let videos = null;
-    
-    if (currentNavigation.category2 && category1.categories) {
-        const category2 = category1.categories[currentNavigation.category2];
-        videos = category2.videos;
-    } else {
-        videos = category1.videos;
-    }
+    const videos = category1.videos;
     
     const video = videos[videoKey];
     showVideo(video.video, video.name);
@@ -1016,16 +829,10 @@ function navigateFromBreadcrumb(level) {
         case 'scenario':
             // Go back to scenario selection (show category level 1)
             currentNavigation.category1 = null;
-            currentNavigation.category2 = null;
             currentNavigation.selectedVideo = null;
             break;
         case 'category1':
-            // Go back to category 1 selection (show category level 2 or video level)
-            currentNavigation.category2 = null;
-            currentNavigation.selectedVideo = null;
-            break;
-        case 'category2':
-            // Go back to category 2 selection (show video level)
+            // Go back to category 1 selection (show video level)
             currentNavigation.selectedVideo = null;
             break;
     }
@@ -1057,7 +864,6 @@ function resetNavigation() {
     currentNavigation = {
         scenario: null,
         category1: null,
-        category2: null,
         selectedVideo: null
     };
     
