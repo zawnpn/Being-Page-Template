@@ -969,19 +969,20 @@ body {
     overflow: hidden;
     border-radius: var(--border-radius-medium);
     background: rgba(245, 245, 247, 0.5);
-    padding: 0.5rem;
+    padding: 1rem;
 }
 
 .slider-track {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     transition: transform 0.3s var(--ease-out);
     padding: 0.5rem;
+    align-items: flex-start;
 }
 
 .slider-btn {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     background: var(--bg-white);
     border: 1px solid var(--demo-border);
@@ -991,31 +992,36 @@ body {
     cursor: pointer;
     transition: all 0.3s var(--ease-out);
     color: var(--demo-text);
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: bold;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    z-index: 2;
+    position: relative;
 }
 
-.slider-btn:hover {
+.slider-btn:hover:not(:disabled) {
     background: var(--demo-button-hover);
     transform: scale(1.05);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-color: var(--hover-border);
 }
 
 .slider-btn:disabled {
-    opacity: 0.5;
+    opacity: 0.3;
     cursor: not-allowed;
     transform: none;
+    background: var(--bg-light);
 }
 
-/* Scenario Cards */
+/* Scenario Cards - Larger Size */
 .scenario-card {
-    min-width: 160px;
+    min-width: 200px;
+    width: 200px;
     flex: 0 0 auto;
     background: var(--bg-white);
     border: 2px solid var(--demo-border);
     border-radius: var(--border-radius-medium);
-    padding: 1rem;
+    padding: 1.25rem;
     cursor: pointer;
     transition: all 0.3s var(--ease-out);
     text-align: center;
@@ -1037,10 +1043,10 @@ body {
 
 .scenario-image {
     width: 100%;
-    height: 80px;
+    height: 120px;
     border-radius: var(--border-radius-small);
     overflow: hidden;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
     background: var(--bg-light);
     display: flex;
     align-items: center;
@@ -1054,7 +1060,7 @@ body {
 }
 
 .scenario-name {
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--demo-text);
     line-height: 1.3;

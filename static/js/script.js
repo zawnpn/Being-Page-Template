@@ -366,6 +366,306 @@ const demoData = {
                     }
                 }
             }
+        },
+        health_fitness: {
+            name: "Health & Fitness",
+            description: "Exercise, wellness, and health activities",
+            thumbnail: "assets/image/scenarios/scene_1.png",
+            categories: {
+                exercise: {
+                    name: "Exercise",
+                    categories: {
+                        cardio: {
+                            name: "Cardio Workouts",
+                            videos: {
+                                running: { 
+                                    name: "Running", 
+                                    description: "Outdoor running exercise", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                cycling: { 
+                                    name: "Cycling", 
+                                    description: "Bicycle exercise", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                jumping: { 
+                                    name: "Jumping jacks", 
+                                    description: "High-intensity jumping", 
+                                    video: "assets/video/demo1.mp4" 
+                                }
+                            }
+                        },
+                        strength: {
+                            name: "Strength Training",
+                            videos: {
+                                push_ups: { 
+                                    name: "Push-ups", 
+                                    description: "Upper body strength", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                squats: { 
+                                    name: "Squats", 
+                                    description: "Lower body strength", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                planks: { 
+                                    name: "Planks", 
+                                    description: "Core strengthening", 
+                                    video: "assets/video/demo1.mp4" 
+                                }
+                            }
+                        }
+                    }
+                },
+                wellness: {
+                    name: "Wellness",
+                    categories: {
+                        meditation: {
+                            name: "Meditation",
+                            videos: {
+                                breathing: { 
+                                    name: "Breathing exercises", 
+                                    description: "Deep breathing techniques", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                mindfulness: { 
+                                    name: "Mindfulness", 
+                                    description: "Present moment awareness", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                relaxation: { 
+                                    name: "Relaxation", 
+                                    description: "Stress relief techniques", 
+                                    video: "assets/video/demo1.mp4" 
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        education_learning: {
+            name: "Education & Learning",
+            description: "Study, research, and learning activities",
+            thumbnail: "assets/image/scenarios/scene_1.png",
+            categories: {
+                study: {
+                    name: "Study Sessions",
+                    categories: {
+                        reading: {
+                            name: "Reading",
+                            videos: {
+                                textbooks: { 
+                                    name: "Reading textbooks", 
+                                    description: "Academic reading", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                note_taking: { 
+                                    name: "Note taking", 
+                                    description: "Writing study notes", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                highlighting: { 
+                                    name: "Highlighting", 
+                                    description: "Marking important text", 
+                                    video: "assets/video/demo1.mp4" 
+                                }
+                            }
+                        },
+                        research: {
+                            name: "Research",
+                            videos: {
+                                online_search: { 
+                                    name: "Online research", 
+                                    description: "Internet information gathering", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                library_work: { 
+                                    name: "Library work", 
+                                    description: "Academic library research", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                data_analysis: { 
+                                    name: "Data analysis", 
+                                    description: "Analyzing research data", 
+                                    video: "assets/video/demo1.mp4" 
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        entertainment_leisure: {
+            name: "Entertainment & Leisure",
+            description: "Recreation, hobbies, and leisure activities",
+            thumbnail: "assets/image/scenarios/scene_1.png",
+            categories: {
+                gaming: {
+                    name: "Gaming",
+                    categories: {
+                        video_games: {
+                            name: "Video Games",
+                            videos: {
+                                console_gaming: { 
+                                    name: "Console gaming", 
+                                    description: "Playing console games", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                pc_gaming: { 
+                                    name: "PC gaming", 
+                                    description: "Computer game playing", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                mobile_gaming: { 
+                                    name: "Mobile gaming", 
+                                    description: "Smartphone games", 
+                                    video: "assets/video/demo1.mp4" 
+                                }
+                            }
+                        }
+                    }
+                },
+                arts_crafts: {
+                    name: "Arts & Crafts",
+                    categories: {
+                        drawing: {
+                            name: "Drawing",
+                            videos: {
+                                sketching: { 
+                                    name: "Sketching", 
+                                    description: "Basic sketching techniques", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                coloring: { 
+                                    name: "Coloring", 
+                                    description: "Adding colors to artwork", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                digital_art: { 
+                                    name: "Digital art", 
+                                    description: "Creating digital artwork", 
+                                    video: "assets/video/demo1.mp4" 
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        shopping_errands: {
+            name: "Shopping & Errands",
+            description: "Daily errands and shopping activities",
+            thumbnail: "assets/image/scenarios/scene_1.png",
+            categories: {
+                grocery_shopping: {
+                    name: "Grocery Shopping",
+                    categories: {
+                        store_navigation: {
+                            name: "Store Navigation",
+                            videos: {
+                                find_items: { 
+                                    name: "Finding items", 
+                                    description: "Locating products in store", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                cart_management: { 
+                                    name: "Cart management", 
+                                    description: "Using shopping cart", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                checkout: { 
+                                    name: "Checkout process", 
+                                    description: "Paying for purchases", 
+                                    video: "assets/video/demo1.mp4" 
+                                }
+                            }
+                        }
+                    }
+                },
+                banking: {
+                    name: "Banking",
+                    categories: {
+                        atm_usage: {
+                            name: "ATM Usage",
+                            videos: {
+                                withdrawal: { 
+                                    name: "Cash withdrawal", 
+                                    description: "Getting cash from ATM", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                deposit: { 
+                                    name: "Making deposits", 
+                                    description: "Depositing money", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                balance_check: { 
+                                    name: "Balance check", 
+                                    description: "Checking account balance", 
+                                    video: "assets/video/demo1.mp4" 
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        social_activities: {
+            name: "Social Activities",
+            description: "Interactions and social engagement",
+            thumbnail: "assets/image/scenarios/scene_1.png",
+            categories: {
+                communication: {
+                    name: "Communication",
+                    categories: {
+                        phone_calls: {
+                            name: "Phone Calls",
+                            videos: {
+                                making_calls: { 
+                                    name: "Making calls", 
+                                    description: "Initiating phone calls", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                answering_calls: { 
+                                    name: "Answering calls", 
+                                    description: "Receiving phone calls", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                video_calls: { 
+                                    name: "Video calls", 
+                                    description: "Video conferencing", 
+                                    video: "assets/video/demo1.mp4" 
+                                }
+                            }
+                        }
+                    }
+                },
+                social_media: {
+                    name: "Social Media",
+                    categories: {
+                        posting: {
+                            name: "Posting Content",
+                            videos: {
+                                photo_sharing: { 
+                                    name: "Photo sharing", 
+                                    description: "Sharing photos online", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                status_updates: { 
+                                    name: "Status updates", 
+                                    description: "Posting status messages", 
+                                    video: "assets/video/demo1.mp4" 
+                                },
+                                commenting: { 
+                                    name: "Commenting", 
+                                    description: "Engaging with posts", 
+                                    video: "assets/video/demo1.mp4" 
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 };
@@ -379,7 +679,7 @@ let currentNavigation = {
 };
 
 let sliderOffset = 0;
-const sliderStep = 200; // pixels per slide
+const sliderStep = 220; // pixels per slide (adjusted for larger cards)
 
 // Initialize the demo
 function initDemo() {
@@ -423,7 +723,7 @@ function slideScenarios(direction) {
     
     const viewportWidth = viewport.offsetWidth;
     const trackWidth = track.scrollWidth;
-    const maxOffset = trackWidth - viewportWidth;
+    const maxOffset = Math.max(0, trackWidth - viewportWidth);
     
     if (direction === 'left') {
         sliderOffset = Math.max(0, sliderOffset - sliderStep);
@@ -445,9 +745,9 @@ function updateSliderControls() {
     
     const viewportWidth = viewport.offsetWidth;
     const trackWidth = track.scrollWidth;
-    const maxOffset = trackWidth - viewportWidth;
+    const maxOffset = Math.max(0, trackWidth - viewportWidth);
     
-    // Show/hide buttons based on need
+    // Show/hide buttons based on need and current position
     if (trackWidth > viewportWidth) {
         leftBtn.style.display = sliderOffset > 0 ? 'flex' : 'none';
         rightBtn.style.display = sliderOffset < maxOffset ? 'flex' : 'none';
@@ -455,6 +755,10 @@ function updateSliderControls() {
         leftBtn.style.display = 'none';
         rightBtn.style.display = 'none';
     }
+    
+    // Update button states
+    leftBtn.disabled = sliderOffset <= 0;
+    rightBtn.disabled = sliderOffset >= maxOffset;
 }
 
 // Select scenario
