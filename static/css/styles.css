@@ -55,7 +55,7 @@
     
     /* Apple-style spacing */
     --section-spacing: 5rem;
-    --content-spacing: 3rem;
+    --content-spacing: 1.5rem;
     
     /* Apple-style animation easing */
     --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -562,7 +562,7 @@ body {
 .video-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2.5rem;
+    gap: 1.5rem;
     margin-top: 2.5rem;
 }
 
