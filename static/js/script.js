@@ -261,6 +261,13 @@ function initDemo() {
     console.log('Initializing hierarchical interactive demo');
     renderScenarios();
     resetNavigation();
+    
+    // Auto-select first scenario
+    const firstScenarioKey = Object.keys(demoData.scenarios)[0];
+    if (firstScenarioKey) {
+        selectScenario(firstScenarioKey);
+    }
+    
     console.log('Demo initialized with', Object.keys(demoData.scenarios).length, 'scenarios');
 }
 
@@ -390,8 +397,8 @@ function updateIntegratedBreadcrumb() {
     
     // Build and display current path
     const pathItems = buildBreadcrumbPath();
-    breadcrumbPath.innerHTML = pathItems.length > 0 ? pathItems.join(' › ') : 'Select a scenario to continue';
-    
+    breadcrumbPath.innerHTML = pathItems.length > 0 ? pathItems.join(' › ') : 'Select a scene to begin';
+
     // Show breadcrumb navigation
     breadcrumbNav.style.display = 'block';
 }
@@ -476,8 +483,15 @@ function renderCategories(scenarioKey) {
     
     const scenario = demoData.scenarios[scenarioKey];
     if (!scenario || !scenario.categories) {
-        categoryContainer.innerHTML = '';
-        categoryContainer.style.display = 'none';
+        categoryContainer.innerHTML = `
+            <div class="category-selection">
+                <span class="category-title">Select Action</span>
+                <div class="category-options">
+                    <span class="breadcrumb-hint">Select a scene first</span>
+                </div>
+            </div>
+        `;
+        categoryContainer.style.display = 'block';
         return;
     }
     
@@ -605,14 +619,21 @@ function resetNavigation() {
     const breadcrumbPath = document.getElementById('breadcrumbPath');
     
     if (breadcrumbPath) {
-        breadcrumbPath.innerHTML = 'Select a scenario to continue';
+        breadcrumbPath.innerHTML = 'Select a scene to begin';
     }
     
-    // Reset category display
+    // Reset category display - always show container
     const categoryContainer = document.getElementById('categoryContainer');
     if (categoryContainer) {
-        categoryContainer.innerHTML = '';
-        categoryContainer.style.display = 'none';
+        categoryContainer.innerHTML = `
+            <div class="category-selection">
+                <span class="category-title">Select Action</span>
+                <div class="category-options">
+                    <span class="breadcrumb-hint">Select a scene first</span>
+                </div>
+            </div>
+        `;
+        categoryContainer.style.display = 'block';
     }
     
     // Reset selections
@@ -626,7 +647,7 @@ function resetNavigation() {
         videoDisplay.innerHTML = `
             <div class="demo-placeholder">
                 <div class="icon">🎬</div>
-                <p>Select a scenario to begin</p>
+                <p>Select a scene to begin</p>
             </div>
         `;
         videoDisplay.classList.remove('playing');

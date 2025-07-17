@@ -1009,6 +1009,10 @@ body {
     letter-spacing: -0.016em;
 }
 
+.scenario-section .nav-title {
+    color: var(--demo-light-text);
+}
+
 /* Horizontal Slider for Scenarios */
 .slider-container {
     position: relative;
