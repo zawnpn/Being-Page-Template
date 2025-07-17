@@ -914,37 +914,99 @@ body {
     transition: all 0.3s var(--ease-out);
 }
 
-/* Fixed height for navigation area to prevent layout shifts */
-.navigation-area {
+/* Integrated breadcrumb navigation styles */
+
+.breadcrumb-nav {
+    background: var(--bg-white);
+    border: 1px solid var(--demo-border);
+    border-radius: var(--border-radius-small);
+    padding: 1rem;
+    margin-bottom: 1rem;
     min-height: 100px;
     display: flex;
     flex-direction: column;
+    gap: 0.75rem;
+    transition: all 0.3s var(--ease-out);
 }
 
-.navigation-content {
-    flex: 1;
+.breadcrumb-nav.collapsed {
+    min-height: auto;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.breadcrumb-nav.collapsed .breadcrumb-path {
+    border-bottom: none;
+    padding: 0.25rem 0;
+    font-size: 0.85rem;
+}
+
+.breadcrumb-content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     gap: 0.75rem;
 }
 
-.nav-subtitle {
+.breadcrumb-path {
     font-size: 0.9rem;
     font-weight: 500;
-    color: var(--demo-light-text);
-    margin: 0;
-    text-align: center;
+    color: var(--demo-text);
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--demo-border);
     letter-spacing: -0.012em;
 }
 
-.navigation-buttons {
+.breadcrumb-options {
     display: flex;
     flex-direction: column;
+    gap: 0.5rem;
     align-items: center;
-    gap: 0.75rem;
-    width: 100%;
+}
+
+.breadcrumb-options-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    max-width: 400px;
+}
+
+.breadcrumb-option {
+    padding: 0.5rem 1rem;
+    background: var(--demo-button-bg);
+    color: var(--demo-button-text);
+    border: 1px solid var(--demo-button-border);
+    border-radius: var(--border-radius-small);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s var(--ease-out);
+    letter-spacing: -0.012em;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+}
+
+.breadcrumb-option:hover {
+    background: var(--demo-button-hover);
+    border-color: var(--demo-button-border);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.breadcrumb-option:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.breadcrumb-hint {
+    font-size: 0.85rem;
+    color: var(--demo-light-text);
+    font-style: italic;
+    text-align: center;
+    padding: 0.5rem;
 }
 
 .nav-title {
@@ -968,7 +1030,7 @@ body {
     flex: 1;
     overflow: hidden;
     border-radius: var(--border-radius-medium);
-    background: rgba(245, 245, 247, 0.5);
+    background: rgba(255, 255, 255, 0.5);
     padding: 1rem;
 }
 
@@ -1177,20 +1239,7 @@ body {
 }
 
 /* Breadcrumb Navigation */
-.breadcrumb-nav {
-    background: var(--bg-white);
-    border: 1px solid var(--demo-border);
-    border-radius: var(--border-radius-small);
-    padding: 0.75rem 1rem;
-    margin-bottom: 1rem;
-}
-
-.breadcrumb-items {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
+/* Legacy breadcrumb item styles for the path display */
 
 .breadcrumb-item {
     font-size: 0.85rem;
@@ -1201,6 +1250,7 @@ body {
     padding: 0.25rem 0.5rem;
     border-radius: var(--border-radius-small);
     position: relative;
+    display: inline;
 }
 
 .breadcrumb-item:not(.current):hover {
@@ -1209,12 +1259,6 @@ body {
     transform: translateY(-1px);
 }
 
-.breadcrumb-item:not(:last-child):after {
-    content: '›';
-    margin-left: 0.5rem;
-    color: var(--demo-light-text);
-    pointer-events: none;
-}
 
 .breadcrumb-item.current {
     color: #1d1d1f;
@@ -1355,8 +1399,30 @@ body {
         min-height: 250px;
     }
 
-    .breadcrumb-items {
-        gap: 0.25rem;
+    .breadcrumb-nav {
+        padding: 0.75rem;
+        min-height: 80px;
+    }
+
+    .breadcrumb-nav.collapsed {
+        padding: 0.5rem 0.75rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .breadcrumb-path {
+        font-size: 0.8rem;
+        padding: 0.4rem 0;
+    }
+
+    .breadcrumb-options-container {
+        max-width: 100%;
+        gap: 0.4rem;
+    }
+
+    .breadcrumb-option {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+        min-width: 70px;
     }
 
     .breadcrumb-item {

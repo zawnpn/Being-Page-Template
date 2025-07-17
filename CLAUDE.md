@@ -90,13 +90,68 @@ Modify CSS custom properties in `:root` selector in `static/css/styles.css`:
 - Replace placeholder images in `assets/image/`
 - Add real videos to `assets/video/`
 
-## No Build Process
+## Development Commands
 
 This is a static site with no build tools, package managers, or dependencies. All functionality is implemented in vanilla HTML, CSS, and JavaScript.
 
-## Testing
+### Testing and Development
+- **Local testing**: Open `index.html` in a web browser (uses relative paths, no server required)
+- **Live server**: Use any static file server (e.g., `python -m http.server 8000` or VS Code Live Server)
+- **Browser testing**: Test in Chrome, Firefox, Safari for compatibility
 
-Open `index.html` in a web browser to test locally. The site uses relative paths and should work without a web server for basic testing.
+### No Build Process
+- No package.json, webpack, or build tools
+- No dependencies to install
+- No transpilation or bundling
+- All code runs directly in the browser
+
+## Code Architecture
+
+### Core Data Structure
+The interactive demo system is built around a hierarchical data structure in `script.js`:
+- `demoData.scenarios`: Top-level scenarios (e.g., home_activities)
+- `categories`: Nested categories (e.g., kitchen → cooking)
+- `videos`: Individual video operations with metadata
+
+### Key JavaScript Components
+- **Demo Navigation**: Hierarchical category system with breadcrumb navigation
+- **State Management**: Tracks selected scenario, category path, and video sequence
+- **Video Playback**: Handles video loading, playback controls, and error states
+- **Intersection Observer**: Smooth scroll animations and section visibility
+- **BibTeX Handler**: Citation copying functionality
+
+### CSS Architecture
+- **CSS Custom Properties**: Centralized theming in `:root` selector
+- **Apple Design System**: Consistent use of SF Pro fonts and Apple color palette
+- **Responsive Grid**: Flexible 1/2/3-column layouts with CSS Grid
+- **Translucent Effects**: Backdrop blur effects throughout interface
+
+## Common Development Tasks
+
+### Updating Demo Content
+1. **Add new scenarios**: Edit `demoData.scenarios` object in `script.js`
+2. **Add videos**: Place in `assets/video/` following the hierarchical structure
+3. **Update images**: Replace placeholders in `assets/image/scenarios/`
+4. **Configure max steps**: Modify `maxSteps` value in `demoData`
+
+### Styling Modifications
+1. **Colors**: Update CSS custom properties in `:root` selector in `styles.css`
+2. **Fonts**: Modify `--primary-font` and `--title-font` variables
+3. **Layout**: Adjust grid systems and responsive breakpoints
+4. **Apple design**: Maintain consistency with existing blur effects and rounded corners
+
+### Content Updates
+1. **Author info**: Update author links and affiliations in `index.html`
+2. **Publication details**: Modify publication info and venue
+3. **Abstract**: Update project description and methodology
+4. **BibTeX**: Update citation format in the embedded script
+
+### File Organization
+- `index.html`: Single-page application structure
+- `static/css/styles.css`: Complete styling with Apple design system
+- `static/js/script.js`: All JavaScript functionality and demo data
+- `assets/`: Static assets organized by type (image, video, icons)
+- `INTERACTIVE_DEMO_README.md`: Detailed demo configuration guide
 
 ## Notes
 
