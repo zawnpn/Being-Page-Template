@@ -484,15 +484,15 @@ function selectScenario(scenarioKey) {
 // Show category level 1 in fixed navigation area
 function showCategoryLevel1() {
     const navigationTitle = document.getElementById('navigationTitle');
-    const navigationContent = document.getElementById('navigationContent');
+    const navigationButtons = document.getElementById('navigationButtons');
     
-    if (!navigationTitle || !navigationContent || !currentNavigation.scenario) return;
+    if (!navigationTitle || !navigationButtons || !currentNavigation.scenario) return;
     
     const scenario = demoData.scenarios[currentNavigation.scenario];
     
     // Update title and content
     navigationTitle.textContent = 'Choose Category';
-    navigationContent.innerHTML = '';
+    navigationButtons.innerHTML = '';
     
     // Create button container
     const buttonContainer = document.createElement('div');
@@ -508,7 +508,7 @@ function showCategoryLevel1() {
         buttonContainer.appendChild(btn);
     });
     
-    navigationContent.appendChild(buttonContainer);
+    navigationButtons.appendChild(buttonContainer);
 }
 
 // Select category level 1
@@ -544,9 +544,9 @@ function selectCategory1(categoryKey) {
 // Show category level 2 in fixed navigation area
 function showCategoryLevel2() {
     const navigationTitle = document.getElementById('navigationTitle');
-    const navigationContent = document.getElementById('navigationContent');
+    const navigationButtons = document.getElementById('navigationButtons');
     
-    if (!navigationTitle || !navigationContent || !currentNavigation.scenario || !currentNavigation.category1) return;
+    if (!navigationTitle || !navigationButtons || !currentNavigation.scenario || !currentNavigation.category1) return;
     
     const scenario = demoData.scenarios[currentNavigation.scenario];
     const category1 = scenario.categories[currentNavigation.category1];
@@ -554,7 +554,7 @@ function showCategoryLevel2() {
     if (category1.categories) {
         // Update title and content
         navigationTitle.textContent = 'Choose Subcategory';
-        navigationContent.innerHTML = '';
+        navigationButtons.innerHTML = '';
         
         // Create button container
         const buttonContainer = document.createElement('div');
@@ -570,7 +570,7 @@ function showCategoryLevel2() {
             buttonContainer.appendChild(btn);
         });
         
-        navigationContent.appendChild(buttonContainer);
+        navigationButtons.appendChild(buttonContainer);
     }
 }
 
@@ -597,9 +597,9 @@ function selectCategory2(categoryKey) {
 // Show video level in fixed navigation area
 function showVideoLevel() {
     const navigationTitle = document.getElementById('navigationTitle');
-    const navigationContent = document.getElementById('navigationContent');
+    const navigationButtons = document.getElementById('navigationButtons');
     
-    if (!navigationTitle || !navigationContent || !currentNavigation.scenario || !currentNavigation.category1) return;
+    if (!navigationTitle || !navigationButtons || !currentNavigation.scenario || !currentNavigation.category1) return;
     
     const scenario = demoData.scenarios[currentNavigation.scenario];
     const category1 = scenario.categories[currentNavigation.category1];
@@ -616,7 +616,7 @@ function showVideoLevel() {
     
     // Update title and content
     navigationTitle.textContent = 'Select Video';
-    navigationContent.innerHTML = '';
+    navigationButtons.innerHTML = '';
     
     // Create button container
     const buttonContainer = document.createElement('div');
@@ -632,7 +632,7 @@ function showVideoLevel() {
         buttonContainer.appendChild(btn);
     });
     
-    navigationContent.appendChild(buttonContainer);
+    navigationButtons.appendChild(buttonContainer);
 }
 
 // Select video
@@ -701,7 +701,7 @@ function showVideo(videoSrc, title) {
     console.log('Showing video:', title, videoSrc);
 }
 
-// Update breadcrumb navigation
+// Update breadcrumb navigation with clickable functionality
 function updateBreadcrumb() {
     const breadcrumbNav = document.getElementById('breadcrumbNav');
     const breadcrumbItems = document.getElementById('breadcrumbItems');
@@ -712,15 +712,27 @@ function updateBreadcrumb() {
     
     if (currentNavigation.scenario) {
         const scenario = demoData.scenarios[currentNavigation.scenario];
-        path.push(scenario.name);
+        path.push({
+            name: scenario.name,
+            level: 'scenario',
+            clickable: currentNavigation.category1 || currentNavigation.category2 || currentNavigation.selectedVideo
+        });
         
         if (currentNavigation.category1) {
             const category1 = scenario.categories[currentNavigation.category1];
-            path.push(category1.name);
+            path.push({
+                name: category1.name,
+                level: 'category1',
+                clickable: currentNavigation.category2 || currentNavigation.selectedVideo
+            });
             
             if (currentNavigation.category2) {
                 const category2 = category1.categories[currentNavigation.category2];
-                path.push(category2.name);
+                path.push({
+                    name: category2.name,
+                    level: 'category2',
+                    clickable: currentNavigation.selectedVideo
+                });
             }
             
             if (currentNavigation.selectedVideo) {
@@ -733,20 +745,86 @@ function updateBreadcrumb() {
                 }
                 
                 if (videos && videos[currentNavigation.selectedVideo]) {
-                    path.push(videos[currentNavigation.selectedVideo].name);
+                    path.push({
+                        name: videos[currentNavigation.selectedVideo].name,
+                        level: 'video',
+                        clickable: false
+                    });
                 }
             }
         }
     }
     
     if (path.length > 0) {
-        breadcrumbItems.innerHTML = path.map((item, index) => 
-            `<span class="breadcrumb-item ${index === path.length - 1 ? 'current' : ''}">${item}</span>`
-        ).join('');
+        breadcrumbItems.innerHTML = path.map((item, index) => {
+            const isLast = index === path.length - 1;
+            const classes = ['breadcrumb-item'];
+            
+            if (isLast) {
+                classes.push('current');
+            } else if (item.clickable) {
+                classes.push('clickable');
+            }
+            
+            const clickHandler = item.clickable ? `onclick="navigateFromBreadcrumb('${item.level}')"` : '';
+            
+            return `<span class="${classes.join(' ')}" ${clickHandler}>${item.name}</span>`;
+        }).join('');
         breadcrumbNav.style.display = 'block';
     } else {
         breadcrumbNav.style.display = 'none';
     }
+}
+
+// Navigate back from breadcrumb click
+function navigateFromBreadcrumb(level) {
+    switch (level) {
+        case 'scenario':
+            // Go back to scenario selection (show category level 1)
+            currentNavigation.category1 = null;
+            currentNavigation.category2 = null;
+            currentNavigation.selectedVideo = null;
+            showCategoryLevel1();
+            break;
+        case 'category1':
+            // Go back to category 1 selection (show category level 2 or video level)
+            currentNavigation.category2 = null;
+            currentNavigation.selectedVideo = null;
+            const scenario = demoData.scenarios[currentNavigation.scenario];
+            const category1 = scenario.categories[currentNavigation.category1];
+            if (category1.categories) {
+                showCategoryLevel2();
+            } else {
+                showVideoLevel();
+            }
+            break;
+        case 'category2':
+            // Go back to category 2 selection (show video level)
+            currentNavigation.selectedVideo = null;
+            showVideoLevel();
+            break;
+    }
+    
+    // Update visual selections
+    document.querySelectorAll('.category-btn, .video-btn').forEach(btn => {
+        btn.classList.remove('selected');
+    });
+    
+    // Hide video if we're navigating back
+    if (level !== 'video') {
+        const videoDisplay = document.getElementById('videoDisplay');
+        if (videoDisplay) {
+            videoDisplay.innerHTML = `
+                <div class="demo-placeholder">
+                    <div class="icon">🎬</div>
+                    <p>Make your selection to view video</p>
+                </div>
+            `;
+            videoDisplay.classList.remove('playing');
+        }
+    }
+    
+    updateBreadcrumb();
 }
 
 // Reset navigation
@@ -760,14 +838,14 @@ function resetNavigation() {
     
     // Reset navigation area
     const navigationTitle = document.getElementById('navigationTitle');
-    const navigationContent = document.getElementById('navigationContent');
+    const navigationButtons = document.getElementById('navigationButtons');
     
     if (navigationTitle) {
         navigationTitle.textContent = 'Select a scenario to continue';
     }
     
-    if (navigationContent) {
-        navigationContent.innerHTML = '';
+    if (navigationButtons) {
+        navigationButtons.innerHTML = '';
     }
     
     // Reset selections
