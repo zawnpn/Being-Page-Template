@@ -1,6 +1,95 @@
 // Theme system removed - light theme only
 
 
+// Progressive Video Loading with Intersection Observer
+function initVideoLazyLoading() {
+    // Create intersection observer for videos
+    const videoObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const video = entry.target;
+                const source = video.querySelector('source');
+                
+                // Load video source
+                if (video.dataset.src && !video.src) {
+                    video.src = video.dataset.src;
+                    if (source && source.dataset.src) {
+                        source.src = source.dataset.src;
+                    }
+                    
+                    // Load the video
+                    video.load();
+                    
+                    // Start playing when loaded
+                    video.addEventListener('loadeddata', () => {
+                        video.play().catch(e => console.log('Video autoplay failed:', e));
+                    });
+                }
+                
+                // Stop observing this video
+                observer.unobserve(video);
+            }
+        });
+    }, {
+        // Start loading when video is 50% visible
+        threshold: 0.5,
+        // Start loading 100px before video comes into view
+        rootMargin: '100px'
+    });
+    
+    // Observe all videos with data-src attribute
+    document.querySelectorAll('video[data-src]').forEach(video => {
+        videoObserver.observe(video);
+    });
+}
+
+// Progressive Image Loading with Intersection Observer
+function initImageLazyLoading() {
+    // Create intersection observer for images
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                
+                // Load image source
+                if (img.dataset.src && img.src !== img.dataset.src) {
+                    // Add loading class for fade effect
+                    img.classList.add('loading');
+                    
+                    // Create new image to preload
+                    const newImg = new Image();
+                    newImg.onload = () => {
+                        // Once loaded, replace src and add fade effect
+                        img.src = img.dataset.src;
+                        img.classList.remove('loading');
+                        img.classList.add('loaded');
+                    };
+                    newImg.onerror = () => {
+                        // If image fails to load, show error placeholder
+                        img.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='100%25' height='100%25' fill='%23f5f5f7'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='16' fill='%2386868b' text-anchor='middle' dy='.3em'%3EImage failed to load%3C/text%3E%3C/svg%3E";
+                        img.classList.remove('loading');
+                        console.log('Image failed to load:', img.dataset.src);
+                    };
+                    newImg.src = img.dataset.src;
+                }
+                
+                // Stop observing this image
+                observer.unobserve(img);
+            }
+        });
+    }, {
+        // Start loading when image is 10% visible
+        threshold: 0.1,
+        // Start loading 50px before image comes into view
+        rootMargin: '50px'
+    });
+    
+    // Observe all images with data-src attribute
+    document.querySelectorAll('img[data-src]').forEach(img => {
+        imageObserver.observe(img);
+    });
+}
+
 // Video interactions
 document.querySelectorAll('.video-item video').forEach(video => {
     video.addEventListener('loadstart', () => {
@@ -775,6 +864,8 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         initDemo();
         initTrackpadScrolling();
+        initVideoLazyLoading(); // Initialize video lazy loading
+        initImageLazyLoading(); // Initialize image lazy loading
     }, 100);
     
     // Handle window resize for slider

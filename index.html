@@ -8,6 +8,7 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/image/icon/favicon.ico">
     
+    
     <!-- Preload critical images -->
     <link rel="preload" as="image" href="assets/image/being-h0.png">
     <link rel="preload" as="image" href="assets/image/background.png">
@@ -142,8 +143,8 @@
             <h2 class="section-title">Video Demo</h2>
             <div class="video-grid">
                 <div class="video-item">
-                    <video autoplay loop muted playsinline loading="lazy" preload="metadata">
-                        <source src="assets/video/real_demo/unfold_clothes.mp4" type="video/mp4">
+                    <video loop muted playsinline loading="lazy" preload="none" data-src="assets/video/real_demo/unfold_clothes.mp4">
+                        <source data-src="assets/video/real_demo/unfold_clothes.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <div class="video-title">Unfold Clothes</div>
@@ -151,8 +152,8 @@
                 </div>
 
                 <div class="video-item">
-                    <video autoplay loop muted playsinline loading="lazy" preload="metadata">
-                        <source src="assets/video/real_demo/close_lid.mp4" type="video/mp4">
+                    <video loop muted playsinline loading="lazy" preload="none" data-src="assets/video/real_demo/close_lid.mp4">
+                        <source data-src="assets/video/real_demo/close_lid.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <div class="video-title">Close Lid</div>
@@ -160,8 +161,8 @@
                 </div>
 
                 <div class="video-item">
-                    <video autoplay loop muted playsinline loading="lazy" preload="metadata">
-                        <source src="assets/video/real_demo/close_toolbox.mp4" type="video/mp4">
+                    <video loop muted playsinline loading="lazy" preload="none" data-src="assets/video/real_demo/close_toolbox.mp4">
+                        <source data-src="assets/video/real_demo/close_toolbox.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <div class="video-title">Close Toolbox</div>
@@ -169,8 +170,8 @@
                 </div>
 
                 <div class="video-item">
-                    <video autoplay loop muted playsinline loading="lazy" preload="metadata">
-                        <source src="assets/video/real_demo/pick_place_1.mp4" type="video/mp4">
+                    <video loop muted playsinline loading="lazy" preload="none" data-src="assets/video/real_demo/pick_place_1.mp4">
+                        <source data-src="assets/video/real_demo/pick_place_1.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <div class="video-title">Pick and Place</div>
@@ -178,8 +179,8 @@
                 </div>
 
                 <div class="video-item">
-                    <video autoplay loop muted playsinline loading="lazy" preload="metadata">
-                        <source src="assets/video/real_demo/pick_place_2.mp4" type="video/mp4">
+                    <video loop muted playsinline loading="lazy" preload="none" data-src="assets/video/real_demo/pick_place_2.mp4">
+                        <source data-src="assets/video/real_demo/pick_place_2.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <div class="video-title">Pick and Place (clutter)</div>
@@ -187,8 +188,8 @@
                 </div>
 
                 <div class="video-item">
-                    <video autoplay loop muted playsinline loading="lazy" preload="metadata">
-                        <source src="assets/video/real_demo/pour_cup.mp4" type="video/mp4">
+                    <video loop muted playsinline loading="lazy" preload="none" data-src="assets/video/real_demo/pour_cup.mp4">
+                        <source data-src="assets/video/real_demo/pour_cup.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <div class="video-title">Pour Cup</div>
@@ -204,7 +205,7 @@
             <div class="grid-one-column">
                 <div class="grid-item">
                     <div class="item-image">
-                        <img src="assets/image/framework.png" alt="System overview" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                        <img data-src="assets/image/framework.png" alt="System overview" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" class="lazy-image">
                     </div>
                     <h3 class="item-title">Unified Architecture Design</h3>
                     <p class="item-description">Our unified architecture seamlessly integrates vision-language models with robotic control systems, enabling natural human-robot interaction through multimodal understanding. The system processes visual inputs, language commands, and executes complex manipulation tasks in real-time environments.</p>
@@ -218,7 +219,7 @@
             <div class="grid-two-column">
                 <div class="grid-item">
                     <div class="item-image">
-                        <img src="assets/image/framework.png" alt="VLM architecture" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                        <img data-src="assets/image/framework.png" alt="VLM architecture" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" class="lazy-image">
                     </div>
                     <h3 class="item-title">Vision-Language Integration</h3>
                     <p class="item-description">Advanced multimodal understanding capability that processes visual scenes and natural language instructions simultaneously, enabling intuitive human-robot communication and complex task planning.</p>
@@ -226,7 +227,7 @@
 
                 <div class="grid-item">
                     <div class="item-image">
-                        <img src="assets/image/framework.png" alt="Modular skills" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                        <img data-src="assets/image/framework.png" alt="Modular skills" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" class="lazy-image">
                     </div>
                     <h3 class="item-title">Modular Skills System</h3>
                     <p class="item-description">A flexible skill composition framework that allows dynamic combination of primitive actions into complex behaviors, enabling adaptable and efficient task execution across diverse scenarios.</p>
@@ -240,7 +241,7 @@
             <div class="grid-three-column">
                 <div class="grid-item">
                     <div class="item-image">
-                        <img src="assets/image/framework.png" alt="Training pipeline" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                        <img data-src="assets/image/framework.png" alt="Training pipeline" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" class="lazy-image">
                     </div>
                     <h3 class="item-title">Training Strategy</h3>
                     <p class="item-description">Multi-stage training protocol combining supervised learning, reinforcement learning, and self-supervised techniques for robust skill acquisition.</p>
@@ -248,7 +249,7 @@
 
                 <div class="grid-item">
                     <div class="item-image">
-                        <img src="assets/image/framework.png" alt="Performance results" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                        <img data-src="assets/image/framework.png" alt="Performance results" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" class="lazy-image">
                     </div>
                     <h3 class="item-title">Benchmark Results</h3>
                     <p class="item-description">State-of-the-art performance across multiple robotic benchmarks, demonstrating superior task completion rates and interaction quality.</p>
@@ -256,7 +257,7 @@
 
                 <div class="grid-item">
                     <div class="item-image">
-                        <img src="assets/image/framework.png" alt="Applications" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                        <img data-src="assets/image/framework.png" alt="Applications" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" class="lazy-image">
                     </div>
                     <h3 class="item-title">Applications</h3>
                     <p class="item-description">Diverse real-world applications spanning household assistance, manufacturing, and service robotics with proven effectiveness.</p>
@@ -293,5 +294,6 @@
 
     <!-- External JavaScript -->
     <script src="static/js/script.js" defer></script>
+    
 </body>
 </html>
