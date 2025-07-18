@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap');
-
 :root {
-    /* Mixed fonts - Apple for body, Google Sans for titles */
-    --primary-font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', 'Google Sans', Helvetica, Arial, sans-serif;
-    --title-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', 'Google Sans', Helvetica, Arial, sans-serif;
-    --section-title-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', 'Google Sans', Helvetica, Arial, sans-serif;
+    /* Apple system fonts */
+    --primary-font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --title-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --section-title-font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     
-    /* Apple-style light theme colors */
+    /* Light theme colors */
     --primary-color: #1d1d1f;
     --secondary-color: #424245;
     --text-color: #1d1d1f;
@@ -15,7 +13,7 @@
     --bg-light: #f5f5f7;
     --bg-white: #ffffff;
     
-    /* Apple-style content text colors */
+    /* Content text colors */
     --content-text: #1d1d1f;
     --description-text: #86868b;
     --footer-link: #86868b;
@@ -23,12 +21,12 @@
     --hover-bg: rgba(0, 0, 0, 0.04);
     --hover-border: rgba(0, 0, 0, 0.2);
     
-    /* Apple-style accent colors */
+    /* Accent colors */
     --accent-blue: #007aff;
     --accent-blue-hover: #0056cc;
     --accent-blue-light: rgba(0, 122, 255, 0.1);
     
-    /* Apple-style minimal interactive demo colors */
+    /* Interactive demo colors */
     --demo-bg: #ffffff;
     --demo-text: #1d1d1f;
     --demo-light-text: #86868b;
@@ -45,28 +43,26 @@
     --demo-control-text: #1d1d1f;
     --demo-control-border: rgba(0, 0, 0, 0.15);
     
-    /* Apple-style spacing */
+    /* Spacing */
     --section-spacing: 5rem;
     --content-spacing: 1rem;
     
-    /* Apple-style animation easing */
+    /* Animation easing */
     --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     --ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
     --ease-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     
-    /* Apple-style glass effect */
+    /* Glass effect */
     --glass-bg: rgba(255, 255, 255, 0.8);
     --glass-border: rgba(255, 255, 255, 0.18);
     --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     
-    /* Apple-style border radius */
+    /* Border radius */
     --border-radius-small: 8px;
     --border-radius-medium: 12px;
     --border-radius-large: 16px;
     --border-radius-xl: 24px;
 }
-
-/* Dark theme removed - light theme only */
 
 * {
     margin: 0;

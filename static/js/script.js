@@ -801,8 +801,6 @@ function resetDemo() {
     
     // Scroll to center the scenario selection area
     scrollToScenarioSelection();
-    
-    console.log('Demo reset');
 }
 
 // Add trackpad scrolling support to slider
