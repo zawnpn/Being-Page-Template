@@ -568,7 +568,29 @@ function showVideo(videoSrc, title) {
     videoDisplay.appendChild(video);
     videoDisplay.classList.add('playing');
     
+    // Smooth scroll to center the video after it's displayed
+    // Use a shorter delay for immediate response
+    setTimeout(() => {
+        scrollToVideo();
+    }, 100);
+    
     console.log('Showing video:', title, videoSrc);
+}
+
+// Smooth scroll to center the demo video in the viewport
+function scrollToVideo() {
+    // Find the actual video display area
+    const videoDisplay = document.getElementById('videoDisplay');
+    if (!videoDisplay) return;
+    
+    // Small delay to ensure video is rendered
+    setTimeout(() => {
+        // Use the most effective method - scrollIntoView with center positioning
+        videoDisplay.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+        });
+    }, 50);
 }
 
 // Update breadcrumb navigation with clickable functionality

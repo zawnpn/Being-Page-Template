@@ -42,12 +42,13 @@ The project uses a simple three-file structure:
 ## Key Features
 
 ### Interactive Demo System
-- Configurable multi-step operation sequences
-- Video playback for each operation
-- Step revision functionality (click earlier steps to modify)
-- Maximum steps configurable via `maxSteps` in demoData
-- Three scenarios: Kitchen, Bathroom, Office
+- Hierarchical navigation system with configurable depth levels
+- Video playback for each category/operation
+- Breadcrumb navigation for multi-level categories
+- Configurable navigation depth via `maxCategoryLevels` in demoData
+- Current scenarios: Home Activities, Work Activities
 - Consistent Apple-style minimal design with gray/white/black palette
+- Slider-based interface for scenario selection
 
 ### Apple-Inspired Design System
 - Light theme only (dark mode removed)
@@ -69,9 +70,10 @@ The project uses a simple three-file structure:
 
 ### Interactive Demo
 Edit the `demoData` object in `static/js/script.js`:
-- `maxSteps`: Maximum operations per sequence
-- `scenarios`: Add/modify scenario data
-- Each scenario needs: name, thumbnail, initialImage, operations
+- `maxCategoryLevels`: Configures navigation depth (0=scenario→category→videos, 1=scenario→category→category→videos, etc.)
+- `scenarios`: Add/modify scenario data with hierarchical structure
+- Each scenario needs: name, description, thumbnail, categories
+- Each category needs: name, description, video (for final level categories)
 
 ### Apple-Style Design Colors
 Modify CSS custom properties in `:root` selector in `static/css/styles.css`:
@@ -109,14 +111,16 @@ This is a static site with no build tools, package managers, or dependencies. Al
 
 ### Core Data Structure
 The interactive demo system is built around a hierarchical data structure in `script.js`:
-- `demoData.scenarios`: Top-level scenarios (e.g., home_activities)
-- `categories`: Nested categories (e.g., kitchen → cooking)
-- `videos`: Individual video operations with metadata
+- `demoData.scenarios`: Top-level scenarios (e.g., home_activities, work_activities)
+- `categories`: Nested categories with configurable depth (e.g., kitchen_cooking, bathroom_hygiene)
+- `videos`: Individual video files referenced in final-level categories
+- `maxCategoryLevels`: Controls navigation depth (0=2 levels, 1=3 levels, etc.)
 
 ### Key JavaScript Components
-- **Demo Navigation**: Hierarchical category system with breadcrumb navigation
-- **State Management**: Tracks selected scenario, category path, and video sequence
+- **Demo Navigation**: Hierarchical category system with breadcrumb navigation and slider interface
+- **State Management**: Tracks selected scenario, category path, and current navigation level
 - **Video Playback**: Handles video loading, playback controls, and error states
+- **Slider Controls**: Horizontal scrolling for scenario selection with navigation buttons
 - **Intersection Observer**: Smooth scroll animations and section visibility
 - **BibTeX Handler**: Citation copying functionality
 
@@ -129,12 +133,12 @@ The interactive demo system is built around a hierarchical data structure in `sc
 ## Common Development Tasks
 
 ### Updating Demo Content
-1. **Configure navigation depth**: Set `maxCategoryLevels` in `demoData` (1=2 levels, 2=3 levels, etc.)
+1. **Configure navigation depth**: Set `maxCategoryLevels` in `demoData` (0=2 levels, 1=3 levels, etc.)
 2. **Add new scenarios**: Edit `demoData.scenarios` object in `script.js`
 3. **Structure data**: Organize categories according to desired depth
-   - Level 1: scenarios → categories → videos
-   - Level 2: scenarios → categories → categories → videos
-   - Level 3: scenarios → categories → categories → categories → videos
+   - Level 0: scenarios → categories → videos
+   - Level 1: scenarios → categories → categories → videos
+   - Level 2: scenarios → categories → categories → categories → videos
 4. **Add videos**: Place in `assets/video/` following the hierarchical structure
 5. **Update images**: Replace placeholders in `assets/image/scenarios/`
 
@@ -159,7 +163,8 @@ The interactive demo system is built around a hierarchical data structure in `sc
 
 ## Notes
 
-- All placeholder content uses `demo1.mp4` and `framework.png`
+- Demo uses `task1.mp4` from prediction folder as placeholder for all videos
+- Scenario thumbnails use `scene_1.jpg` as placeholder
 - BibTeX citation copying functionality included
 - Smooth scroll behavior and intersection observer animations
 - Full-screen header background with seamless top edge
@@ -167,3 +172,5 @@ The interactive demo system is built around a hierarchical data structure in `sc
 - Apple-style animations with proper easing curves
 - Translucent action buttons with backdrop blur effects
 - Minimal interactive demo design consistent with Apple aesthetics
+- Slider-based scenario selection with responsive navigation buttons
+- Current demo structure: Home Activities (kitchen/bathroom/living room) and Work Activities (computer tasks)
