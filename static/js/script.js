@@ -456,8 +456,8 @@ function buildBreadcrumbPath() {
             const categoryKey = currentNavigation.categories[0];
             if (scenario.categories && scenario.categories[categoryKey]) {
                 const category = scenario.categories[categoryKey];
-                // Category is always clickable to go back to scenario
-                pathItems.push(`<span class="breadcrumb-item clickable" onclick="navigateFromBreadcrumb('category', 0)">${category.name}</span>`);
+                // Category is just text, not clickable
+                pathItems.push(`<span class="breadcrumb-item">${category.name}</span>`);
             }
         }
     }
@@ -593,6 +593,22 @@ function scrollToVideo() {
     }, 50);
 }
 
+// Smooth scroll to center the scenario selection area
+function scrollToScenarioSelection() {
+    // Find the scenario selection area
+    const scenarioSection = document.querySelector('.scenario-section');
+    if (!scenarioSection) return;
+    
+    // Small delay to ensure content is rendered
+    setTimeout(() => {
+        // Scroll to center the scenario selection area
+        scenarioSection.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+        });
+    }, 50);
+}
+
 // Update breadcrumb navigation with clickable functionality
 // Legacy function redirects to new integrated breadcrumb system
 function updateBreadcrumb() {
@@ -602,7 +618,7 @@ function updateBreadcrumb() {
 // Navigate back from breadcrumb click (modular for n-levels)
 function navigateFromBreadcrumb(level, categoryIndex = null) {
     if (level === 'scenario') {
-        // Go back to scenario selection (clear all categories)
+        // Go back to category selection (clear categories but keep scenario)
         currentNavigation.categories = [];
         currentNavigation.selectedVideo = null;
         
@@ -612,8 +628,12 @@ function navigateFromBreadcrumb(level, categoryIndex = null) {
             showScenarioImage(scenario.thumbnail, scenario.name);
         }
         
-        // Re-render categories
+        // Re-render categories for current scenario
         renderCategories(currentNavigation.scenario);
+        
+        // Scroll to center the scenario selection area
+        scrollToScenarioSelection();
+        
     } else if (level === 'category' && categoryIndex !== null) {
         // Go back to specific category level
         currentNavigation.categories = currentNavigation.categories.slice(0, categoryIndex + 1);
@@ -687,6 +707,10 @@ function resetDemo() {
         track.style.transform = 'translateX(0)';
     }
     updateSliderControls();
+    
+    // Scroll to center the scenario selection area
+    scrollToScenarioSelection();
+    
     console.log('Demo reset');
 }
 
