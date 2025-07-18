@@ -736,8 +736,29 @@ body {
     }
     
     .scenario-card {
-        min-width: 280px;
-        width: 280px;
+        min-width: 280px !important;
+        width: 280px !important;
+        flex: 0 0 280px !important;
+        padding: 0.6rem;
+    }
+    
+    .slider-btn {
+        width: 52px;
+        height: 52px;
+        font-size: 1.4rem;
+    }
+    
+    .nav-section {
+        padding: 1.5rem;
+    }
+    
+    .slider-viewport {
+        padding: 0.75rem;
+    }
+    
+    .slider-track {
+        gap: 1rem;
+        padding: 0.5rem 0.75rem;
     }
     
     .section-title {
@@ -817,6 +838,19 @@ body {
         font-size: 1rem;
     }
     
+    .breadcrumb-nav.collapsed .breadcrumb-path {
+        font-size: 0.95rem;
+    }
+    
+    .category-selection {
+        gap: 1.2rem;
+    }
+    
+    .category-btn {
+        font-size: 1rem;
+        padding: 0.8rem 1.6rem;
+    }
+    
     /* BibTeX and footer text scaling */
     .bibtex-code {
         font-size: 1rem;
@@ -854,8 +888,29 @@ body {
     }
     
     .scenario-card {
-        min-width: 340px;
-        width: 340px;
+        min-width: 350px !important;
+        width: 350px !important;
+        flex: 0 0 350px !important;
+        padding: 0.8rem;
+    }
+    
+    .slider-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 1.6rem;
+    }
+    
+    .nav-section {
+        padding: 2rem;
+    }
+    
+    .slider-viewport {
+        padding: 1rem;
+    }
+    
+    .slider-track {
+        gap: 1.2rem;
+        padding: 0.75rem 1rem;
     }
     
     .section-title {
@@ -885,7 +940,7 @@ body {
     }
     
     .scenario-name {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
     
     .authors {
@@ -937,6 +992,19 @@ body {
     
     .breadcrumb-item {
         font-size: 1.1rem;
+    }
+    
+    .breadcrumb-nav.collapsed .breadcrumb-path {
+        font-size: 1.1rem;
+    }
+    
+    .category-selection {
+        gap: 1.5rem;
+    }
+    
+    .category-btn {
+        font-size: 1.2rem;
+        padding: 1rem 2rem;
     }
     
     /* BibTeX and footer text scaling */
@@ -1368,7 +1436,7 @@ body {
 }
 
 .scenario-name {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
     color: var(--demo-text);
     line-height: 1.2;
@@ -1722,7 +1790,7 @@ body {
     }
 
     .scenario-name {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 
     .category-buttons,
@@ -2230,7 +2298,7 @@ body {
 }
 
 .nav-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--demo-text);
     margin-bottom: 1rem;
     font-weight: 600;
@@ -2284,7 +2352,7 @@ body {
 .scenario-name {
     color: var(--demo-text);
     padding: 0.25rem 0;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     text-align: center;
     font-weight: 500;
 }
