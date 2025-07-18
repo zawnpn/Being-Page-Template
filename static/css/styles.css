@@ -97,7 +97,7 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: min(1200px, 85vw);
     margin: 0 auto;
     padding: 0 2rem 2rem 2rem;
 }
@@ -169,7 +169,7 @@ body {
     text-align: center;
     background: transparent;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-    max-width: 90%;
+    max-width: min(1200px, 85vw);
     margin-left: auto;
     margin-right: auto;
     word-wrap: break-word;
@@ -549,7 +549,7 @@ body {
 /* Video Grid */
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     margin-top: 2.5rem;
 }
@@ -708,6 +708,261 @@ body {
 }
 
 /* Responsive Design */
+/* Large desktop monitors */
+@media (min-width: 1800px) {
+    body {
+        font-size: 18px;
+    }
+    
+    .container {
+        max-width: min(1400px, 80vw);
+    }
+    
+    .footer-content {
+        max-width: min(1400px, 80vw);
+    }
+    
+    .title {
+        max-width: min(1400px, 80vw);
+        font-size: 4.5rem;
+    }
+    
+    .grid-auto {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+    
+    .video-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .scenario-card {
+        min-width: 280px;
+        width: 280px;
+    }
+    
+    .section-title {
+        font-size: 2.6rem;
+    }
+    
+    .abstract-text {
+        font-size: 1.25rem;
+        line-height: 1.8;
+    }
+    
+    .item-description {
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+    
+    .item-title {
+        font-size: 1.5rem;
+    }
+    
+    .video-title {
+        font-size: 1.3rem;
+    }
+    
+    .video-description {
+        font-size: 1.1rem;
+    }
+    
+    .scenario-name {
+        font-size: 1.1rem;
+    }
+    
+    .authors {
+        font-size: 1.7rem;
+    }
+    
+    .institutions {
+        font-size: 1.7rem;
+    }
+    
+    .contribution {
+        font-size: 1.3rem;
+    }
+    
+    .publication-info {
+        font-size: 1.7rem;
+    }
+    
+    .interactive-demo {
+        padding: 2.5rem;
+    }
+    
+    /* Demo interface scaling */
+    .nav-title {
+        font-size: 1.2rem;
+    }
+    
+    .breadcrumb-path {
+        font-size: 1rem;
+    }
+    
+    .category-btn, .video-btn {
+        font-size: 1rem;
+        padding: 0.8rem 1.6rem;
+    }
+    
+    .demo-btn {
+        font-size: 1.05rem;
+        padding: 0.8rem 1.6rem;
+    }
+    
+    .demo-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .breadcrumb-hint {
+        font-size: 1rem;
+    }
+    
+    /* BibTeX and footer text scaling */
+    .bibtex-code {
+        font-size: 1rem;
+    }
+    
+    .footer-content p {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 2400px) {
+    body {
+        font-size: 20px;
+    }
+    
+    .container {
+        max-width: min(1600px, 75vw);
+    }
+    
+    .footer-content {
+        max-width: min(1600px, 75vw);
+    }
+    
+    .title {
+        max-width: min(1600px, 75vw);
+        font-size: 5rem;
+    }
+    
+    .grid-auto {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    }
+    
+    .video-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .scenario-card {
+        min-width: 340px;
+        width: 340px;
+    }
+    
+    .section-title {
+        font-size: 3rem;
+    }
+    
+    .abstract-text {
+        font-size: 1.4rem;
+        line-height: 1.9;
+    }
+    
+    .item-description {
+        font-size: 1.2rem;
+        line-height: 1.75;
+    }
+    
+    .item-title {
+        font-size: 1.6rem;
+    }
+    
+    .video-title {
+        font-size: 1.4rem;
+    }
+    
+    .video-description {
+        font-size: 1.15rem;
+    }
+    
+    .scenario-name {
+        font-size: 1.2rem;
+    }
+    
+    .authors {
+        font-size: 1.8rem;
+    }
+    
+    .institutions {
+        font-size: 1.8rem;
+    }
+    
+    .contribution {
+        font-size: 1.4rem;
+    }
+    
+    .publication-info {
+        font-size: 1.8rem;
+    }
+    
+    .interactive-demo {
+        padding: 3rem;
+    }
+    
+    /* Demo interface scaling */
+    .nav-title {
+        font-size: 1.4rem;
+    }
+    
+    .breadcrumb-path {
+        font-size: 1.2rem;
+    }
+    
+    .category-btn, .video-btn {
+        font-size: 1.2rem;
+        padding: 1rem 2rem;
+    }
+    
+    .demo-btn {
+        font-size: 1.25rem;
+        padding: 1rem 2rem;
+    }
+    
+    .demo-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .breadcrumb-hint {
+        font-size: 1.1rem;
+    }
+    
+    .breadcrumb-item {
+        font-size: 1.1rem;
+    }
+    
+    /* BibTeX and footer text scaling */
+    .bibtex-code {
+        font-size: 1.1rem;
+    }
+    
+    .footer-content p {
+        font-size: 1.1rem;
+    }
+    
+    .copy-btn {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+    }
+    
+    .bibtex-header h3 {
+        font-size: 1.7rem;
+    }
+    
+    /* Increase spacing for ultra-wide screens */
+    :root {
+        --section-spacing: 6rem;
+    }
+}
+
 @media (max-width: 1024px) {
     .grid-three-column {
         grid-template-columns: repeat(2, 1fr);
@@ -749,7 +1004,7 @@ body {
     }
 
     .video-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
     }
 
@@ -1457,8 +1712,8 @@ body {
     }
 
     .scenario-card {
-        min-width: 160px;
-        width: 160px;
+        min-width: 200px;
+        width: 200px;
         padding: 0.4rem;
     }
 
@@ -2497,7 +2752,8 @@ body {
     }
 
     .scenario-card {
-        min-width: 120px;
+        min-width: 180px;
+        width: 180px;
         padding: 0.3rem;
     }
 
@@ -2545,7 +2801,7 @@ body {
 }
 
 .footer-content {
-    max-width: 1200px;
+    max-width: min(1200px, 85vw);
     margin: 0 auto;
     padding: 0 2rem;
 }
