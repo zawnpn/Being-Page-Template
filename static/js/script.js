@@ -10,6 +10,9 @@ function initVideoLazyLoading() {
                 const video = entry.target;
                 const source = video.querySelector('source');
                 
+                // Add lazy-video class and loading state
+                video.classList.add('lazy-video', 'loading');
+                
                 // Load video source
                 if (video.dataset.src && !video.src) {
                     video.src = video.dataset.src;
@@ -20,9 +23,22 @@ function initVideoLazyLoading() {
                     // Load the video
                     video.load();
                     
-                    // Start playing when loaded
+                    // Handle video loading events
                     video.addEventListener('loadeddata', () => {
-                        video.play().catch(e => console.log('Video autoplay failed:', e));
+                        // Remove loading state and add loaded state
+                        video.classList.remove('loading');
+                        video.classList.add('loaded');
+                        
+                        // Start playing with smooth transition
+                        setTimeout(() => {
+                            video.play().catch(e => console.log('Video autoplay failed:', e));
+                        }, 300); // Small delay to let animation finish
+                    });
+                    
+                    // Handle loading errors
+                    video.addEventListener('error', () => {
+                        video.classList.remove('loading');
+                        console.log('Video failed to load:', video.dataset.src);
                     });
                 }
                 
@@ -31,10 +47,10 @@ function initVideoLazyLoading() {
             }
         });
     }, {
-        // Start loading when video is 50% visible
-        threshold: 0.5,
-        // Start loading 100px before video comes into view
-        rootMargin: '100px'
+        // Start loading when video is 20% visible
+        threshold: 0.2,
+        // Start loading 150px before video comes into view
+        rootMargin: '150px'
     });
     
     // Observe all videos with data-src attribute
@@ -53,16 +69,19 @@ function initImageLazyLoading() {
                 
                 // Load image source
                 if (img.dataset.src && img.src !== img.dataset.src) {
-                    // Add loading class for fade effect
+                    // Add loading class for smooth animation
                     img.classList.add('loading');
                     
                     // Create new image to preload
                     const newImg = new Image();
                     newImg.onload = () => {
-                        // Once loaded, replace src and add fade effect
+                        // Once loaded, replace src and add loaded state with smooth transition
                         img.src = img.dataset.src;
                         img.classList.remove('loading');
                         img.classList.add('loaded');
+                        
+                        // Trigger reflow to ensure smooth animation
+                        img.offsetHeight;
                     };
                     newImg.onerror = () => {
                         // If image fails to load, show error placeholder
@@ -80,8 +99,8 @@ function initImageLazyLoading() {
     }, {
         // Start loading when image is 10% visible
         threshold: 0.1,
-        // Start loading 50px before image comes into view
-        rootMargin: '50px'
+        // Start loading 100px before image comes into view for smoother experience
+        rootMargin: '100px'
     });
     
     // Observe all images with data-src attribute
