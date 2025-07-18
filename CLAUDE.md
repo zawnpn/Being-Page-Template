@@ -60,11 +60,12 @@ The project uses a simple three-file structure:
 - Smooth animations with Apple-style easing curves
 
 ### Responsive Design
-- Mobile-first approach
-- Flexible grid systems
-- Responsive typography
-- Optimized for all screen sizes
+- Mobile-first approach with comprehensive multi-breakpoint scaling
+- Flexible grid systems with consistent responsive behavior
+- Progressive typography scaling across all screen sizes
+- Optimized for all devices from mobile (480px) to ultra-wide (2400px+)
 - Seamless full-screen header background
+- Conflict-free CSS with proper cascade order and specificity management
 
 ## Configuration
 
@@ -129,6 +130,14 @@ The interactive demo system is built around a hierarchical data structure in `sc
 - **Apple Design System**: Consistent use of SF Pro fonts and Apple color palette
 - **Responsive Grid**: Flexible 1/2/3-column layouts with CSS Grid
 - **Translucent Effects**: Backdrop blur effects throughout interface
+- **Responsive Breakpoints**: Clean, organized media queries with proper cascade order:
+  - Base: Default laptop/desktop styles
+  - 1800px+: Large desktop monitors (18px base font)
+  - 2400px+: Ultra-wide displays (20px base font)
+  - 1024px-: Tablets (grid adjustments)
+  - 768px-: Mobile devices (comprehensive mobile styling)
+  - 480px-: Extra small mobile devices
+- **Optimized Performance**: Deduplicated CSS rules, removed debug comments, consolidated selectors
 
 ## Common Development Tasks
 
@@ -147,6 +156,8 @@ The interactive demo system is built around a hierarchical data structure in `sc
 2. **Fonts**: Modify `--primary-font` and `--title-font` variables
 3. **Layout**: Adjust grid systems and responsive breakpoints
 4. **Apple design**: Maintain consistency with existing blur effects and rounded corners
+5. **Responsive scaling**: Modify breakpoint values in organized media queries (1800px+, 2400px+, etc.)
+6. **Performance**: CSS is optimized with consolidated rules and clean structure
 
 ### Content Updates
 1. **Author info**: Update author links and affiliations in `index.html`
@@ -156,10 +167,17 @@ The interactive demo system is built around a hierarchical data structure in `sc
 
 ### File Organization
 - `index.html`: Single-page application structure
-- `static/css/styles.css`: Complete styling with Apple design system
+- `static/css/styles.css`: Complete styling with Apple design system and optimized responsive breakpoints
 - `static/js/script.js`: All JavaScript functionality and demo data
 - `assets/`: Static assets organized by type (image, video, icons)
 - `INTERACTIVE_DEMO_README.md`: Detailed demo configuration guide
+
+### CSS Code Quality
+- **Clean Structure**: Organized sections with meaningful comments
+- **No Duplicates**: Consolidated redundant CSS rules and selectors
+- **Optimized Performance**: Removed debug comments and unnecessary code
+- **Consistent Formatting**: Standardized indentation and spacing throughout
+- **Proper Cascade**: Media queries organized by screen size with correct specificity
 
 ## Notes
 
@@ -174,3 +192,13 @@ The interactive demo system is built around a hierarchical data structure in `sc
 - Minimal interactive demo design consistent with Apple aesthetics
 - Slider-based scenario selection with responsive navigation buttons
 - Current demo structure: Home Activities (kitchen/bathroom/living room) and Work Activities (computer tasks)
+
+## Recent Updates (Latest Session)
+
+- **Comprehensive Responsive Design Overhaul**: Rebuilt responsive system with clean, organized breakpoints
+- **CSS Performance Optimization**: Removed duplicate rules, consolidated selectors, cleaned up debug comments
+- **Ultra-Wide Display Support**: Enhanced scaling for 2400px+ displays with proper font-size and component scaling
+- **Mobile Optimization**: Consolidated all mobile styles into single, comprehensive 768px breakpoint
+- **Action Button Enhancement**: Fixed responsive scaling issues with proper cascade order
+- **Scenario Card Improvements**: Maintained proportional scaling across all screen sizes (240px base → 280px large → 350px ultra-wide)
+- **Code Quality**: Eliminated redundant CSS, improved structure, and ensured consistent formatting throughout
