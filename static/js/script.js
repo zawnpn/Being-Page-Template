@@ -550,6 +550,8 @@ function showVideo(videoSrc, title) {
     video.loop = true;
     video.muted = true;
     video.controls = true;
+    video.loading = 'lazy';
+    video.preload = 'metadata';
     
     // Handle video loading error
     video.onerror = () => {
