@@ -11,7 +11,7 @@
     
     <!-- Preload critical assets -->
     <link rel="preload" as="image" href="assets/image/being-h0.png">
-    <link rel="preload" as="video" href="assets/image/background.mp4">
+    <link rel="preload" href="assets/image/background.mp4" as="video" type="video/mp4">
     
     <!-- External CSS -->
     <link rel="stylesheet" href="static/css/styles.css">
@@ -23,7 +23,7 @@
     <!-- Header Section -->
     <header class="header" id="header">
         <!-- Background Video -->
-        <video class="background-video" autoplay muted loop playsinline preload="metadata" poster="assets/image/background.png" disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback">
+        <video class="background-video" autoplay muted loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback">
             <source src="assets/image/background.mp4" type="video/mp4">
             <!-- Fallback for browsers that don't support video -->
             <div class="video-fallback"></div>
@@ -37,24 +37,30 @@
                 <img src="assets/image/being-h0.png" alt="Project Logo" loading="eager">
             </div>
 
-            <h1 class="title">Scaling Vision-Language-Action Models for Dexterous Hands from Human Videos</h1>
+            <h1 class="title">Vision-Language-Action Pretraining from Large-Scale  Human Videos</h1>
 
             <!-- Authors with clickable links -->
             <div class="authors">
-                <a href="#" class="author-link">Author 1</a><sup>1*</sup>, &nbsp;&nbsp;
-                <a href="#" class="author-link">Author 2</a><sup>1*</sup>, &nbsp;&nbsp;
-                <a href="#" class="author-link">Author 3</a><sup>2</sup>, &nbsp;&nbsp;
-                <a href="#" class="author-link">Author 4</a><sup>2</sup>, &nbsp;&nbsp;
-                <a href="#" class="author-link">Author 5</a><sup>1,2†</sup>
+                <a href="#" class="author-link">Hao Luo</a><sup>1,3<b>*</b></sup>, &nbsp;&nbsp;
+                <a href="#" class="author-link">Yicheng Feng</a><sup>1,3<b></b>*</b></sup>, &nbsp;&nbsp;
+                <a href="https://zhangwp.com" target="_blank" class="author-link">Wanpeng Zhang</a><sup>1,3<b>*</b></sup>, &nbsp;&nbsp;
+                <a href="#" class="author-link">Sipeng Zheng</a><sup>3<b>*</b></sup>, &nbsp;&nbsp;
+                <br>
+                <a href="#" class="author-link">Ye Wang</a><sup>2,3</sup>, &nbsp;&nbsp;
+                <a href="#" class="author-link">Haoqi Yuan</a><sup>1,3</sup>, &nbsp;&nbsp;
+                <a href="#" class="author-link">Jiazheng Liu</a><sup>1</sup>, &nbsp;&nbsp;
+                <a href="#" class="author-link">Chaoyi Xu</a><sup>3</sup>, &nbsp;&nbsp;
+                <a href="#" class="author-link">Qin Jin</a><sup>2</sup>, &nbsp;&nbsp;
+                <a href="#" class="author-link">Zongqing Lu</a><sup>1,3<b>†</b></sup>
             </div>
             
             <div class="institutions">
-                <sup>1</sup>Peking University &nbsp;&nbsp; <sup>2</sup>BeingBeyond
+                <sup>1</sup>Peking University &nbsp;&nbsp; <sup>2</sup>Renmin University of China &nbsp;&nbsp; <sup>3</sup>BeingBeyond
             </div>
 
             <div class="contribution">
                 <i>
-                <sup>*</sup>Equal Contribution &nbsp;&nbsp; <sup>†</sup>Corresponding Author
+                <sup><b>*</b></sup>Equal Contribution &nbsp;&nbsp; <sup><b>†</b></sup>Corresponding Author
                 </i>
             </div>
 
@@ -85,16 +91,24 @@
     </header>
 
     <div class="container">
-        <!-- Abstract Section -->
-        <section class="section" id="abstract">
-            <h2 class="section-title">Abstract</h2>
-            <div class="abstract">
-                <p class="abstract-text">
-                    Multimodal large language models (MLLMs) have made significant progress in vision-language understanding, yet effectively aligning different modalities remains a fundamental challenge. We present a framework that unifies multimodal understanding by applying byte-pair encoding to visual tokens. Unlike conventional approaches that rely on modality-specific encoders, our method directly incorporates structural information into visual tokens, mirroring successful tokenization strategies in text-only language models. We introduce a priority-guided encoding scheme that considers both frequency and spatial consistency, coupled with a multi-stage training procedure based on curriculum-driven data composition. These enhancements enable the transformer model to better capture cross-modal relationships and reason with visual information. Comprehensive experiments demonstrate improved performance across diverse vision-language tasks. By bridging the gap between visual and textual representations, our approach contributes to the advancement of more capable and efficient multimodal foundation models.
-                </p>
+        <!-- Simple Description -->
+        <section class="section" id="description">
+            <div class="simple-description">
+                We introduce <b><tt>Being-H0</tt></b>, a dexterous Vision-Language-Action model trained on large-scale human videos.
             </div>
         </section>
 
+        <section class="section" id="single-column">
+            <div class="grid-one-column">
+                <div class="grid-item">
+                    <div class="item-image">
+                        <img data-src="assets/image/overview.jpg" alt="Key Concept" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" class="lazy-image">
+                    </div>
+                    <h3 class="item-title">Key Concept</h3>
+                    <p class="item-description"><b><tt>Being-H0</tt></b> acquires dexterous manipulation skills by learning from large-scale human videos in the UniHand dataset via <b>physical instruction tuning</b>. By explicitly modeling hand motion patterns, the resulting foundation model seamlessly transfers from human hand demonstrations to robotic manipulation.</p>
+                </div>
+            </div>
+        </section>
 
         <!-- Interactive Demo Section -->
         <section class="section" id="interactive-demo">
@@ -216,44 +230,65 @@
             </div>
         </section>
 
-        <!-- One Column Layout Example -->
         <section class="section" id="single-column">
-            <h2 class="section-title">System Overview</h2>
+        <h2 class="section-title">Overview</h2>
             <div class="grid-one-column">
                 <div class="grid-item">
                     <div class="item-image">
-                        <img data-src="assets/image/overview.png" alt="System overview" style="width: 60%; height: 60%; object-fit: cover;" loading="lazy" class="lazy-image">
+                        <img data-src="assets/image/01_arch.png" alt="Overview of Being-H0" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" class="lazy-image">
                     </div>
-                    <h3 class="item-title">Unified Architecture Design</h3>
-                    <p class="item-description"><b>Being-H0</b> learns dexterous manipulation from large-scale human demonstrations in the UniHand dataset through \texttt{physical instruction tuning}. The resulting foundation model naturally enables effective transfer from human hand demonstrations to robotic dexterous manipulation.</p>
+                    <h3 class="item-title">Overview of <b><tt>Being-H0</tt></b></h3>
+                    <p class="item-description">The <b>text tokenizer</b> and <b>visual encoder</b> are shared by both pretraining and post-training. For pretraining and hand motion/translation tasks, <b><tt>Being-H0</tt></b> generates outputs in an autoregressive manner. For post-training and downstream manipulation tasks, <b><tt>Being-H0</tt></b> incorporates a set of learnable queries as the action chunk for prediction.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Two Column Layout Example -->
+        <section class="section" id="single-column">
+            <div class="grid-one-column">
+                <div class="grid-item">
+                    <div class="item-image">
+                        <img data-src="assets/image/02_phy_inst_tune.png" alt="Physical Instruction Tuning" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" class="lazy-image">
+                    </div>
+                    <h3 class="item-title">Physical Instruction Tuning</h3>
+                    <p class="item-description"><b>Physical Instruction Tuning</b> unifies human video datasets and robotic manipulation data. We extend VLM to include motion and action tokens, using multi-head attention across vision, text, motion, and action modalities to create a unified VLA model for robotic tasks.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="single-column">
+            <div class="grid-one-column">
+                <div class="grid-item">
+                    <div class="item-image">
+                        <img data-src="assets/image/04_unihand.png" alt="UniHand Dataset" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" class="lazy-image">
+                    </div>
+                    <h3 class="item-title"><tt>UniHand-2.5M</tt></h3>
+                    <p class="item-description">The overview of our <b><tt>UniHand-2.5M</tt></b>. Left: The scenes and tasks from different data source types. Mid: The distribution of different data sources, data types, and durations. Right: Samples from different data types.</p>
+                </div>
+            </div>
+        </section>
+
         <section class="section" id="two-column">
-            <h2 class="section-title">Key Components</h2>
+            <h2 class="section-title">Experiments</h2>
             <div class="grid-two-column">
                 <div class="grid-item">
                     <div class="item-image">
-                        <img data-src="assets/image/framework.png" alt="VLM architecture" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" class="lazy-image">
+                        <img data-src="assets/image/08_data_scaling_law.png" alt="Scaling Law" style="width: 72%; height: 72%; object-fit: cover;" loading="lazy" class="lazy-image">
                     </div>
-                    <h3 class="item-title">Vision-Language Integration</h3>
-                    <p class="item-description">Advanced multimodal understanding capability that processes visual scenes and natural language instructions simultaneously, enabling intuitive human-robot communication and complex task planning.</p>
+                    <h3 class="item-title">Scaling Performance</h3>
+                    <p class="item-description">The performance of <b><tt>Being-H0</tt></b> alongside the increasing training data scale for visual-grounded hand motion generation.</p>
                 </div>
 
                 <div class="grid-item">
                     <div class="item-image">
-                        <img data-src="assets/image/framework.png" alt="Modular skills" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" class="lazy-image">
+                        <img data-src="assets/image/robot_exp.png" alt="Robot Experiments" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" class="lazy-image">
                     </div>
-                    <h3 class="item-title">Modular Skills System</h3>
-                    <p class="item-description">A flexible skill composition framework that allows dynamic combination of primitive actions into complex behaviors, enabling adaptable and efficient task execution across diverse scenarios.</p>
+                    <h3 class="item-title">Real-World Experiments</h3>
+                    <p class="item-description">The advantages of <b><tt>Being-H0</tt></b> are particularly pronounced in real-world tasks that demand fine-grained manipulation.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Three Column Layout Example -->
-        <section class="section" id="three-column">
+        <!-- <section class="section" id="three-column">
             <h2 class="section-title">Technical Details</h2>
             <div class="grid-three-column">
                 <div class="grid-item">
@@ -280,7 +315,7 @@
                     <p class="item-description">Diverse real-world applications spanning household assistance, manufacturing, and service robotics with proven effectiveness.</p>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!-- BibTeX Citation Section -->
         <section class="section" id="citation">

@@ -166,7 +166,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../../assets/image/background.png');
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -291,7 +291,7 @@ body {
 
 /* Smaller sup elements in authors and institutions */
 .authors sup, .institutions sup, .contribution sup {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 300;
 }
 
@@ -460,17 +460,16 @@ body {
 }
 
 
-/* Abstract Section */
-.abstract {
-    margin-top: 1.5rem;
-    cursor: default;
-}
-
-.abstract-text {
-    font-size: 1.1rem;
-    line-height: 1.8;
+/* Simple Description Section */
+.simple-description {
+    text-align: center;
+    font-size: 2rem;
+    line-height: 1.6;
     color: var(--content-text);
     font-weight: 400;
+    margin: 2rem auto;
+    width: 85%;
+    cursor: default;
 }
 
 /* Grid layouts - One, Two, Three columns */
@@ -1152,6 +1151,13 @@ body {
 
     .section-title {
         font-size: 1.8rem;
+    }
+
+    .simple-description {
+        font-size: 1.4rem;
+        line-height: 1.5;
+        margin: 1.5rem auto;
+        padding: 0 1rem;
     }
 
     .grid-two-column,
