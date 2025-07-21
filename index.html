@@ -9,9 +9,9 @@
     <link rel="icon" type="image/x-icon" href="assets/image/icon/favicon.ico">
     
     
-    <!-- Preload critical images -->
+    <!-- Preload critical assets -->
     <link rel="preload" as="image" href="assets/image/being-h0.png">
-    <link rel="preload" as="image" href="assets/image/background.png">
+    <link rel="preload" as="video" href="assets/image/background.mp4">
     
     <!-- External CSS -->
     <link rel="stylesheet" href="static/css/styles.css">
@@ -22,6 +22,17 @@
 
     <!-- Header Section -->
     <header class="header" id="header">
+        <!-- Background Video -->
+        <video class="background-video" autoplay muted loop playsinline preload="auto" poster="assets/image/background.png">
+            <source src="assets/image/background.mp4" type="video/mp4">
+            <!-- Fallback for browsers that don't support video -->
+            <div class="video-fallback"></div>
+        </video>
+        
+        <!-- Dark overlay to make video background less bright -->
+        <div class="video-overlay"></div>
+        
+        <div class="header-content">
             <div class="logo">
                 <img src="assets/image/being-h0.png" alt="Project Logo" loading="eager">
             </div>
@@ -70,7 +81,7 @@
                     Model
                 </a>
             </div>
-            
+        </div>
     </header>
 
     <div class="container">
@@ -94,7 +105,7 @@
                 
                 <!-- Dataset Selection (First Row) -->
                 <div class="dataset-section">
-                    <h3 class="demo-section-title">Dataset</h3>
+                    <h3 class="demo-section-title"><b>1. Select Scenario</b></h3>
                     <div class="slider-container">
                         <button class="slider-btn slider-btn-left" id="datasetSliderLeft" onclick="slideDatasets('left')" style="display: none;">‹</button>
                         <div class="slider-viewport">
@@ -108,7 +119,7 @@
                 
                 <!-- Task Selection (Second Row) -->
                 <div class="task-section">
-                    <h3 class="demo-section-title">Task</h3>
+                    <h3 class="demo-section-title"><b>2. Select Task</b></h3>
                     <div class="slider-container">
                         <button class="slider-btn slider-btn-left" id="taskSliderLeft" onclick="slideTasks('left')" style="display: none;">‹</button>
                         <div class="slider-viewport">

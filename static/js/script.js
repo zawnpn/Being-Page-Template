@@ -164,117 +164,182 @@ document.querySelectorAll('.section').forEach(section => {
 // }
 //
 const demoData = {
-    datasets: {
-        dataset1: {
-            name: "TACO",
-            description: "TACO",
-            thumbnail: "assets/image/dataset/thumb_taco.jpg"
-        },
-        dataset2: {
-            name: "Taste-Rob",
-            description: "Taste-Rob",
-            thumbnail: "assets/image/dataset/thumb_taste-rob.jpg"
-        },
-        dataset3: {
-            name: "FPHA",
-            description: "FPHA",
-            thumbnail: "assets/image/dataset/thumb_fpha.jpg"
-        },
-        dataset4: {
+    datasets: [
+        {
             name: "ARCTIC",
-            description: "ARCTIC",
-            thumbnail: "assets/image/dataset/thumb_arctic.jpg"
+            thumbnail: "assets/image/dataset/thumb_arctic.jpg",
+            tasks: [
+                {
+                    name: "Articulated Objects",
+                    video: "assets/video/arctic/articulated_objects.mp4",
+                    thumbnail: "assets/image/scenarios/arctic_articulated.jpg"
+                },
+                {
+                    name: "Hand Tracking",
+                    video: "assets/video/arctic/hand_tracking.mp4",
+                    thumbnail: "assets/image/scenarios/arctic_tracking.jpg"
+                },
+                {
+                    name: "Complex Grasping",
+                    video: "assets/video/arctic/complex_grasping.mp4",
+                    thumbnail: "assets/image/scenarios/arctic_grasping.jpg"
+                }
+            ]
         },
-        dataset5: {
+        {
             name: "DexYCB",
-            description: "DexYCB",
-            thumbnail: "assets/image/dataset/thumb_dex-ycb.jpg"
+            thumbnail: "assets/image/dataset/thumb_dex-ycb.jpg",
+            tasks: [
+                {
+                    name: "Dexterous Grasping",
+                    video: "assets/video/dexycb/dexterous_grasping.mp4",
+                    thumbnail: "assets/image/scenarios/dexycb_grasping.jpg"
+                },
+                {
+                    name: "Object Manipulation",
+                    video: "assets/video/dexycb/object_manipulation.mp4",
+                    thumbnail: "assets/image/scenarios/dexycb_manipulation.jpg"
+                },
+                {
+                    name: "Precision Tasks",
+                    video: "assets/video/dexycb/precision_tasks.mp4",
+                    thumbnail: "assets/image/scenarios/dexycb_precision.jpg"
+                }
+            ]
         },
-        dataset6: {
+        {
             name: "EgoDex",
-            description: "EgoDex",
-            thumbnail: "assets/image/dataset/thumb_egodex.jpg"
+            thumbnail: "assets/image/dataset/thumb_egodex.jpg",
+            tasks: [
+                {
+                    name: "Egocentric Manipulation",
+                    video: "assets/video/task/egodex/04-000004ca_pred.mp4",
+                    thumbnail: "assets/video/task/egodex/04-000004ca_frame.png"
+                },
+                {
+                    name: "Daily Activities",
+                    video: "assets/video/egodex/daily_activities.mp4",
+                    thumbnail: "assets/image/scenarios/egodex_daily.jpg"
+                },
+                {
+                    name: "Tool Usage",
+                    video: "assets/video/egodex/tool_usage.mp4",
+                    thumbnail: "assets/image/scenarios/egodex_tools.jpg"
+                }
+            ]
         },
-        dataset7: {
+        {
+            name: "FPHA",
+            thumbnail: "assets/image/dataset/thumb_fpha.jpg",
+            tasks: [
+                {
+                    name: "Hand Gestures",
+                    video: "assets/video/fpha/hand_gestures.mp4",
+                    thumbnail: "assets/image/scenarios/fpha_gestures.jpg"
+                },
+                {
+                    name: "Object Interaction",
+                    video: "assets/video/fpha/object_interaction.mp4",
+                    thumbnail: "assets/image/scenarios/fpha_objects.jpg"
+                },
+                {
+                    name: "Manipulation Tasks",
+                    video: "assets/video/fpha/manipulation_tasks.mp4",
+                    thumbnail: "assets/image/scenarios/fpha_manipulation.jpg"
+                }
+            ]
+        },
+        {
             name: "H2O",
-            description: "H2O",
-            thumbnail: "assets/image/dataset/thumb_h2o.jpg"
+            thumbnail: "assets/image/dataset/thumb_h2o.jpg",
+            tasks: [
+                {
+                    name: "Two-Hand Coordination",
+                    video: "assets/video/h2o/two_hand_coordination.mp4",
+                    thumbnail: "assets/image/scenarios/h2o_coordination.jpg"
+                },
+                {
+                    name: "Object Handover",
+                    video: "assets/video/h2o/object_handover.mp4",
+                    thumbnail: "assets/image/scenarios/h2o_handover.jpg"
+                },
+                {
+                    name: "Collaborative Manipulation",
+                    video: "assets/video/h2o/collaborative_manipulation.mp4",
+                    thumbnail: "assets/image/scenarios/h2o_collaborative.jpg"
+                }
+            ]
         },
-        dataset8: {
+        {
             name: "OAKINK2",
-            description: "OAKINK2",
-            thumbnail: "assets/image/dataset/thumb_oakink2.jpg"
+            thumbnail: "assets/image/dataset/thumb_oakink2.jpg",
+            tasks: [
+                {
+                    name: "Intent Recognition",
+                    video: "assets/video/oakink2/intent_recognition.mp4",
+                    thumbnail: "assets/image/scenarios/oakink2_intent.jpg"
+                },
+                {
+                    name: "Affordance Learning",
+                    video: "assets/video/oakink2/affordance_learning.mp4",
+                    thumbnail: "assets/image/scenarios/oakink2_affordance.jpg"
+                },
+                {
+                    name: "Interaction Prediction",
+                    video: "assets/video/oakink2/interaction_prediction.mp4",
+                    thumbnail: "assets/image/scenarios/oakink2_prediction.jpg"
+                }
+            ]
+        },
+        {
+            name: "TACO",
+            thumbnail: "assets/image/dataset/thumb_taco.jpg",
+            tasks: [
+                {
+                    name: "Kitchen Cooking",
+                    video: "assets/video/taco/kitchen_cooking.mp4",
+                    thumbnail: "assets/image/scenarios/taco_cooking.jpg"
+                },
+                {
+                    name: "Kitchen Cleaning",
+                    video: "assets/video/taco/kitchen_cleaning.mp4",
+                    thumbnail: "assets/image/scenarios/taco_cleaning.jpg"
+                },
+                {
+                    name: "Food Handling",
+                    video: "assets/video/taco/food_handling.mp4",
+                    thumbnail: "assets/image/scenarios/taco_food.jpg"
+                }
+            ]
+        },
+        {
+            name: "Taste-Rob",
+            thumbnail: "assets/image/dataset/thumb_taste-rob.jpg",
+            tasks: [
+                {
+                    name: "Robotic Cooking",
+                    video: "assets/video/taste-rob/robotic_cooking.mp4",
+                    thumbnail: "assets/image/scenarios/taste_rob_cooking.jpg"
+                },
+                {
+                    name: "Ingredient Handling",
+                    video: "assets/video/taste-rob/ingredient_handling.mp4",
+                    thumbnail: "assets/image/scenarios/taste_rob_ingredients.jpg"
+                },
+                {
+                    name: "Utensil Manipulation",
+                    video: "assets/video/taste-rob/utensil_manipulation.mp4",
+                    thumbnail: "assets/image/scenarios/taste_rob_utensils.jpg"
+                }
+            ]
         }
-    },
-    
-    tasks: {
-        kitchen_cooking: {
-            name: "Kitchen Cooking",
-            video: "assets/video/task/task1.mp4",
-            description: "Cooking activities in the kitchen",
-            thumbnail: "assets/image/scenarios/scene_1.jpg"
-        },
-        kitchen_cleaning: {
-            name: "Kitchen Cleaning", 
-            video: "assets/video/task/task1.mp4",
-            description: "Cleaning activities in the kitchen",
-            thumbnail: "assets/image/scenarios/scene_1.jpg"
-        },
-        bathroom_hygiene: {
-            name: "Bathroom Hygiene",
-            video: "assets/video/task/task1.mp4",
-            description: "Personal hygiene activities",
-            thumbnail: "assets/image/scenarios/scene_1.jpg"
-        },
-        living_room: {
-            name: "Living Room",
-            video: "assets/video/task/task1.mp4",
-            description: "Living room activities",
-            thumbnail: "assets/image/scenarios/scene_1.jpg"
-        },
-        computer_typing: {
-            name: "Computer Typing",
-            video: "assets/video/task/task1.mp4",
-            description: "Computer typing activities",
-            thumbnail: "assets/image/scenarios/scene_1.jpg"
-        },
-        computer_navigation: {
-            name: "Computer Navigation",
-            video: "assets/video/task/task1.mp4",
-            description: "Computer navigation activities",
-            thumbnail: "assets/image/scenarios/scene_1.jpg"
-        },
-        desk_organization: {
-            name: "Desk Organization",
-            video: "assets/video/task/task1.mp4",
-            description: "Desk organization activities",
-            thumbnail: "assets/image/scenarios/scene_1.jpg"
-        },
-        garden_care: {
-            name: "Garden Care",
-            video: "assets/video/task/task1.mp4",
-            description: "Garden care activities",
-            thumbnail: "assets/image/scenarios/scene_1.jpg"
-        },
-        exercise_cardio: {
-            name: "Exercise - Cardio",
-            video: "assets/video/task/task1.mp4",
-            description: "Cardio exercise activities",
-            thumbnail: "assets/image/scenarios/scene_1.jpg"
-        },
-        study_reading: {
-            name: "Study - Reading",
-            video: "assets/video/task/task1.mp4",
-            description: "Study and reading activities",
-            thumbnail: "assets/image/scenarios/scene_1.jpg"
-        }
-    }
+    ]
 };
 
 // Demo State Management - Dataset -> Task interaction
 let currentNavigation = {
-    dataset: null,
-    task: null
+    datasetIndex: null,
+    taskIndex: null
 };
 
 let datasetSliderOffset = 0;
@@ -285,16 +350,18 @@ const sliderStep = 250; // pixels per slide (adjusted for larger cards)
 function initDemo() {
     console.log('Initializing dataset -> task interactive demo');
     renderDatasets();
-    renderTasks();
+    renderTasks(); // Initially show placeholder
     resetNavigation();
     
     // Auto-select first dataset
-    const firstDatasetKey = Object.keys(demoData.datasets)[0];
-    if (firstDatasetKey) {
-        selectDataset(firstDatasetKey);
+    if (demoData.datasets.length > 0) {
+        selectDataset(0);
     }
     
-    console.log('Demo initialized with', Object.keys(demoData.datasets).length, 'datasets and', Object.keys(demoData.tasks).length, 'tasks');
+    const totalTasks = demoData.datasets.reduce((total, dataset) => {
+        return total + dataset.tasks.length;
+    }, 0);
+    console.log('Demo initialized with', demoData.datasets.length, 'datasets and', totalTasks, 'total tasks');
 }
 
 // Render datasets in slider
@@ -304,11 +371,10 @@ function renderDatasets() {
     
     datasetTrack.innerHTML = '';
     
-    Object.keys(demoData.datasets).forEach(datasetKey => {
-        const dataset = demoData.datasets[datasetKey];
+    demoData.datasets.forEach((dataset, index) => {
         const card = document.createElement('div');
         card.className = 'dataset-card';
-        card.onclick = () => selectDataset(datasetKey);
+        card.onclick = () => selectDataset(index);
         
         card.innerHTML = `
             <div class="dataset-image">
@@ -324,18 +390,32 @@ function renderDatasets() {
     updateDatasetSliderControls();
 }
 
-// Render tasks in slider
-function renderTasks() {
+// Render tasks in slider for selected dataset
+function renderTasks(datasetIndex = null) {
     const taskTrack = document.getElementById('taskTrack');
     if (!taskTrack) return;
     
     taskTrack.innerHTML = '';
     
-    Object.keys(demoData.tasks).forEach(taskKey => {
-        const task = demoData.tasks[taskKey];
+    // If no dataset selected, show placeholder
+    if (datasetIndex === null || !demoData.datasets[datasetIndex]) {
+        const placeholder = document.createElement('div');
+        placeholder.className = 'task-placeholder';
+        placeholder.innerHTML = `
+            <div class="placeholder-content">
+                <div class="placeholder-icon">📋</div>
+                <p>Select a dataset to view tasks</p>
+            </div>
+        `;
+        taskTrack.appendChild(placeholder);
+        return;
+    }
+    
+    const dataset = demoData.datasets[datasetIndex];
+    dataset.tasks.forEach((task, taskIndex) => {
         const card = document.createElement('div');
         card.className = 'task-card';
-        card.onclick = () => selectTask(taskKey);
+        card.onclick = () => selectTask(taskIndex);
         
         card.innerHTML = `
             <div class="task-image">
@@ -463,28 +543,28 @@ function updateTaskSliderControls() {
 }
 
 // Select dataset
-function selectDataset(datasetKey) {
-    currentNavigation.dataset = datasetKey;
-    currentNavigation.task = null;
+function selectDataset(datasetIndex) {
+    currentNavigation.datasetIndex = datasetIndex;
+    currentNavigation.taskIndex = null;
     
     // Update visual selection
-    document.querySelectorAll('.dataset-card').forEach(card => {
-        card.classList.remove('selected');
-    });
-    
-    // Find the clicked dataset card and add selected class
-    const datasetCards = document.querySelectorAll('.dataset-card');
-    datasetCards.forEach(card => {
-        const cardText = card.querySelector('.dataset-text-overlay');
-        if (cardText && cardText.textContent === demoData.datasets[datasetKey].name) {
+    document.querySelectorAll('.dataset-card').forEach((card, index) => {
+        if (index === datasetIndex) {
             card.classList.add('selected');
+        } else {
+            card.classList.remove('selected');
         }
     });
     
-    // Clear task selection when dataset changes
-    document.querySelectorAll('.task-card').forEach(card => {
-        card.classList.remove('selected');
-    });
+    // Render tasks for the selected dataset
+    renderTasks(datasetIndex);
+    
+    // Reset task slider offset when dataset changes
+    taskSliderOffset = 0;
+    const taskTrack = document.getElementById('taskTrack');
+    if (taskTrack) {
+        taskTrack.style.transform = 'translateX(0)';
+    }
     
     // Clear video display when dataset changes
     const videoDisplay = document.getElementById('videoDisplay');
@@ -501,29 +581,31 @@ function selectDataset(datasetKey) {
     // Update integrated breadcrumb navigation
     updateIntegratedBreadcrumb();
     
-    console.log('Selected dataset:', datasetKey);
+    const dataset = demoData.datasets[datasetIndex];
+    console.log('Selected dataset:', dataset.name, 'with', dataset.tasks.length, 'tasks');
 }
 
 // Select task
-function selectTask(taskKey) {
-    currentNavigation.task = taskKey;
+function selectTask(taskIndex) {
+    // Make sure we have a dataset selected
+    if (currentNavigation.datasetIndex === null) return;
+    
+    currentNavigation.taskIndex = taskIndex;
     
     // Update visual selection
-    document.querySelectorAll('.task-card').forEach(card => {
-        card.classList.remove('selected');
-    });
-    
-    // Find the clicked task card and add selected class
-    const taskCards = document.querySelectorAll('.task-card');
-    taskCards.forEach(card => {
-        const cardText = card.querySelector('.task-name');
-        if (cardText && cardText.textContent === demoData.tasks[taskKey].name) {
+    document.querySelectorAll('.task-card').forEach((card, index) => {
+        if (index === taskIndex) {
             card.classList.add('selected');
+        } else {
+            card.classList.remove('selected');
         }
     });
     
+    // Get the task from the current dataset
+    const dataset = demoData.datasets[currentNavigation.datasetIndex];
+    const task = dataset.tasks[taskIndex];
+    
     // Directly play the task video
-    const task = demoData.tasks[taskKey];
     if (task && task.video) {
         showVideo(task.video, task.name);
     }
@@ -531,7 +613,7 @@ function selectTask(taskKey) {
     // Update integrated breadcrumb navigation
     updateIntegratedBreadcrumb();
     
-    console.log('Selected task:', taskKey);
+    console.log('Selected task:', task.name, 'from dataset:', dataset.name);
 }
 
 // Update integrated breadcrumb navigation
@@ -593,13 +675,13 @@ function selectCategory1(categoryKey) {
 function buildBreadcrumbPath() {
     const pathItems = [];
     
-    if (currentNavigation.dataset) {
-        const dataset = demoData.datasets[currentNavigation.dataset];
+    if (currentNavigation.datasetIndex !== null) {
+        const dataset = demoData.datasets[currentNavigation.datasetIndex];
         pathItems.push(`<span class="breadcrumb-item clickable" onclick="navigateFromBreadcrumb('dataset')">${dataset.name}</span>`);
         
         // Add task if selected
-        if (currentNavigation.task) {
-            const task = demoData.tasks[currentNavigation.task];
+        if (currentNavigation.taskIndex !== null) {
+            const task = dataset.tasks[currentNavigation.taskIndex];
             if (task) {
                 pathItems.push(`<span class="breadcrumb-item">${task.name}</span>`);
             }
@@ -616,7 +698,7 @@ function buildBreadcrumbOptions() {
 }
 
 // Select video (legacy function - no longer used in simplified 2-level structure)
-function selectVideo(videoKey) {
+function selectVideo() {
     console.log('selectVideo function called but no longer needed in simplified structure');
 }
 
@@ -765,7 +847,7 @@ function updateBreadcrumb() {
 function navigateFromBreadcrumb(level) {
     if (level === 'dataset') {
         // Go back to dataset selection (clear task)
-        currentNavigation.task = null;
+        currentNavigation.taskIndex = null;
         
         // Clear task selection
         document.querySelectorAll('.task-card').forEach(card => {
@@ -773,9 +855,11 @@ function navigateFromBreadcrumb(level) {
         });
         
         // Show dataset image if available
-        const dataset = demoData.datasets[currentNavigation.dataset];
-        if (dataset && dataset.thumbnail) {
-            showDatasetImage(dataset.thumbnail, dataset.name);
+        if (currentNavigation.datasetIndex !== null) {
+            const dataset = demoData.datasets[currentNavigation.datasetIndex];
+            if (dataset && dataset.thumbnail) {
+                showDatasetImage(dataset.thumbnail, dataset.name);
+            }
         }
         
         // Scroll to center the dataset selection area
@@ -788,8 +872,8 @@ function navigateFromBreadcrumb(level) {
 // Reset navigation
 function resetNavigation() {
     currentNavigation = {
-        dataset: null,
-        task: null
+        datasetIndex: null,
+        taskIndex: null
     };
     
     // Reset breadcrumb navigation
@@ -842,58 +926,61 @@ function resetDemo() {
     scrollToDatasetSelection();
 }
 
-// Add trackpad scrolling support to slider
+// Add trackpad scrolling support to slider (simplified for dataset/task structure)
 function initTrackpadScrolling() {
-    const viewport = document.querySelector('.slider-viewport');
-    if (!viewport) return;
+    // Trackpad scrolling for dataset slider
+    const datasetViewport = document.querySelector('.dataset-section .slider-viewport');
+    if (datasetViewport) {
+        datasetViewport.addEventListener('wheel', (e) => {
+            if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+                e.preventDefault();
+                const direction = e.deltaX > 0 ? 'right' : 'left';
+                slideDatasets(direction);
+            }
+        }, { passive: false });
+    }
     
-    let isScrolling = false;
-    let scrollTimeout;
-    
-    viewport.addEventListener('wheel', (e) => {
-        // Only handle horizontal scrolling or when no vertical scroll
-        if (Math.abs(e.deltaX) > Math.abs(e.deltaY) || e.deltaY === 0) {
-            // Prevent default page scroll only when handling horizontal scrolling
-            e.preventDefault();
-            const track = document.getElementById('scenarioTrack');
-            if (!track) return;
-            
-            const viewportWidth = viewport.offsetWidth;
-            const trackWidth = track.scrollWidth;
-            const maxOffset = Math.max(0, trackWidth - viewportWidth);
-            
-            // Adjust scroll sensitivity
-            const scrollAmount = e.deltaX * 2; // Multiply for better sensitivity
-            
-            // Update slider offset
-            sliderOffset = Math.max(0, Math.min(maxOffset, sliderOffset + scrollAmount));
-            
-            // Apply transform
-            track.style.transform = `translateX(-${sliderOffset}px)`;
-            
-            // Update controls
-            updateSliderControls();
-            
-            // Set scrolling state
-            isScrolling = true;
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(() => {
-                isScrolling = false;
-            }, 150);
-        }
-    }, { passive: false });
-    
-    // Add visual feedback for scrolling
-    viewport.addEventListener('wheel', (e) => {
-        if (Math.abs(e.deltaX) > Math.abs(e.deltaY) || e.deltaY === 0) {
-            viewport.style.cursor = 'grabbing';
-            setTimeout(() => {
-                if (!isScrolling) {
-                    viewport.style.cursor = 'grab';
-                }
-            }, 150);
-        }
-    });
+    // Trackpad scrolling for task slider
+    const taskViewport = document.querySelector('.task-section .slider-viewport');
+    if (taskViewport) {
+        taskViewport.addEventListener('wheel', (e) => {
+            if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+                e.preventDefault();
+                const direction = e.deltaX > 0 ? 'right' : 'left';
+                slideTasks(direction);
+            }
+        }, { passive: false });
+    }
+}
+
+// Initialize background video
+function initBackgroundVideo() {
+    const backgroundVideo = document.querySelector('.background-video');
+    if (backgroundVideo) {
+        // Ensure video plays on iOS and other restrictive browsers
+        backgroundVideo.addEventListener('canplaythrough', () => {
+            backgroundVideo.play().catch(e => {
+                console.log('Background video autoplay failed:', e);
+                // Show fallback background if video fails
+                backgroundVideo.style.display = 'none';
+            });
+        });
+        
+        // Handle video loading errors
+        backgroundVideo.addEventListener('error', () => {
+            console.log('Background video failed to load');
+            backgroundVideo.style.display = 'none';
+        });
+        
+        // Force play attempt after a short delay
+        setTimeout(() => {
+            if (backgroundVideo.paused) {
+                backgroundVideo.play().catch(e => {
+                    console.log('Delayed background video play failed:', e);
+                });
+            }
+        }, 1000);
+    }
 }
 
 // Event listeners
@@ -903,6 +990,7 @@ document.addEventListener('DOMContentLoaded', () => {
         initTrackpadScrolling();
         initVideoLazyLoading(); // Initialize video lazy loading
         initImageLazyLoading(); // Initialize image lazy loading
+        initBackgroundVideo(); // Initialize background video
     }, 100);
     
     // Handle window resize for sliders
