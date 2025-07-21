@@ -125,6 +125,25 @@ body {
     height: 100%;
     object-fit: cover;
     z-index: -2;
+    /* Performance optimizations */
+    transform: translateZ(0);
+    will-change: auto;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    /* Reduce quality on slower devices */
+    image-rendering: optimizeSpeed;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+/* Hide video for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .background-video {
+        display: none !important;
+    }
+    
+    .video-overlay {
+        background: rgba(0, 0, 0, 0.8);
+    }
 }
 
 /* Dark overlay to make video background less bright */

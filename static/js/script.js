@@ -166,175 +166,87 @@ document.querySelectorAll('.section').forEach(section => {
 const demoData = {
     datasets: [
         {
-            name: "ARCTIC",
-            thumbnail: "assets/image/dataset/thumb_arctic.jpg",
+            name: "EgoDex",
             tasks: [
-                {
-                    name: "Articulated Objects",
-                    video: "assets/video/arctic/articulated_objects.mp4",
-                    thumbnail: "assets/image/scenarios/arctic_articulated.jpg"
-                },
-                {
-                    name: "Hand Tracking",
-                    video: "assets/video/arctic/hand_tracking.mp4",
-                    thumbnail: "assets/image/scenarios/arctic_tracking.jpg"
-                },
-                {
-                    name: "Complex Grasping",
-                    video: "assets/video/arctic/complex_grasping.mp4",
-                    thumbnail: "assets/image/scenarios/arctic_grasping.jpg"
-                }
+                { name: "Uncharge Airpods", id: "48-00000180"},
+                { name: "Disassemble Furniture", id: "08-00000652" },
+                { name: "Stock in Fridge", id: "14-00000033" },
+                { name: "Gather Dice", id: "23-00000014" },
+                { name: "Open Box", id: "60-00000559"},
+                { name: "Pick and Place", id: "28-0000035c"}
+            ]
+        },
+        {
+            name: "ARCTIC",
+            tasks: [
+                { name: "Articulated Objects", id: "articulated_objects" },
+                { name: "Hand Tracking", id: "hand_tracking" },
+                { name: "Complex Grasping", id: "complex_grasping" }
             ]
         },
         {
             name: "DexYCB",
-            thumbnail: "assets/image/dataset/thumb_dex-ycb.jpg",
             tasks: [
-                {
-                    name: "Dexterous Grasping",
-                    video: "assets/video/dexycb/dexterous_grasping.mp4",
-                    thumbnail: "assets/image/scenarios/dexycb_grasping.jpg"
-                },
-                {
-                    name: "Object Manipulation",
-                    video: "assets/video/dexycb/object_manipulation.mp4",
-                    thumbnail: "assets/image/scenarios/dexycb_manipulation.jpg"
-                },
-                {
-                    name: "Precision Tasks",
-                    video: "assets/video/dexycb/precision_tasks.mp4",
-                    thumbnail: "assets/image/scenarios/dexycb_precision.jpg"
-                }
-            ]
-        },
-        {
-            name: "EgoDex",
-            thumbnail: "assets/image/dataset/thumb_egodex.jpg",
-            tasks: [
-                {
-                    name: "Egocentric Manipulation",
-                    video: "assets/video/task/egodex/04-000004ca_pred.mp4",
-                    thumbnail: "assets/video/task/egodex/04-000004ca_frame.png"
-                },
-                {
-                    name: "Daily Activities",
-                    video: "assets/video/egodex/daily_activities.mp4",
-                    thumbnail: "assets/image/scenarios/egodex_daily.jpg"
-                },
-                {
-                    name: "Tool Usage",
-                    video: "assets/video/egodex/tool_usage.mp4",
-                    thumbnail: "assets/image/scenarios/egodex_tools.jpg"
-                }
+                { name: "Dexterous Grasping", id: "dexterous_grasping" },
+                { name: "Object Manipulation", id: "object_manipulation" },
+                { name: "Precision Tasks", id: "precision_tasks" }
             ]
         },
         {
             name: "FPHA",
-            thumbnail: "assets/image/dataset/thumb_fpha.jpg",
             tasks: [
-                {
-                    name: "Hand Gestures",
-                    video: "assets/video/fpha/hand_gestures.mp4",
-                    thumbnail: "assets/image/scenarios/fpha_gestures.jpg"
-                },
-                {
-                    name: "Object Interaction",
-                    video: "assets/video/fpha/object_interaction.mp4",
-                    thumbnail: "assets/image/scenarios/fpha_objects.jpg"
-                },
-                {
-                    name: "Manipulation Tasks",
-                    video: "assets/video/fpha/manipulation_tasks.mp4",
-                    thumbnail: "assets/image/scenarios/fpha_manipulation.jpg"
-                }
+                { name: "Hand Gestures", id: "hand_gestures" },
+                { name: "Object Interaction", id: "object_interaction" },
+                { name: "Manipulation Tasks", id: "manipulation_tasks" }
             ]
         },
         {
             name: "H2O",
-            thumbnail: "assets/image/dataset/thumb_h2o.jpg",
             tasks: [
-                {
-                    name: "Two-Hand Coordination",
-                    video: "assets/video/h2o/two_hand_coordination.mp4",
-                    thumbnail: "assets/image/scenarios/h2o_coordination.jpg"
-                },
-                {
-                    name: "Object Handover",
-                    video: "assets/video/h2o/object_handover.mp4",
-                    thumbnail: "assets/image/scenarios/h2o_handover.jpg"
-                },
-                {
-                    name: "Collaborative Manipulation",
-                    video: "assets/video/h2o/collaborative_manipulation.mp4",
-                    thumbnail: "assets/image/scenarios/h2o_collaborative.jpg"
-                }
+                { name: "Two-Hand Coordination", id: "two_hand_coordination" },
+                { name: "Object Handover", id: "object_handover" },
+                { name: "Collaborative Manipulation", id: "collaborative_manipulation" }
             ]
         },
         {
             name: "OAKINK2",
-            thumbnail: "assets/image/dataset/thumb_oakink2.jpg",
             tasks: [
-                {
-                    name: "Intent Recognition",
-                    video: "assets/video/oakink2/intent_recognition.mp4",
-                    thumbnail: "assets/image/scenarios/oakink2_intent.jpg"
-                },
-                {
-                    name: "Affordance Learning",
-                    video: "assets/video/oakink2/affordance_learning.mp4",
-                    thumbnail: "assets/image/scenarios/oakink2_affordance.jpg"
-                },
-                {
-                    name: "Interaction Prediction",
-                    video: "assets/video/oakink2/interaction_prediction.mp4",
-                    thumbnail: "assets/image/scenarios/oakink2_prediction.jpg"
-                }
+                { name: "Intent Recognition", id: "intent_recognition" },
+                { name: "Affordance Learning", id: "affordance_learning" },
+                { name: "Interaction Prediction", id: "interaction_prediction" }
             ]
         },
         {
             name: "TACO",
-            thumbnail: "assets/image/dataset/thumb_taco.jpg",
             tasks: [
-                {
-                    name: "Kitchen Cooking",
-                    video: "assets/video/taco/kitchen_cooking.mp4",
-                    thumbnail: "assets/image/scenarios/taco_cooking.jpg"
-                },
-                {
-                    name: "Kitchen Cleaning",
-                    video: "assets/video/taco/kitchen_cleaning.mp4",
-                    thumbnail: "assets/image/scenarios/taco_cleaning.jpg"
-                },
-                {
-                    name: "Food Handling",
-                    video: "assets/video/taco/food_handling.mp4",
-                    thumbnail: "assets/image/scenarios/taco_food.jpg"
-                }
+                { name: "Kitchen Cooking", id: "kitchen_cooking" },
+                { name: "Kitchen Cleaning", id: "kitchen_cleaning" },
+                { name: "Food Handling", id: "food_handling" }
             ]
         },
         {
             name: "Taste-Rob",
-            thumbnail: "assets/image/dataset/thumb_taste-rob.jpg",
             tasks: [
-                {
-                    name: "Robotic Cooking",
-                    video: "assets/video/taste-rob/robotic_cooking.mp4",
-                    thumbnail: "assets/image/scenarios/taste_rob_cooking.jpg"
-                },
-                {
-                    name: "Ingredient Handling",
-                    video: "assets/video/taste-rob/ingredient_handling.mp4",
-                    thumbnail: "assets/image/scenarios/taste_rob_ingredients.jpg"
-                },
-                {
-                    name: "Utensil Manipulation",
-                    video: "assets/video/taste-rob/utensil_manipulation.mp4",
-                    thumbnail: "assets/image/scenarios/taste_rob_utensils.jpg"
-                }
+                { name: "Robotic Cooking", id: "robotic_cooking" },
+                { name: "Ingredient Handling", id: "ingredient_handling" },
+                { name: "Utensil Manipulation", id: "utensil_manipulation" }
             ]
         }
     ]
 };
+
+// Helper functions to generate paths automatically
+function getDatasetThumbnail(datasetName) {
+    return `assets/image/dataset/thumb_${datasetName.toLowerCase()}.jpg`;
+}
+
+function getTaskVideo(datasetName, taskId) {
+    return `assets/video/task/${datasetName}/${taskId}.mp4`;
+}
+
+function getTaskThumbnail(datasetName, taskId) {
+    return `assets/video/task/${datasetName}/${taskId}.png`;
+}
 
 // Demo State Management - Dataset -> Task interaction
 let currentNavigation = {
@@ -376,9 +288,10 @@ function renderDatasets() {
         card.className = 'dataset-card';
         card.onclick = () => selectDataset(index);
         
+        const thumbnailPath = getDatasetThumbnail(dataset.name);
         card.innerHTML = `
             <div class="dataset-image">
-                <img src="${dataset.thumbnail}" alt="${dataset.name}" onerror="this.src='assets/image/framework.png'">
+                <img src="${thumbnailPath}" alt="${dataset.name}" onerror="this.src='assets/image/framework.png'">
                 <div class="dataset-text-overlay">${dataset.name}</div>
             </div>
             <div class="dataset-name">${dataset.name}</div>
@@ -417,9 +330,10 @@ function renderTasks(datasetIndex = null) {
         card.className = 'task-card';
         card.onclick = () => selectTask(taskIndex);
         
+        const thumbnailPath = getTaskThumbnail(dataset.name, task.id);
         card.innerHTML = `
             <div class="task-image">
-                <img src="${task.thumbnail}" alt="${task.name}" onerror="this.src='assets/image/framework.png'">
+                <img src="${thumbnailPath}" alt="${task.name}" onerror="this.src='assets/image/framework.png'">
             </div>
             <div class="task-name">${task.name}</div>
         `;
@@ -606,8 +520,9 @@ function selectTask(taskIndex) {
     const task = dataset.tasks[taskIndex];
     
     // Directly play the task video
-    if (task && task.video) {
-        showVideo(task.video, task.name);
+    if (task) {
+        const videoPath = getTaskVideo(dataset.name, task.id);
+        showVideo(videoPath, task.name);
     }
     
     // Update integrated breadcrumb navigation
@@ -857,8 +772,9 @@ function navigateFromBreadcrumb(level) {
         // Show dataset image if available
         if (currentNavigation.datasetIndex !== null) {
             const dataset = demoData.datasets[currentNavigation.datasetIndex];
-            if (dataset && dataset.thumbnail) {
-                showDatasetImage(dataset.thumbnail, dataset.name);
+            if (dataset) {
+                const thumbnailPath = getDatasetThumbnail(dataset.name);
+                showDatasetImage(thumbnailPath, dataset.name);
             }
         }
         
@@ -953,34 +869,73 @@ function initTrackpadScrolling() {
     }
 }
 
-// Initialize background video
+// Initialize background video with performance optimizations
 function initBackgroundVideo() {
     const backgroundVideo = document.querySelector('.background-video');
-    if (backgroundVideo) {
-        // Ensure video plays on iOS and other restrictive browsers
-        backgroundVideo.addEventListener('canplaythrough', () => {
-            backgroundVideo.play().catch(e => {
-                console.log('Background video autoplay failed:', e);
-                // Show fallback background if video fails
-                backgroundVideo.style.display = 'none';
-            });
+    if (!backgroundVideo) return;
+    
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+        backgroundVideo.style.display = 'none';
+        return;
+    }
+    
+    // Performance optimizations
+    backgroundVideo.playbackRate = 1.0;
+    backgroundVideo.defaultPlaybackRate = 1.0;
+    
+    // Optimize video for performance
+    if ('requestVideoFrameCallback' in backgroundVideo) {
+        // Use frame callback for smoother playback if available
+        const updateVideo = () => {
+            if (!backgroundVideo.paused && !backgroundVideo.ended) {
+                backgroundVideo.requestVideoFrameCallback(updateVideo);
+            }
+        };
+        backgroundVideo.requestVideoFrameCallback(updateVideo);
+    }
+    
+    // Intersection Observer to pause video when not visible
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                if (backgroundVideo.paused) {
+                    backgroundVideo.play().catch(e => console.log('Video resume failed:', e));
+                }
+            } else {
+                if (!backgroundVideo.paused) {
+                    backgroundVideo.pause();
+                }
+            }
         });
-        
-        // Handle video loading errors
-        backgroundVideo.addEventListener('error', () => {
-            console.log('Background video failed to load');
+    }, { threshold: 0.1 });
+    
+    videoObserver.observe(backgroundVideo);
+    
+    // Ensure video plays on iOS and other restrictive browsers
+    backgroundVideo.addEventListener('canplaythrough', () => {
+        backgroundVideo.play().catch(e => {
+            console.log('Background video autoplay failed:', e);
             backgroundVideo.style.display = 'none';
         });
-        
-        // Force play attempt after a short delay
-        setTimeout(() => {
-            if (backgroundVideo.paused) {
-                backgroundVideo.play().catch(e => {
-                    console.log('Delayed background video play failed:', e);
-                });
-            }
-        }, 1000);
-    }
+    });
+    
+    // Handle video loading errors
+    backgroundVideo.addEventListener('error', () => {
+        console.log('Background video failed to load');
+        backgroundVideo.style.display = 'none';
+    });
+    
+    // Throttle resize events that might affect video
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            // Force video to recalculate dimensions
+            backgroundVideo.style.transform = 'translateZ(0)';
+        }, 250);
+    });
 }
 
 // Event listeners
