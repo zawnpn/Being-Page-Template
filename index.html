@@ -65,7 +65,7 @@
                     Code
                 </a>
 
-                <a href="#" class="action-btn">
+                <a href="https://huggingface.co/BeingBeyond/Being-H0" target="_blank" class="action-btn">
                     <img src="assets/image/icon/hf.svg" alt="Model" class="btn-icon">
                     Model
                 </a>
@@ -89,22 +89,35 @@
         <section class="section" id="interactive-demo">
             <h2 class="section-title">Interactive Demo</h2>
             
-            <!-- Scenario Selection with Horizontal Slider -->
-            <div class="nav-section scenario-section">
-                <div class="nav-title">Choose a scene, then select the action you want to perform</div>
-                <div class="slider-container">
-                    <button class="slider-btn slider-btn-left" id="scenarioSliderLeft" onclick="slideScenarios('left')" style="display: none;">‹</button>
-                    <div class="slider-viewport">
-                        <div class="slider-track" id="scenarioTrack">
-                            <!-- Scenarios will be populated by JavaScript -->
+            <!-- Demo Selection with Two-Level Sliders -->
+            <div class="nav-section demo-section">
+                
+                <!-- Dataset Selection (First Row) -->
+                <div class="dataset-section">
+                    <h3 class="demo-section-title">Dataset</h3>
+                    <div class="slider-container">
+                        <button class="slider-btn slider-btn-left" id="datasetSliderLeft" onclick="slideDatasets('left')" style="display: none;">‹</button>
+                        <div class="slider-viewport">
+                            <div class="slider-track" id="datasetTrack">
+                                <!-- Dataset cards will be populated by JavaScript -->
+                            </div>
                         </div>
+                        <button class="slider-btn slider-btn-right" id="datasetSliderRight" onclick="slideDatasets('right')" style="display: none;">›</button>
                     </div>
-                    <button class="slider-btn slider-btn-right" id="scenarioSliderRight" onclick="slideScenarios('right')" style="display: none;">›</button>
                 </div>
                 
-                <!-- Category Selection -->
-                <div class="category-container" id="categoryContainer">
-                    <!-- Categories will be populated by JavaScript -->
+                <!-- Task Selection (Second Row) -->
+                <div class="task-section">
+                    <h3 class="demo-section-title">Task</h3>
+                    <div class="slider-container">
+                        <button class="slider-btn slider-btn-left" id="taskSliderLeft" onclick="slideTasks('left')" style="display: none;">‹</button>
+                        <div class="slider-viewport">
+                            <div class="slider-track" id="taskTrack">
+                                <!-- Task cards will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        <button class="slider-btn slider-btn-right" id="taskSliderRight" onclick="slideTasks('right')" style="display: none;">›</button>
+                    </div>
                 </div>
             </div>
 
@@ -281,7 +294,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <p>This website template is made by <a href="https://github.com/BeingBeyond" target="_blank">BeingBeyond</a> and licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.</p>
+            <p>This website is made by <a href="https://github.com/BeingBeyond" target="_blank">BeingBeyond</a>. To use our template, you should follow the <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a> license.</p>
         </div>
     </footer>
 

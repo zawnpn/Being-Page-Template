@@ -1571,7 +1571,23 @@ body {
     background: var(--bg-light);
 }
 
-/* Scenario Cards - Larger Size */
+/* Dataset and Task Cards */
+.dataset-card, .task-card {
+    min-width: 240px;
+    width: 240px;
+    flex: 0 0 auto;
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-large);
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.4s var(--ease-out);
+    text-align: center;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Legacy scenario card support for existing responsive rules */
 .scenario-card {
     min-width: 240px;
     width: 240px;
@@ -1587,20 +1603,70 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-.scenario-card:hover {
+/* Shared hover and selected states for dataset, task, and scenario cards */
+.dataset-card:hover, .task-card:hover, .scenario-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
     border-color: var(--hover-border);
 }
 
-.scenario-card.selected {
+.dataset-card.selected, .task-card.selected, .scenario-card.selected {
     border-color: #1d1d1f;
     background: #f5f5f7;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
     transform: translateY(-4px);
 }
 
-.scenario-image {
+/* Dataset card specific styling with text overlay */
+.dataset-image {
+    width: 100%;
+    height: 120px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 0.3rem;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.dataset-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0.15) 60%, rgba(0, 0, 0, 0.05) 80%, transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.dataset-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+    transition: all 0.3s var(--ease-out);
+}
+
+.dataset-text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 0.4rem 0.8rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 0.7);
+    z-index: 2;
+}
+
+/* Task card and scenario card image styling */
+.task-image, .scenario-image {
     width: 100%;
     border-radius: 6px;
     overflow: hidden;
@@ -1611,19 +1677,34 @@ body {
     justify-content: center;
 }
 
-.scenario-image img {
+.task-image img, .scenario-image img {
     width: 100%;
     height: auto;
     object-fit: contain;
     border-radius: 6px;
 }
 
-.scenario-name {
+.dataset-name, .task-name, .scenario-name {
     font-size: 0.9rem;
     font-weight: 600;
     color: var(--demo-text);
     line-height: 1.2;
     margin: 0;
+}
+
+/* Hide dataset name since text is shown on overlay */
+.dataset-name {
+    display: none;
+}
+
+/* Demo section titles */
+.demo-section-title {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #86868b;
+    margin-bottom: 1rem;
+    text-align: center;
+}
     padding: 0.2rem 0;
 }
 
