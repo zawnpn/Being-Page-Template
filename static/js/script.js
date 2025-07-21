@@ -166,29 +166,44 @@ document.querySelectorAll('.section').forEach(section => {
 const demoData = {
     datasets: {
         dataset1: {
-            name: "Household",
-            description: "Daily household activities and tasks",
-            thumbnail: "assets/image/dataset/scene_1.jpg"
+            name: "TACO",
+            description: "TACO",
+            thumbnail: "assets/image/dataset/thumb_taco.jpg"
         },
         dataset2: {
-            name: "Work Tasks",
-            description: "Professional and office activities",
-            thumbnail: "assets/image/dataset/scene_1.jpg"
+            name: "Taste-Rob",
+            description: "Taste-Rob",
+            thumbnail: "assets/image/dataset/thumb_taste-rob.jpg"
         },
         dataset3: {
-            name: "Outdoor Activities",
-            description: "Garden and outdoor maintenance",
-            thumbnail: "assets/image/dataset/scene_1.jpg"
+            name: "FPHA",
+            description: "FPHA",
+            thumbnail: "assets/image/dataset/thumb_fpha.jpg"
         },
         dataset4: {
-            name: "Health & Fitness",
-            description: "Exercise and wellness activities",
-            thumbnail: "assets/image/dataset/scene_1.jpg"
+            name: "ARCTIC",
+            description: "ARCTIC",
+            thumbnail: "assets/image/dataset/thumb_arctic.jpg"
         },
         dataset5: {
-            name: "Learning Tasks",
-            description: "Study and research activities",
-            thumbnail: "assets/image/dataset/scene_1.jpg"
+            name: "DexYCB",
+            description: "DexYCB",
+            thumbnail: "assets/image/dataset/thumb_dex-ycb.jpg"
+        },
+        dataset6: {
+            name: "EgoDex",
+            description: "EgoDex",
+            thumbnail: "assets/image/dataset/thumb_egodex.jpg"
+        },
+        dataset7: {
+            name: "H2O",
+            description: "H2O",
+            thumbnail: "assets/image/dataset/thumb_h2o.jpg"
+        },
+        dataset8: {
+            name: "OAKINK2",
+            description: "OAKINK2",
+            thumbnail: "assets/image/dataset/thumb_oakink2.jpg"
         }
     },
     
@@ -466,10 +481,21 @@ function selectDataset(datasetKey) {
         }
     });
     
-    // Show dataset image in video area
-    const dataset = demoData.datasets[datasetKey];
-    if (dataset && dataset.thumbnail) {
-        showDatasetImage(dataset.thumbnail, dataset.name);
+    // Clear task selection when dataset changes
+    document.querySelectorAll('.task-card').forEach(card => {
+        card.classList.remove('selected');
+    });
+    
+    // Clear video display when dataset changes
+    const videoDisplay = document.getElementById('videoDisplay');
+    if (videoDisplay) {
+        videoDisplay.innerHTML = `
+            <div class="demo-placeholder">
+                <div class="icon">🎬</div>
+                <p>Select a task to begin</p>
+            </div>
+        `;
+        videoDisplay.classList.remove('playing');
     }
     
     // Update integrated breadcrumb navigation
