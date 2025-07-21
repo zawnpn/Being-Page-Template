@@ -1278,7 +1278,7 @@ body {
     }
 
     .video-display {
-        aspect-ratio: 16/9;
+        aspect-ratio: 16/9; /* Default fallback */
         margin-top: 0.5rem;
     }
 
@@ -1941,7 +1941,7 @@ body {
     background: var(--bg-white);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-large);
-    aspect-ratio: 16/9;
+    aspect-ratio: 16/9; /* Default fallback */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2382,7 +2382,7 @@ body {
     background: var(--bg-light);
     border: 1px solid var(--demo-border);
     border-radius: var(--border-radius-medium);
-    aspect-ratio: 16/9;
+    aspect-ratio: 16/9; /* Default fallback */
     display: flex;
     align-items: center;
     justify-content: center;

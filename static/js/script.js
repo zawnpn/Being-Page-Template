@@ -138,59 +138,71 @@ const demoData = {
             ]
         },
         {
-            name: "ARCTIC",
+            name: "TACO",
             tasks: [
-                { name: "Articulated Objects", id: "articulated_objects" },
-                { name: "Hand Tracking", id: "hand_tracking" },
-                { name: "Complex Grasping", id: "complex_grasping" }
-            ]
-        },
-        {
-            name: "DexYCB",
-            tasks: [
-                { name: "Dexterous Grasping", id: "dexterous_grasping" },
-                { name: "Object Manipulation", id: "object_manipulation" },
-                { name: "Precision Tasks", id: "precision_tasks" }
+                { name: "Cut Avocado", id: "02-000000ed" },
+                { name: "Peel Apple", id: "04-00000015" },
+                { name: "Crack Egg", id: "13-0000005e" },
+                { name: "Pour Milk", id: "24-00000010" },
+                { name: "Cut Bread", id: "36-000001f8" },
+                { name: "Slice Lime", id: "40-00000052" },
+                { name: "Peel Potato", id: "42-00000018" }
             ]
         },
         {
             name: "FPHA",
             tasks: [
-                { name: "Hand Gestures", id: "hand_gestures" },
-                { name: "Object Interaction", id: "object_interaction" },
-                { name: "Manipulation Tasks", id: "manipulation_tasks" }
+                { name: "Take Juice", id: "19-00000004" },
+                { name: "Open Milk", id: "32-00000007" },
+                { name: "Open Door", id: "36-00000001" },
+                { name: "Use Sponge", id: "45-00000001" }
             ]
         },
         {
             name: "H2O",
             tasks: [
-                { name: "Two-Hand Coordination", id: "two_hand_coordination" },
-                { name: "Object Handover", id: "object_handover" },
-                { name: "Collaborative Manipulation", id: "collaborative_manipulation" }
+                { name: "Assembly Task", id: "47-00000053" },
+                { name: "Dual Hand Use", id: "50-00000033" },
+                { name: "Coordination", id: "56-0000000e" },
+                { name: "Handover", id: "61-00000017" }
             ]
         },
         {
             name: "OAKINK2",
             tasks: [
-                { name: "Intent Recognition", id: "intent_recognition" },
-                { name: "Affordance Learning", id: "affordance_learning" },
-                { name: "Interaction Prediction", id: "interaction_prediction" }
+                { name: "Grab Juice", id: "00-00000153" },
+                { name: "Use Can", id: "05-0000017c" },
+                { name: "Take Juice", id: "19-0000001d" },
+                { name: "Use Flashlight", id: "60-00000241" }
             ]
         },
         {
-            name: "TACO",
+            name: "ARCTIC",
             tasks: [
-                { name: "Kitchen Cooking", id: "kitchen_cooking" },
-                { name: "Kitchen Cleaning", id: "kitchen_cleaning" },
-                { name: "Food Handling", id: "food_handling" }
+                { name: "Use Scissors", id: "08-0000001b" },
+                { name: "Grab Waffleiron", id: "18-0000003a" },
+                { name: "Use Laptop", id: "28-0000011c" },
+                { name: "Use Phone", id: "63-00000048" }
+            ]
+        },
+        {
+            name: "DexYCB",
+            tasks: [
+                { name: "Drill Use", id: "22-0000023b" },
+                { name: "Pitcher Pouring", id: "37-0000004c" },
+                { name: "Pitcher Holding", id: "37-0000026b" },
+                { name: "Scissors Use", id: "40-00000252" },
+                { name: "Hammer Use", id: "48-0000020d" },
+                { name: "Large Marker", id: "60-0000007e" }
             ]
         },
         {
             name: "Taste-Rob",
             tasks: [
-                { name: "Robotic Cooking", id: "robotic_cooking" },
-                { name: "Ingredient Handling", id: "ingredient_handling" },
-                { name: "Utensil Manipulation", id: "utensil_manipulation" }
+                { name: "Cutting Task", id: "03-00000062" },
+                { name: "Pouring Task", id: "22-00000291" },
+                { name: "Mixing Task", id: "42-000002f2" },
+                { name: "Serving Task", id: "46-000003cd" }
             ]
         }
     ]
@@ -614,6 +626,17 @@ function showDatasetImage(imageSrc, title) {
     // Handle image loading error
     image.onerror = () => {
         image.src = 'assets/image/framework.png';
+        // Reset to default aspect ratio on error
+        videoDisplay.style.aspectRatio = '16/9';
+    };
+    
+    // Handle image loaded - adjust aspect ratio
+    image.onload = () => {
+        const aspectRatio = image.naturalWidth / image.naturalHeight;
+        videoDisplay.style.aspectRatio = `${aspectRatio}`;
+        
+        // Ensure smooth transition
+        videoDisplay.style.transition = 'all 0.4s var(--ease-out)';
     };
     
     // Clear and add image
@@ -647,6 +670,17 @@ function showVideo(videoSrc, title) {
                 <small>${title}</small>
             </div>
         `;
+        // Reset to default aspect ratio on error
+        videoDisplay.style.aspectRatio = '16/9';
+    };
+    
+    // Handle video metadata loaded - adjust aspect ratio
+    video.onloadedmetadata = () => {
+        const aspectRatio = video.videoWidth / video.videoHeight;
+        videoDisplay.style.aspectRatio = `${aspectRatio}`;
+        
+        // Ensure smooth transition
+        videoDisplay.style.transition = 'all 0.4s var(--ease-out)';
     };
     
     // Clear and add video
