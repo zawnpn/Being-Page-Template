@@ -517,7 +517,7 @@ function updateIntegratedBreadcrumb() {
     
     // Build and display current path
     const pathItems = buildBreadcrumbPath();
-    breadcrumbPath.innerHTML = pathItems.length > 0 ? pathItems.join(' › ') : 'Select a dataset to begin';
+    breadcrumbPath.innerHTML = pathItems.length > 0 ? pathItems.join(' › ') : 'Select dataset and task to begin';
 
     // Show breadcrumb navigation
     breadcrumbNav.style.display = 'block';
@@ -770,7 +770,7 @@ function resetNavigation() {
     const breadcrumbPath = document.getElementById('breadcrumbPath');
     
     if (breadcrumbPath) {
-        breadcrumbPath.innerHTML = 'Select a dataset to begin';
+        breadcrumbPath.innerHTML = 'Select dataset and task to begin';
     }
     
     // Reset selections
@@ -784,7 +784,7 @@ function resetNavigation() {
         videoDisplay.innerHTML = `
             <div class="demo-placeholder">
                 <div class="icon">🎬</div>
-                <p>Select a dataset to begin</p>
+                <p>Select dataset and task to begin</p>
             </div>
         `;
         videoDisplay.classList.remove('playing');

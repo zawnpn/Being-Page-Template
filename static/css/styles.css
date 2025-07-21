@@ -1704,7 +1704,6 @@ body {
     color: #86868b;
     margin-bottom: 1rem;
     text-align: center;
-}
     padding: 0.2rem 0;
 }
 
@@ -1884,6 +1883,9 @@ body {
     transition: all 0.4s var(--ease-out);
     margin-bottom: 0.5rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .video-display.playing {
@@ -2304,6 +2306,9 @@ body {
     overflow: hidden;
     position: relative;
     transition: all 0.3s var(--ease-out);
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .video-display.playing {
