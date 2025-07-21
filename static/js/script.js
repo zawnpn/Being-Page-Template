@@ -140,40 +140,40 @@ const demoData = {
         {
             name: "TACO",
             tasks: [
-                { name: "Cut Avocado", id: "02-000000ed" },
-                { name: "Peel Apple", id: "04-00000015" },
-                { name: "Crack Egg", id: "13-0000005e" },
-                { name: "Pour Milk", id: "24-00000010" },
-                { name: "Cut Bread", id: "36-000001f8" },
-                { name: "Slice Lime", id: "40-00000052" },
-                { name: "Peel Potato", id: "42-00000018" }
+                { name: "Scrape Off", id: "02-000000ed" },
+                { name: "Pour In", id: "13-0000005e" },
+                { name: "Cut Slice", id: "24-00000010" },
+                { name: "Put Out", id: "36-000001f8" },
+                { name: "Dust Roll", id: "40-00000052" },
+                { name: "Scrape Off", id: "04-00000015" },
+                { name: "Skim Off", id: "42-00000018" }
             ]
         },
         {
             name: "FPHA",
             tasks: [
-                { name: "Take Juice", id: "19-00000004" },
-                { name: "Open Milk", id: "32-00000007" },
-                { name: "Open Door", id: "36-00000001" },
-                { name: "Use Sponge", id: "45-00000001" }
+                { name: "Light Candle", id: "19-00000004" },
+                { name: "Pour Juice", id: "32-00000007" },
+                { name: "Wash Sponge", id: "36-00000001" },
+                { name: "Handshake", id: "45-00000001" }
             ]
         },
         {
             name: "H2O",
             tasks: [
-                { name: "Assembly Task", id: "47-00000053" },
-                { name: "Dual Hand Use", id: "50-00000033" },
-                { name: "Coordination", id: "56-0000000e" },
-                { name: "Handover", id: "61-00000017" }
+                { name: "Rotate Bottle", id: "47-00000053" },
+                { name: "Open Box", id: "50-00000033" },
+                { name: "Open Flap", id: "56-0000000e" },
+                { name: "Rub Palms", id: "61-00000017" }
             ]
         },
         {
             name: "OAKINK2",
             tasks: [
-                { name: "Grab Juice", id: "00-00000153" },
-                { name: "Use Can", id: "05-0000017c" },
-                { name: "Take Juice", id: "19-0000001d" },
-                { name: "Use Flashlight", id: "60-00000241" }
+                { name: "Erase Board", id: "00-00000153" },
+                { name: "Secure Lid", id: "05-0000017c" },
+                { name: "Place Object", id: "19-0000001d" },
+                { name: "Slide Eraser", id: "60-00000241" }
             ]
         },
         {
@@ -188,21 +188,21 @@ const demoData = {
         {
             name: "DexYCB",
             tasks: [
-                { name: "Drill Use", id: "22-0000023b" },
-                { name: "Pitcher Pouring", id: "37-0000004c" },
-                { name: "Pitcher Holding", id: "37-0000026b" },
-                { name: "Scissors Use", id: "40-00000252" },
-                { name: "Hammer Use", id: "48-0000020d" },
-                { name: "Large Marker", id: "60-0000007e" }
+                { name: "Grasp Can", id: "22-0000023b" },
+                { name: "Move Box", id: "37-0000004c" },
+                { name: "Squeeze Clamp", id: "37-0000026b" },
+                { name: "Lift Box", id: "40-00000252" },
+                { name: "Grasp Box", id: "48-0000020d" },
+                { name: "Grasp Bottle", id: "60-0000007e" }
             ]
         },
         {
             name: "Taste-Rob",
             tasks: [
-                { name: "Cutting Task", id: "03-00000062" },
-                { name: "Pouring Task", id: "22-00000291" },
-                { name: "Mixing Task", id: "42-000002f2" },
-                { name: "Serving Task", id: "46-000003cd" }
+                { name: "Move Eyeliner", id: "03-00000062" },
+                { name: "Lift Teapot", id: "22-00000291" },
+                { name: "Scoop Spoon", id: "42-000002f2" },
+                { name: "Place Food", id: "46-000003cd" }
             ]
         }
     ]
