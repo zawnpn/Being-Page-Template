@@ -1,5 +1,3 @@
-// Theme system removed - light theme only
-
 
 // Progressive Video Loading with Intersection Observer
 function initVideoLazyLoading() {
@@ -31,14 +29,12 @@ function initVideoLazyLoading() {
                         
                         // Start playing with smooth transition
                         setTimeout(() => {
-                            video.play().catch(e => console.log('Video autoplay failed:', e));
-                        }, 300); // Small delay to let animation finish
+                            video.play().catch(() => {});
+                        }, 300);
                     });
                     
-                    // Handle loading errors
                     video.addEventListener('error', () => {
                         video.classList.remove('loading');
-                        console.log('Video failed to load:', video.dataset.src);
                     });
                 }
                 
@@ -87,7 +83,6 @@ function initImageLazyLoading() {
                         // If image fails to load, show error placeholder
                         img.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='100%25' height='100%25' fill='%23f5f5f7'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='16' fill='%2386868b' text-anchor='middle' dy='.3em'%3EImage failed to load%3C/text%3E%3C/svg%3E";
                         img.classList.remove('loading');
-                        console.log('Image failed to load:', img.dataset.src);
                     };
                     newImg.src = img.dataset.src;
                 }
@@ -109,12 +104,6 @@ function initImageLazyLoading() {
     });
 }
 
-// Video interactions
-document.querySelectorAll('.video-item video').forEach(video => {
-    video.addEventListener('loadstart', () => {
-        console.log('Video loading started');
-    });
-});
 
 // Intersection observer for section animations
 const observerOptions = {
@@ -134,35 +123,7 @@ document.querySelectorAll('.section').forEach(section => {
     observer.observe(section);
 });
 
-// Interactive Demo - Hierarchical Navigation System
-// 
-// CONFIGURATION GUIDE:
-// 1. Set maxCategoryLevels to desired depth (1=2 levels total, 2=3 levels total, etc.)
-// 2. Structure your data accordingly:
-//    - For 2 levels: scenarios -> categories -> videos
-//    - For 3 levels: scenarios -> categories -> categories -> videos
-//    - For 4 levels: scenarios -> categories -> categories -> categories -> videos
-// 3. The system will automatically handle navigation for any depth
-//
-// EXAMPLES:
-// maxCategoryLevels: 1 → scenarios → categories → videos (current setup)
-// maxCategoryLevels: 2 → scenarios → categories → subcategories → videos
-// maxCategoryLevels: 3 → scenarios → categories → subcategories → subsubcategories → videos
-//
-// EXAMPLE 3-LEVEL STRUCTURE (maxCategoryLevels: 2):
-// health_fitness: {
-//     name: "Health & Fitness",
-//     categories: {
-//         exercise: {
-//             name: "Exercise", 
-//             categories: {
-//                 cardio: { name: "Cardio", videos: {...} },
-//                 strength: { name: "Strength", videos: {...} }
-//             }
-//         }
-//     }
-// }
-//
+// Interactive Demo Data
 const demoData = {
     datasets: [
         {
@@ -260,7 +221,6 @@ const sliderStep = 250; // pixels per slide (adjusted for larger cards)
 
 // Initialize the demo
 function initDemo() {
-    console.log('Initializing dataset -> task interactive demo');
     renderDatasets();
     renderTasks(); // Initially show placeholder
     resetNavigation();
@@ -273,7 +233,6 @@ function initDemo() {
     const totalTasks = demoData.datasets.reduce((total, dataset) => {
         return total + dataset.tasks.length;
     }, 0);
-    console.log('Demo initialized with', demoData.datasets.length, 'datasets and', totalTasks, 'total tasks');
 }
 
 // Render datasets in slider
@@ -496,7 +455,6 @@ function selectDataset(datasetIndex) {
     updateIntegratedBreadcrumb();
     
     const dataset = demoData.datasets[datasetIndex];
-    console.log('Selected dataset:', dataset.name, 'with', dataset.tasks.length, 'tasks');
 }
 
 // Select task
@@ -528,7 +486,6 @@ function selectTask(taskIndex) {
     // Update integrated breadcrumb navigation
     updateIntegratedBreadcrumb();
     
-    console.log('Selected task:', task.name, 'from dataset:', dataset.name);
 }
 
 // Update integrated breadcrumb navigation
@@ -545,8 +502,6 @@ function updateIntegratedBreadcrumb() {
     // Show breadcrumb navigation
     breadcrumbNav.style.display = 'block';
 }
-
-// Function removed - no longer needed for simplified 2-step process
 
 // Select category at specific level (modular)
 function selectCategory(categoryKey, level) {
@@ -578,7 +533,6 @@ function selectCategory(categoryKey, level) {
     
     // Update integrated breadcrumb navigation
     updateIntegratedBreadcrumb();
-    console.log(`Selected category level ${level}:`, categoryKey);
 }
 
 // Backwards compatibility wrapper
@@ -607,15 +561,7 @@ function buildBreadcrumbPath() {
 }
 
 
-// Build breadcrumb options display (legacy - no longer used)
-function buildBreadcrumbOptions() {
-    return '';
-}
 
-// Select video (legacy function - no longer used in simplified 2-level structure)
-function selectVideo() {
-    console.log('selectVideo function called but no longer needed in simplified structure');
-}
 
 // Render categories in scenario-section
 function renderCategories(scenarioKey) {
@@ -667,7 +613,6 @@ function showDatasetImage(imageSrc, title) {
     
     // Handle image loading error
     image.onerror = () => {
-        console.error('Image failed to load:', imageSrc);
         image.src = 'assets/image/framework.png';
     };
     
@@ -676,7 +621,6 @@ function showDatasetImage(imageSrc, title) {
     videoDisplay.appendChild(image);
     videoDisplay.classList.remove('playing');
     
-    console.log('Showing dataset image:', title, imageSrc);
 }
 
 // Show video function
@@ -696,7 +640,6 @@ function showVideo(videoSrc, title) {
     
     // Handle video loading error
     video.onerror = () => {
-        console.error('Video failed to load:', videoSrc);
         videoDisplay.innerHTML = `
             <div class="demo-placeholder">
                 <div class="icon">⚠️</div>
@@ -717,7 +660,6 @@ function showVideo(videoSrc, title) {
         scrollToVideo();
     }, 100);
     
-    console.log('Showing video:', title, videoSrc);
 }
 
 // Smooth scroll to center the demo video in the viewport
@@ -901,7 +843,7 @@ function initBackgroundVideo() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 if (backgroundVideo.paused) {
-                    backgroundVideo.play().catch(e => console.log('Video resume failed:', e));
+                    backgroundVideo.play().catch(() => {});
                 }
             } else {
                 if (!backgroundVideo.paused) {
@@ -915,15 +857,13 @@ function initBackgroundVideo() {
     
     // Ensure video plays on iOS and other restrictive browsers
     backgroundVideo.addEventListener('canplaythrough', () => {
-        backgroundVideo.play().catch(e => {
-            console.log('Background video autoplay failed:', e);
+        backgroundVideo.play().catch(() => {
             backgroundVideo.style.display = 'none';
         });
     });
     
     // Handle video loading errors
     backgroundVideo.addEventListener('error', () => {
-        console.log('Background video failed to load');
         backgroundVideo.style.display = 'none';
     });
     
@@ -989,8 +929,7 @@ function copyBibTeX(contentId) {
             copyBtn.style.color = '';
             copyBtn.style.borderColor = '';
         }, 2000);
-    }).catch(err => {
-        console.error('Failed to copy text: ', err);
+    }).catch(() => {
         // Modern fallback - try using the legacy API if clipboard API fails
         try {
             const textArea = document.createElement('textarea');
@@ -1021,7 +960,6 @@ function copyBibTeX(contentId) {
                 throw new Error('Copy command failed');
             }
         } catch (fallbackErr) {
-            console.error('All copy methods failed:', fallbackErr);
             // Show error to user
             copyBtn.textContent = 'Copy failed';
             copyBtn.style.background = '#86868b';

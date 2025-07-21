@@ -295,14 +295,6 @@ body {
     font-weight: 300;
 }
 
-/* Conference/Publication info */
-.publication-info {
-    font-size: 1.5rem;
-    color: #f78e16 !important;
-    font-weight: 400;
-    margin-bottom: 2rem;
-    text-shadow: 0 0 8px rgba(0, 0, 0, 0.9), 0 0 16px rgba(0, 0, 0, 0.6), 1px 1px 3px rgba(0, 0, 0, 0.8);
-}
 
 /* Apple-style action buttons */
 .action-buttons {
@@ -487,12 +479,6 @@ body {
     margin-top: 2.5rem;
 }
 
-.grid-three-column {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--content-spacing);
-    margin-top: 2.5rem;
-}
 
 .grid-auto {
     display: grid;
@@ -862,9 +848,6 @@ body {
         font-size: 1.3rem;
     }
     
-    .publication-info {
-        font-size: 1.7rem;
-    }
     
     .interactive-demo {
         padding: 2.5rem;
@@ -1029,9 +1012,6 @@ body {
         font-size: 1.4rem;
     }
     
-    .publication-info {
-        font-size: 1.8rem;
-    }
     
     .interactive-demo {
         padding: 3rem;
@@ -1118,9 +1098,6 @@ body {
 
 /* Tablets and large screens */
 @media (max-width: 1024px) {
-    .grid-three-column {
-        grid-template-columns: repeat(2, 1fr);
-    }
 }
 
 /* Tablets and small laptops - All mobile styles consolidated */
@@ -1160,8 +1137,7 @@ body {
         padding: 0 1rem;
     }
 
-    .grid-two-column,
-    .grid-three-column {
+    .grid-two-column {
         grid-template-columns: 1fr;
     }
 
@@ -1346,10 +1322,6 @@ body {
         margin-bottom: 0.8rem;
     }
     
-    .publication-info {
-        font-size: 1rem;
-        margin-bottom: 1rem;
-    }
 }
 
 
@@ -3136,10 +3108,6 @@ body {
         margin-bottom: 0.5rem;
     }
     
-    .publication-info {
-        font-size: 0.9rem;
-        margin-bottom: 0.8rem;
-    }
     
     .action-buttons {
         gap: 0.4rem;
