@@ -126,13 +126,17 @@ body {
     object-fit: cover;
     z-index: -2;
     /* Performance optimizations */
-    transform: translateZ(0);
-    will-change: auto;
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    /* GPU acceleration */
+    transform-style: preserve-3d;
     /* Reduce quality on slower devices */
     image-rendering: optimizeSpeed;
     image-rendering: -webkit-optimize-contrast;
+    /* Disable pointer events to prevent interference */
+    pointer-events: none;
 }
 
 /* Hide video for users who prefer reduced motion */
@@ -181,6 +185,11 @@ body {
     align-items: center;
     width: 100%;
     height: 100%;
+    /* Prevent layout thrashing on hover */
+    contain: layout style;
+    /* GPU acceleration for the entire header content */
+    transform: translateZ(0);
+    will-change: auto;
 }
 
 /* Logo - floats on background */
@@ -194,7 +203,10 @@ body {
     font-size: 2rem;
     background: transparent;
     color: var(--light-text);
-    transition: all 0.3s ease;
+    transition: transform 0.2s ease;
+    /* GPU acceleration */
+    transform: translateZ(0);
+    will-change: transform;
     cursor: default;
     border: none;
     overflow: hidden;
@@ -209,7 +221,7 @@ body {
 }
 
 .logo:hover {
-    transform: translateY(-5px) scale(1.05);
+    transform: translateZ(0) scale(1.02);
 }
 
 .title {
@@ -219,7 +231,10 @@ body {
     color: #f0f0f0 !important;
     margin-bottom: 2rem;
     letter-spacing: -0.025em;
-    transition: all 0.4s var(--ease-out);
+    transition: transform 0.2s ease;
+    /* GPU acceleration */
+    transform: translateZ(0);
+    will-change: transform;
     cursor: default;
     position: relative;
     z-index: 2;
@@ -235,8 +250,7 @@ body {
 }
 
 .title:hover {
-    transform: scale(1.01);
-    letter-spacing: -0.025em;
+    transform: translateZ(0) scale(1.005);
 }
 
 /* Authors with links */
@@ -245,20 +259,30 @@ body {
     color: #e0e0e0 !important;
     margin-bottom: 0.5rem;
     font-weight: 400;
-    transition: color 0.3s ease;
+    transition: none;
     text-shadow: 0 0 15px rgba(0, 0, 0, 0.95), 0 0 30px rgba(0, 0, 0, 0.7), 1px 1px 6px rgba(0, 0, 0, 0.9), 0 0 45px rgba(0, 0, 0, 0.5);
+    /* GPU acceleration */
+    transform: translateZ(0);
+    /* Prevent layout shifts */
+    contain: layout;
 }
 
 .author-link {
     color: #209CEE !important;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: none;
     border-bottom: 1px solid transparent;
+    /* GPU acceleration */
+    transform: translateZ(0);
+    /* Prevent layout shifts on hover */
+    contain: layout;
+    /* Pre-allocate space for potential hover effects */
+    will-change: auto;
 }
 
 .author-link:hover {
-    color: #1e88e5 !important;
-    border-bottom-color: #1e88e5;
+    color: white !important;
+    /* Simplified hover effect to reduce repaints */
 }
 
 .institutions {
@@ -308,15 +332,18 @@ body {
     align-items: center;
     gap: 0.5rem;
     padding: 0.6rem 1.5rem;
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     color: #ffffff !important;
     text-decoration: none;
     text-shadow: 0 0 6px rgba(0, 0, 0, 0.8), 1px 1px 2px rgba(0, 0, 0, 0.6);
     font-weight: 500;
     font-size: 1.1rem;
-    transition: all 0.4s var(--ease-out);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    /* GPU acceleration */
+    transform: translateZ(0);
+    will-change: transform, background-color;
     border: 1px solid rgba(255, 255, 255, 0.3);
     cursor: pointer;
     font-family: var(--primary-font);
@@ -340,8 +367,8 @@ body {
 
 .action-btn:hover {
     background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+    transform: translateZ(0) translateY(-1px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     border-color: rgba(255, 255, 255, 0.4);
 }
 
